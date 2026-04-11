@@ -40,10 +40,7 @@ body {
 .hero {
   background: var(--header-bg);
   border-bottom: 1px solid var(--border);
-  padding: 42px 0 28px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 26px 0 18px;
   backdrop-filter: blur(12px);
 }
 
@@ -77,14 +74,14 @@ body {
   color: var(--text-secondary);
   font-size: 0.9rem;
   font-style: italic;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 
 .hero-panels {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-  margin: 0 auto 18px;
+  margin: 0 auto 12px;
 }
 
 .info-panel,
@@ -119,7 +116,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .stat-card {
@@ -144,7 +141,7 @@ body {
 
 .search-bar {
   max-width: 900px;
-  margin: 0 auto 16px;
+  margin: 0 auto 12px;
   position: relative;
 }
 
@@ -176,13 +173,16 @@ body {
 }
 
 .prompt-panel {
-  max-width: 900px;
-  margin: 0 auto 18px;
+  margin-top: 20px;
   padding: 18px;
   border-radius: 18px;
   border: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(18, 28, 43, 0.96), rgba(11, 19, 29, 0.92));
   box-shadow: var(--shadow);
+}
+
+.inline-panel {
+  max-width: none;
 }
 
 .prompt-panel-head {
@@ -274,42 +274,14 @@ body {
   cursor: not-allowed;
 }
 
-.tag-filters {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 18px;
-}
-
-.tag-btn {
-  padding: 7px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: rgba(13, 22, 34, 0.5);
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-size: 0.83rem;
-  transition: all 0.2s;
-}
-
-.tag-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.tag-btn.active {
-  background: var(--accent-dim);
-  border-color: var(--accent-dim);
-  color: #fff;
-}
-
 .cat-nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
 }
 
 .cat-nav a {
@@ -329,17 +301,132 @@ body {
 }
 
 main {
-  padding: 34px 0 64px;
+  padding: 18px 0 64px;
 }
 
-.legend-panel {
-  margin-bottom: 24px;
+.browse-layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.filters-panel,
+.results-panel {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.filters-panel {
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(18, 28, 43, 0.98), rgba(11, 19, 29, 0.96));
+  border-color: rgba(98, 193, 255, 0.28);
+}
+
+.filter-block + .filter-block {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.filter-block h2,
+.results-head h2 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.filter-note {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.check-chip {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(8, 14, 22, 0.85);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+.check-chip:hover {
+  border-color: rgba(98, 193, 255, 0.38);
+  transform: translateY(-1px);
+}
+
+.check-chip input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent-dim);
+}
+
+.check-chip-main {
+  font-size: 0.88rem;
+}
+
+.check-chip-count {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.results-panel {
+  padding: 18px;
+  min-height: 720px;
+}
+
+.results-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.active-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.active-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(13, 22, 34, 0.6);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.active-chip.subtle {
+  color: var(--text);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .tag-legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin: 12px 0 10px;
 }
 
@@ -353,6 +440,11 @@ main {
   border: 1px solid var(--border);
   color: var(--text-secondary);
   font-size: 0.84rem;
+}
+
+.compact-legend .tag-legend-item {
+  width: 100%;
+  justify-content: space-between;
 }
 
 .category {
@@ -397,7 +489,8 @@ main {
 }
 
 .skill-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 15px 16px;
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -417,6 +510,33 @@ main {
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 4px;
+}
+
+.skill-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.category-pill,
+.group-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  border: 1px solid var(--border);
+}
+
+.category-pill {
+  background: rgba(98, 193, 255, 0.12);
+  color: var(--accent);
+}
+
+.group-pill {
+  background: rgba(246, 168, 82, 0.12);
+  color: var(--accent-warm);
 }
 
 .skill-card-top {
@@ -463,6 +583,15 @@ main {
   color: var(--text-secondary);
   font-size: 0.88rem;
   line-height: 1.5;
+}
+
+.skill-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 10px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
 }
 
 .skill-card .tags {
@@ -526,10 +655,19 @@ footer a:hover {
   font-size: 1rem;
 }
 
+.results-empty {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 880px) {
   .hero-panels,
   .stats-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .browse-layout,
+  .results-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -539,8 +677,7 @@ footer a:hover {
   }
 
   .hero {
-    position: static;
-    padding-top: 28px;
+    padding-top: 18px;
   }
 
   .hero-panels,
@@ -566,7 +703,8 @@ footer a:hover {
 
   .prompt-panel-head,
   .skill-card-top,
-  .prompt-actions {
+  .prompt-actions,
+  .results-head {
     flex-direction: column;
     align-items: flex-start;
   }

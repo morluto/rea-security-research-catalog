@@ -4,11 +4,15 @@ window.CATALOG_DATA = {
     "name": "Awesome Vulnerability Detection Skills",
     "description": "A curated list of AI agent skills, workflows, MCP servers, and related tooling for vulnerability detection and security research.",
     "audience": "For Claude Code, OpenClaw, Codex, Cursor, Gemini CLI, and adjacent agent runtimes.",
-    "githubUrl": "https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills"
+    "githubUrl": "https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills",
+    "githubPagesUrl": "https://iie-varas.github.io/awesome-vulnerability-detection-skills/"
   },
   "readme": {
+    "heroTitle": "🛡️ Awesome Vulnerability Detection Skills",
+    "heroEyebrow": "Curated AI security catalog",
     "overview": [
       "The canonical list lives in this README.",
+      "The live catalog is published on GitHub Pages for search and filtering.",
       "A searchable static catalog is included in [`docs/index.html`](docs/index.html).",
       "Entries include both agent-native skills and standalone tools when they are useful in the same workflow."
     ],
@@ -20,7 +24,8 @@ window.CATALOG_DATA = {
       "One-sentence description",
       "Applicable platform tags: `CC`, `OC`, `CX`, `MCP`, `OAI`, `TOOL`"
     ],
-    "contributingNote": "Prefer entries that are clearly maintained, practically usable, and specific about what the skill or tool actually does."
+    "contributingNote": "Prefer entries that are clearly maintained, practically usable, and specific about what the skill or tool actually does.",
+    "liveCatalogLabel": "Open Live Catalog"
   },
   "site": {
     "eyebrow": "Curated catalog",
@@ -36,6 +41,16 @@ window.CATALOG_DATA = {
     "searchPlaceholder": "Search by name, capability, category, or tag...",
     "legendTitle": "Platform Tags",
     "legendNote": "Most standard CC skills can also be adapted to OpenClaw-style workspace skill loading.",
+    "categoryFilterTitle": "Filter by category",
+    "categoryFilterText": "Browse by functional area. You can select multiple categories.",
+    "platformFilterTitle": "Filter by platform",
+    "platformFilterText": "Narrow results to the runtimes or packaging styles you care about.",
+    "resultsTitle": "Skill cards",
+    "resultsText": "Browse the visible results directly. Search is optional; filters work without typing anything.",
+    "allCategoriesLabel": "All categories",
+    "allPlatformsLabel": "All platforms",
+    "categoryLabel": "Category",
+    "groupLabel": "Group",
     "selectionTitle": "Install prompt builder",
     "selectionText": "Select the skills or repos you want, then copy a ready-to-send prompt for your agent.",
     "selectionCountLabel": "Selected skills",
@@ -44,7 +59,8 @@ window.CATALOG_DATA = {
     "copyPromptLabel": "Copy prompt",
     "clearSelectionLabel": "Clear selection",
     "promptCopiedLabel": "Copied",
-    "openRepoLabel": "Open repo"
+    "openRepoLabel": "Open repo",
+    "noResultsText": "No entries matched the current category, platform, and search filters."
   },
   "tags": [
     {
@@ -86,39 +102,14 @@ window.CATALOG_DATA = {
   ],
   "categories": [
     {
-      "id": "source-code-audit",
-      "emoji": "🔍",
-      "title": "Source Code Audit",
-      "description": "Review-oriented skills and security workflows for finding vulnerabilities in codebases.",
+      "id": "threat-modeling-audit-orchestration",
+      "emoji": "🎯",
+      "title": "Threat Modeling & Audit Orchestration",
+      "description": "Structured workflows that coordinate threat modeling, triage, and multi-stage security review.",
       "groups": [
         {
-          "title": "🏢 Professional / Official",
+          "title": "Professional & Official",
           "items": [
-            {
-              "name": "Trail of Bits Skills",
-              "url": "https://github.com/trailofbits/skills",
-              "tags": [
-                "CC",
-                "CX"
-              ],
-              "desc": "18+ security skills including static analysis, variant analysis, differential review, insecure defaults, constant-time analysis, audit context building, and more."
-            },
-            {
-              "name": "Ghost Security Skills",
-              "url": "https://github.com/ghostsecurity/skills",
-              "tags": [
-                "CC"
-              ],
-              "desc": "AI-native application security skills focused on practical AppSec workflows."
-            },
-            {
-              "name": "Anthropic Security Review",
-              "url": "https://github.com/anthropics/claude-code-security-review",
-              "tags": [
-                "CC"
-              ],
-              "desc": "Official GitHub Action for PR security review with false-positive filtering."
-            },
             {
               "name": "GitHub Security Lab taskflow-agent",
               "url": "https://github.com/GitHubSecurityLab/seclab-taskflow-agent",
@@ -145,9 +136,47 @@ window.CATALOG_DATA = {
               "desc": "STRIDE-based architecture-level threat modeling skill for Codex-style workflows."
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "static-analysis-code-review",
+      "emoji": "🔍",
+      "title": "Static Analysis & Code Review",
+      "description": "Source-oriented review skills for vulnerability discovery, secure coding guidance, and PR security checks.",
+      "groups": [
+        {
+          "title": "Professional & Official",
+          "items": [
+            {
+              "name": "Trail of Bits Skills",
+              "url": "https://github.com/trailofbits/skills",
+              "tags": [
+                "CC",
+                "CX"
+              ],
+              "desc": "18+ security skills including static analysis, variant analysis, differential review, insecure defaults, constant-time analysis, audit context building, and more."
+            },
+            {
+              "name": "Ghost Security Skills",
+              "url": "https://github.com/ghostsecurity/skills",
+              "tags": [
+                "CC"
+              ],
+              "desc": "AI-native application security skills focused on practical AppSec workflows."
+            },
+            {
+              "name": "Anthropic Security Review",
+              "url": "https://github.com/anthropics/claude-code-security-review",
+              "tags": [
+                "CC"
+              ],
+              "desc": "Official GitHub Action for PR security review with false-positive filtering."
+            }
+          ]
         },
         {
-          "title": "🧑‍💻 Community - Source Code Review",
+          "title": "Community Review Skills",
           "items": [
             {
               "name": "afiqiqmal/claude-security-audit",
@@ -207,9 +236,69 @@ window.CATALOG_DATA = {
               "desc": "npm dependency audit wrapper with exception management support."
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "security-operations-workflow-suites",
+      "emoji": "🧰",
+      "title": "Security Operations & Workflow Suites",
+      "description": "Broad, multi-capability security setups spanning scanning, policy enforcement, and agent workflow composition.",
+      "groups": [
+        {
+          "title": "Comprehensive Security Suites",
+          "items": [
+            {
+              "name": "SecOpsAgentKit",
+              "url": "https://github.com/AgentSecOps/SecOpsAgentKit",
+              "tags": [
+                "CC"
+              ],
+              "desc": "25+ SecOps skills for vulnerability discovery, container scanning, secrets detection, and policy enforcement."
+            },
+            {
+              "name": "claude-forge",
+              "url": "https://github.com/sangrokjung/claude-forge",
+              "tags": [
+                "CC"
+              ],
+              "desc": "Security-conscious Claude setup with 11 agents, 36 commands, 15 skills, and layered hooks."
+            },
+            {
+              "name": "everything-claude-code",
+              "url": "https://github.com/affaan-m/everything-claude-code",
+              "tags": [
+                "CC"
+              ],
+              "desc": "Performance-optimized Claude Code setup with security-focused skills, instincts, and memory."
+            }
+          ]
         },
         {
-          "title": "🧑‍💻 Community - Offensive / Bug Bounty",
+          "title": "Audit Context Infrastructure",
+          "items": [
+            {
+              "name": "graphify",
+              "url": "https://github.com/safishamsi/graphify",
+              "tags": [
+                "CC",
+                "CX",
+                "OC"
+              ],
+              "desc": "Convert code and docs into queryable knowledge graphs for audit assistance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "offensive-security-pentest-ctf",
+      "emoji": "⚔️",
+      "title": "Offensive Security, Pentest & CTF",
+      "description": "Offensive workflows for bug bounty, autonomous pentesting, hands-on recon, and practice environments.",
+      "groups": [
+        {
+          "title": "Offensive Agents & Bug Bounty",
           "items": [
             {
               "name": "awesome-claude-skills-security",
@@ -243,87 +332,11 @@ window.CATALOG_DATA = {
                 "CC"
               ],
               "desc": "Pentest skills and slash commands tuned for bug bounty research."
-            },
-            {
-              "name": "ctf-skills",
-              "url": "https://github.com/ljagiello/ctf-skills",
-              "tags": [
-                "CC",
-                "CX"
-              ],
-              "desc": "CTF-oriented skills for web, pwn, crypto, reverse, forensics, OSINT, malware, and more."
             }
           ]
         },
         {
-          "title": "🧑‍💻 Community - SecOps / Comprehensive",
-          "items": [
-            {
-              "name": "SecOpsAgentKit",
-              "url": "https://github.com/AgentSecOps/SecOpsAgentKit",
-              "tags": [
-                "CC"
-              ],
-              "desc": "25+ SecOps skills for vulnerability discovery, container scanning, secrets detection, and policy enforcement."
-            },
-            {
-              "name": "claude-forge",
-              "url": "https://github.com/sangrokjung/claude-forge",
-              "tags": [
-                "CC"
-              ],
-              "desc": "Security-conscious Claude setup with 11 agents, 36 commands, 15 skills, and layered hooks."
-            },
-            {
-              "name": "everything-claude-code",
-              "url": "https://github.com/affaan-m/everything-claude-code",
-              "tags": [
-                "CC"
-              ],
-              "desc": "Performance-optimized Claude Code setup with security-focused skills, instincts, and memory."
-            }
-          ]
-        },
-        {
-          "title": "📚 Knowledge Bases",
-          "items": [
-            {
-              "name": "mukul975/Anthropic-Cybersecurity-Skills",
-              "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-              "tags": [
-                "CC",
-                "OC"
-              ],
-              "desc": "754 structured skills across 38 security domains aligned with MITRE ATT&CK and NIST CSF 2.0."
-            },
-            {
-              "name": "Skills-4-SE Security Scanner Suite",
-              "url": "https://github.com/ArabelaTso/Skills-4-SE/tree/main/skill-packs/security-scanner-suite",
-              "tags": [
-                "CC"
-              ],
-              "desc": "13 security skills spanning static vuln detection, root cause analysis, exploitability assessment, CVE reachability, taint instrumentation, and patch advice."
-            },
-            {
-              "name": "Skills-4-SE Formal Verification Toolkit",
-              "url": "https://github.com/ArabelaTso/Skills-4-SE/tree/main/skill-packs/formal-verification-toolkit",
-              "tags": [
-                "CC"
-              ],
-              "desc": "17 formal verification skills for model checking, contract verification, and invariant analysis."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "dynamic-testing-pentest",
-      "emoji": "⚡",
-      "title": "Dynamic Testing & Pentest",
-      "description": "Agent-facing tooling for active testing, reconnaissance, and pentesting workflows.",
-      "groups": [
-        {
-          "title": "Core Projects",
+          "title": "Dynamic Testing & Pentest",
           "items": [
             {
               "name": "Strix",
@@ -340,14 +353,20 @@ window.CATALOG_DATA = {
                 "MCP"
               ],
               "desc": "MCP server exposing 150+ Kali Linux pentest tools to AI agents."
-            },
+            }
+          ]
+        },
+        {
+          "title": "CTF & Practice",
+          "items": [
             {
-              "name": "ffuf-claude-skill",
-              "url": "https://github.com/jthack/ffuf-claude-skill",
+              "name": "ctf-skills",
+              "url": "https://github.com/ljagiello/ctf-skills",
               "tags": [
-                "CC"
+                "CC",
+                "CX"
               ],
-              "desc": "Claude-integrated FFUF web fuzzing workflow with result analysis."
+              "desc": "CTF-oriented skills for web, pwn, crypto, reverse, forensics, OSINT, malware, and more."
             }
           ]
         }
@@ -357,7 +376,7 @@ window.CATALOG_DATA = {
       "id": "fuzzing",
       "emoji": "🐛",
       "title": "Fuzzing",
-      "description": "Fuzzing-specific skills and adjacent tools for coverage-guided and web-targeted discovery.",
+      "description": "Coverage-guided, web-targeted, and workflow-oriented fuzzing skills for bug discovery.",
       "groups": [
         {
           "title": "Core Projects",
@@ -372,29 +391,29 @@ window.CATALOG_DATA = {
               "desc": "Fuzzer, static analysis, and sanitizer integration guidance from Trail of Bits."
             },
             {
-              "name": "awesome-claude-skills-security",
-              "url": "https://github.com/Eyadkelleh/awesome-claude-skills-security",
-              "tags": [
-                "CC"
-              ],
-              "desc": "Security skills collection that also includes fuzzing-oriented workflows."
-            },
-            {
               "name": "ffuf-claude-skill",
               "url": "https://github.com/jthack/ffuf-claude-skill",
               "tags": [
                 "CC"
               ],
               "desc": "FFUF-based web fuzzing integration for Claude."
+            },
+            {
+              "name": "awesome-claude-skills-security",
+              "url": "https://github.com/Eyadkelleh/awesome-claude-skills-security",
+              "tags": [
+                "CC"
+              ],
+              "desc": "Security skills collection that also includes fuzzing-oriented workflows."
             }
           ]
         }
       ]
     },
     {
-      "id": "reverse-engineering",
+      "id": "reverse-engineering-binary-analysis",
       "emoji": "🔬",
-      "title": "Reverse Engineering",
+      "title": "Reverse Engineering & Binary Analysis",
       "description": "Binary analysis, APK review, and artifact extraction skills useful during security research.",
       "groups": [
         {
@@ -432,10 +451,10 @@ window.CATALOG_DATA = {
       ]
     },
     {
-      "id": "smart-contract-audit",
+      "id": "smart-contract-security",
       "emoji": "📜",
-      "title": "Smart Contract Audit",
-      "description": "Smart contract and blockchain-specific audit skills, analyzers, and scanners.",
+      "title": "Smart Contract Security",
+      "description": "Smart contract and blockchain-focused auditing, compliance checking, and vulnerability scanning.",
       "groups": [
         {
           "title": "Core Projects",
@@ -480,10 +499,10 @@ window.CATALOG_DATA = {
       ]
     },
     {
-      "id": "skill-security",
+      "id": "skill-agent-security",
       "emoji": "🔒",
-      "title": "Skill Security",
-      "description": "Tools specifically focused on scanning skills, prompts, MCP servers, and agent extensions for malicious behavior.",
+      "title": "Skill & Agent Security",
+      "description": "Tools focused on scanning skills, prompts, MCP servers, and agent extensions for malicious behavior or unsafe patterns.",
       "groups": [
         {
           "title": "Core Projects",
@@ -525,13 +544,68 @@ window.CATALOG_DATA = {
       ]
     },
     {
-      "id": "aggregation-index",
-      "emoji": "🗂️",
-      "title": "Aggregation & Index",
-      "description": "Broader lists, marketplaces, and reference collections that make the ecosystem easier to discover.",
+      "id": "knowledge-bases-research",
+      "emoji": "📚",
+      "title": "Knowledge Bases & Research",
+      "description": "Structured skill packs, research collections, and reference material that support security analysis workflows.",
       "groups": [
         {
-          "title": "Core Projects",
+          "title": "Structured Skill Collections",
+          "items": [
+            {
+              "name": "mukul975/Anthropic-Cybersecurity-Skills",
+              "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
+              "tags": [
+                "CC",
+                "OC"
+              ],
+              "desc": "754 structured skills across 38 security domains aligned with MITRE ATT&CK and NIST CSF 2.0."
+            },
+            {
+              "name": "Skills-4-SE Security Scanner Suite",
+              "url": "https://github.com/ArabelaTso/Skills-4-SE/tree/main/skill-packs/security-scanner-suite",
+              "tags": [
+                "CC"
+              ],
+              "desc": "13 security skills spanning static vuln detection, root cause analysis, exploitability assessment, CVE reachability, taint instrumentation, and patch advice."
+            },
+            {
+              "name": "Skills-4-SE Formal Verification Toolkit",
+              "url": "https://github.com/ArabelaTso/Skills-4-SE/tree/main/skill-packs/formal-verification-toolkit",
+              "tags": [
+                "CC"
+              ],
+              "desc": "17 formal verification skills for model checking, contract verification, and invariant analysis."
+            },
+            {
+              "name": "ArabelaTso/Skills-4-SE",
+              "url": "https://github.com/ArabelaTso/Skills-4-SE",
+              "tags": [],
+              "desc": "180+ software engineering skills across the lifecycle, including security scanner and formal verification packs."
+            }
+          ]
+        },
+        {
+          "title": "Research Collections",
+          "items": [
+            {
+              "name": "huhusmang/Awesome-LLMs-for-Vulnerability-Detection",
+              "url": "https://github.com/huhusmang/Awesome-LLMs-for-Vulnerability-Detection",
+              "tags": [],
+              "desc": "Paper collection focused on LLMs for vulnerability detection."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indexes-marketplaces-discovery",
+      "emoji": "🗂️",
+      "title": "Indexes, Marketplaces & Discovery",
+      "description": "Broader indexes, marketplaces, and curated lists that help you discover installable skills and related ecosystems.",
+      "groups": [
+        {
+          "title": "Curated Indexes",
           "items": [
             {
               "name": "VoltAgent/awesome-agent-skills",
@@ -580,34 +654,17 @@ window.CATALOG_DATA = {
               "url": "https://github.com/alirezarezvani/claude-skills",
               "tags": [],
               "desc": "220+ Claude Code skills and agent plugins."
-            },
+            }
+          ]
+        },
+        {
+          "title": "Marketplaces",
+          "items": [
             {
               "name": "aiskillstore/marketplace",
               "url": "https://github.com/aiskillstore/marketplace",
               "tags": [],
               "desc": "Security-audited Claude and Codex skills marketplace."
-            },
-            {
-              "name": "graphify",
-              "url": "https://github.com/safishamsi/graphify",
-              "tags": [
-                "CC",
-                "CX",
-                "OC"
-              ],
-              "desc": "Convert code and docs into queryable knowledge graphs for audit assistance."
-            },
-            {
-              "name": "huhusmang/Awesome-LLMs-for-Vulnerability-Detection",
-              "url": "https://github.com/huhusmang/Awesome-LLMs-for-Vulnerability-Detection",
-              "tags": [],
-              "desc": "Paper collection focused on LLMs for vulnerability detection."
-            },
-            {
-              "name": "ArabelaTso/Skills-4-SE",
-              "url": "https://github.com/ArabelaTso/Skills-4-SE",
-              "tags": [],
-              "desc": "180+ software engineering skills across the lifecycle, including security scanner and formal verification packs."
             }
           ]
         }

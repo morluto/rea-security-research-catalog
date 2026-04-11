@@ -1,22 +1,38 @@
 <!-- Generated from catalog.js by scripts/generate.js. Do not edit README.md directly. -->
 
-# Awesome Vulnerability Detection Skills
+<p align="center">
+  <img src="https://img.shields.io/badge/Curated%20AI%20security%20catalog-0f172a?style=for-the-badge&labelColor=111827&color=0f172a" alt="Curated AI security catalog">
+</p>
 
-A curated list of AI agent skills, workflows, MCP servers, and related tooling for vulnerability detection and security research.
+<h1 align="center">🛡️ Awesome Vulnerability Detection Skills</h1>
 
-For Claude Code, OpenClaw, Codex, Cursor, Gemini CLI, and adjacent agent runtimes.
+<p align="center">
+  <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
+  <img src="https://img.shields.io/badge/entries-52-2f81f7?style=flat-square" alt="52 entries">
+  <img src="https://img.shields.io/badge/categories-10-238636?style=flat-square" alt="10 categories">
+  <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
+  <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
+</p>
 
-[Source Code Audit](#source-code-audit) •
-[Dynamic Testing & Pentest](#dynamic-testing-pentest) •
+<p align="center">A curated list of AI agent skills, workflows, MCP servers, and related tooling for vulnerability detection and security research.<br>For Claude Code, OpenClaw, Codex, Cursor, Gemini CLI, and adjacent agent runtimes.</p>
+
+<p align="center"><a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><strong>Open Live Catalog</strong></a></p>
+
+[Threat Modeling & Audit Orchestration](#threat-modeling-audit-orchestration) •
+[Static Analysis & Code Review](#static-analysis-code-review) •
+[Security Operations & Workflow Suites](#security-operations-workflow-suites) •
+[Offensive Security, Pentest & CTF](#offensive-security-pentest-ctf) •
 [Fuzzing](#fuzzing) •
-[Reverse Engineering](#reverse-engineering) •
-[Smart Contract Audit](#smart-contract-audit) •
-[Skill Security](#skill-security) •
-[Aggregation & Index](#aggregation-index)
+[Reverse Engineering & Binary Analysis](#reverse-engineering-binary-analysis) •
+[Smart Contract Security](#smart-contract-security) •
+[Skill & Agent Security](#skill-agent-security) •
+[Knowledge Bases & Research](#knowledge-bases-research) •
+[Indexes, Marketplaces & Discovery](#indexes-marketplaces-discovery)
 
 ## Overview
 
 - The canonical list lives in this README.
+- The live catalog is published on GitHub Pages for search and filtering.
 - A searchable static catalog is included in [`docs/index.html`](docs/index.html).
 - Entries include both agent-native skills and standalone tools when they are useful in the same workflow.
 
@@ -44,21 +60,31 @@ For Claude Code, OpenClaw, Codex, Cursor, Gemini CLI, and adjacent agent runtime
 
 Run `npm run generate` after editing the source catalog. Use `npm run check` to verify generated files are up to date.
 
-<a id="source-code-audit"></a>
-## 🔍 Source Code Audit
+<a id="threat-modeling-audit-orchestration"></a>
+## 🎯 Threat Modeling & Audit Orchestration
 
-Review-oriented skills and security workflows for finding vulnerabilities in codebases.
+Structured workflows that coordinate threat modeling, triage, and multi-stage security review.
 
-### 🏢 Professional / Official
+### Professional & Official
 
-- **[Trail of Bits Skills](https://github.com/trailofbits/skills)** `CC` `CX` - 18+ security skills including static analysis, variant analysis, differential review, insecure defaults, constant-time analysis, audit context building, and more.
-- **[Ghost Security Skills](https://github.com/ghostsecurity/skills)** `CC` - AI-native application security skills focused on practical AppSec workflows.
-- **[Anthropic Security Review](https://github.com/anthropics/claude-code-security-review)** `CC` - Official GitHub Action for PR security review with false-positive filtering.
 - **[GitHub Security Lab taskflow-agent](https://github.com/GitHubSecurityLab/seclab-taskflow-agent)** `OAI` `MCP` - 3-stage audit pipeline: threat modeling, vulnerability suggestion, and independent verification.
 - **[GitHub Security Lab taskflows](https://github.com/GitHubSecurityLab/seclab-taskflows)** `OAI` - Declarative YAML taskflow definitions for GitHub Security Lab's audit agent workflow.
 - **[OpenAI security-threat-model](https://github.com/openai/skills/tree/main/skills/.curated/security-threat-model)** `CX` - STRIDE-based architecture-level threat modeling skill for Codex-style workflows.
 
-### 🧑‍💻 Community - Source Code Review
+---
+
+<a id="static-analysis-code-review"></a>
+## 🔍 Static Analysis & Code Review
+
+Source-oriented review skills for vulnerability discovery, secure coding guidance, and PR security checks.
+
+### Professional & Official
+
+- **[Trail of Bits Skills](https://github.com/trailofbits/skills)** `CC` `CX` - 18+ security skills including static analysis, variant analysis, differential review, insecure defaults, constant-time analysis, audit context building, and more.
+- **[Ghost Security Skills](https://github.com/ghostsecurity/skills)** `CC` - AI-native application security skills focused on practical AppSec workflows.
+- **[Anthropic Security Review](https://github.com/anthropics/claude-code-security-review)** `CC` - Official GitHub Action for PR security review with false-positive filtering.
+
+### Community Review Skills
 
 - **[afiqiqmal/claude-security-audit](https://github.com/afiqiqmal/claude-security-audit)** `CC` - 5-phase audit flow with 475+ checks, OWASP 2025 coverage, compliance mappings, and framework-specific rules.
 - **[claude-code-owasp](https://github.com/agamm/claude-code-owasp)** `CC` - OWASP Top 10:2025 + ASVS 5.0 + agentic AI security review guidance across 20+ languages.
@@ -68,56 +94,63 @@ Review-oriented skills and security workflows for finding vulnerabilities in cod
 - **[NeoLab code-review](https://github.com/NeoLabHQ)** `CC` - 6 parallel specialist agents covering bug hunting, security auditing, code quality, contracts, tests, and history.
 - **[wrsmith108/security-auditor](https://github.com/wrsmith108/claude-skill-security-auditor)** `CC` - npm dependency audit wrapper with exception management support.
 
-### 🧑‍💻 Community - Offensive / Bug Bounty
+---
 
-- **[awesome-claude-skills-security](https://github.com/Eyadkelleh/awesome-claude-skills-security)** `CC` - Security-oriented Claude skills collection with dedicated pentest, CTF, and bug bounty agents.
-- **[bug-hunter](https://github.com/codexstar69/bug-hunter)** `CC` `CX` - Adversarial AI bug hunter targeting offensive security and bug bounty workflows.
-- **[raptor](https://github.com/gadievron/raptor)** `CC` - General-purpose security agent spanning both offensive and defensive work.
-- **[communitytools](https://github.com/transilienceai/communitytools)** `CC` - Pentest skills and slash commands tuned for bug bounty research.
-- **[ctf-skills](https://github.com/ljagiello/ctf-skills)** `CC` `CX` - CTF-oriented skills for web, pwn, crypto, reverse, forensics, OSINT, malware, and more.
+<a id="security-operations-workflow-suites"></a>
+## 🧰 Security Operations & Workflow Suites
 
-### 🧑‍💻 Community - SecOps / Comprehensive
+Broad, multi-capability security setups spanning scanning, policy enforcement, and agent workflow composition.
+
+### Comprehensive Security Suites
 
 - **[SecOpsAgentKit](https://github.com/AgentSecOps/SecOpsAgentKit)** `CC` - 25+ SecOps skills for vulnerability discovery, container scanning, secrets detection, and policy enforcement.
 - **[claude-forge](https://github.com/sangrokjung/claude-forge)** `CC` - Security-conscious Claude setup with 11 agents, 36 commands, 15 skills, and layered hooks.
 - **[everything-claude-code](https://github.com/affaan-m/everything-claude-code)** `CC` - Performance-optimized Claude Code setup with security-focused skills, instincts, and memory.
 
-### 📚 Knowledge Bases
+### Audit Context Infrastructure
 
-- **[mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)** `CC` `OC` - 754 structured skills across 38 security domains aligned with MITRE ATT&CK and NIST CSF 2.0.
-- **[Skills-4-SE Security Scanner Suite](https://github.com/ArabelaTso/Skills-4-SE/tree/main/skill-packs/security-scanner-suite)** `CC` - 13 security skills spanning static vuln detection, root cause analysis, exploitability assessment, CVE reachability, taint instrumentation, and patch advice.
-- **[Skills-4-SE Formal Verification Toolkit](https://github.com/ArabelaTso/Skills-4-SE/tree/main/skill-packs/formal-verification-toolkit)** `CC` - 17 formal verification skills for model checking, contract verification, and invariant analysis.
+- **[graphify](https://github.com/safishamsi/graphify)** `CC` `CX` `OC` - Convert code and docs into queryable knowledge graphs for audit assistance.
 
 ---
 
-<a id="dynamic-testing-pentest"></a>
-## ⚡ Dynamic Testing & Pentest
+<a id="offensive-security-pentest-ctf"></a>
+## ⚔️ Offensive Security, Pentest & CTF
 
-Agent-facing tooling for active testing, reconnaissance, and pentesting workflows.
+Offensive workflows for bug bounty, autonomous pentesting, hands-on recon, and practice environments.
 
-### Core Projects
+### Offensive Agents & Bug Bounty
+
+- **[awesome-claude-skills-security](https://github.com/Eyadkelleh/awesome-claude-skills-security)** `CC` - Security-oriented Claude skills collection with dedicated pentest, CTF, and bug bounty agents.
+- **[bug-hunter](https://github.com/codexstar69/bug-hunter)** `CC` `CX` - Adversarial AI bug hunter targeting offensive security and bug bounty workflows.
+- **[raptor](https://github.com/gadievron/raptor)** `CC` - General-purpose security agent spanning both offensive and defensive work.
+- **[communitytools](https://github.com/transilienceai/communitytools)** `CC` - Pentest skills and slash commands tuned for bug bounty research.
+
+### Dynamic Testing & Pentest
 
 - **[Strix](https://github.com/usestrix/strix)** `🔧` - Autonomous AI pentester in a Docker sandbox with Caido proxy, headless browser, multi-agent orchestration, and PoC-focused reporting.
 - **[hexstrike-ai](https://github.com/0x4m4/hexstrike-ai)** `MCP` - MCP server exposing 150+ Kali Linux pentest tools to AI agents.
-- **[ffuf-claude-skill](https://github.com/jthack/ffuf-claude-skill)** `CC` - Claude-integrated FFUF web fuzzing workflow with result analysis.
+
+### CTF & Practice
+
+- **[ctf-skills](https://github.com/ljagiello/ctf-skills)** `CC` `CX` - CTF-oriented skills for web, pwn, crypto, reverse, forensics, OSINT, malware, and more.
 
 ---
 
 <a id="fuzzing"></a>
 ## 🐛 Fuzzing
 
-Fuzzing-specific skills and adjacent tools for coverage-guided and web-targeted discovery.
+Coverage-guided, web-targeted, and workflow-oriented fuzzing skills for bug discovery.
 
 ### Core Projects
 
 - **[Trail of Bits testing-handbook-skills](https://github.com/trailofbits/skills)** `CC` `CX` - Fuzzer, static analysis, and sanitizer integration guidance from Trail of Bits.
-- **[awesome-claude-skills-security](https://github.com/Eyadkelleh/awesome-claude-skills-security)** `CC` - Security skills collection that also includes fuzzing-oriented workflows.
 - **[ffuf-claude-skill](https://github.com/jthack/ffuf-claude-skill)** `CC` - FFUF-based web fuzzing integration for Claude.
+- **[awesome-claude-skills-security](https://github.com/Eyadkelleh/awesome-claude-skills-security)** `CC` - Security skills collection that also includes fuzzing-oriented workflows.
 
 ---
 
-<a id="reverse-engineering"></a>
-## 🔬 Reverse Engineering
+<a id="reverse-engineering-binary-analysis"></a>
+## 🔬 Reverse Engineering & Binary Analysis
 
 Binary analysis, APK review, and artifact extraction skills useful during security research.
 
@@ -129,10 +162,10 @@ Binary analysis, APK review, and artifact extraction skills useful during securi
 
 ---
 
-<a id="smart-contract-audit"></a>
-## 📜 Smart Contract Audit
+<a id="smart-contract-security"></a>
+## 📜 Smart Contract Security
 
-Smart contract and blockchain-specific audit skills, analyzers, and scanners.
+Smart contract and blockchain-focused auditing, compliance checking, and vulnerability scanning.
 
 ### Core Projects
 
@@ -143,10 +176,10 @@ Smart contract and blockchain-specific audit skills, analyzers, and scanners.
 
 ---
 
-<a id="skill-security"></a>
-## 🔒 Skill Security
+<a id="skill-agent-security"></a>
+## 🔒 Skill & Agent Security
 
-Tools specifically focused on scanning skills, prompts, MCP servers, and agent extensions for malicious behavior.
+Tools focused on scanning skills, prompts, MCP servers, and agent extensions for malicious behavior or unsafe patterns.
 
 ### Core Projects
 
@@ -157,12 +190,30 @@ Tools specifically focused on scanning skills, prompts, MCP servers, and agent e
 
 ---
 
-<a id="aggregation-index"></a>
-## 🗂️ Aggregation & Index
+<a id="knowledge-bases-research"></a>
+## 📚 Knowledge Bases & Research
 
-Broader lists, marketplaces, and reference collections that make the ecosystem easier to discover.
+Structured skill packs, research collections, and reference material that support security analysis workflows.
 
-### Core Projects
+### Structured Skill Collections
+
+- **[mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)** `CC` `OC` - 754 structured skills across 38 security domains aligned with MITRE ATT&CK and NIST CSF 2.0.
+- **[Skills-4-SE Security Scanner Suite](https://github.com/ArabelaTso/Skills-4-SE/tree/main/skill-packs/security-scanner-suite)** `CC` - 13 security skills spanning static vuln detection, root cause analysis, exploitability assessment, CVE reachability, taint instrumentation, and patch advice.
+- **[Skills-4-SE Formal Verification Toolkit](https://github.com/ArabelaTso/Skills-4-SE/tree/main/skill-packs/formal-verification-toolkit)** `CC` - 17 formal verification skills for model checking, contract verification, and invariant analysis.
+- **[ArabelaTso/Skills-4-SE](https://github.com/ArabelaTso/Skills-4-SE)** - 180+ software engineering skills across the lifecycle, including security scanner and formal verification packs.
+
+### Research Collections
+
+- **[huhusmang/Awesome-LLMs-for-Vulnerability-Detection](https://github.com/huhusmang/Awesome-LLMs-for-Vulnerability-Detection)** - Paper collection focused on LLMs for vulnerability detection.
+
+---
+
+<a id="indexes-marketplaces-discovery"></a>
+## 🗂️ Indexes, Marketplaces & Discovery
+
+Broader indexes, marketplaces, and curated lists that help you discover installable skills and related ecosystems.
+
+### Curated Indexes
 
 - **[VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills)** - 500+ agent skills with strong security coverage.
 - **[antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills)** - 1,370+ installable agentic skills with a rich security category.
@@ -172,10 +223,10 @@ Broader lists, marketplaces, and reference collections that make the ecosystem e
 - **[ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)** - Another broad Claude Skills curated list.
 - **[ottosulin/awesome-ai-security](https://github.com/ottosulin/awesome-ai-security)** - AI security resource collection with an agent-skills category.
 - **[alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills)** - 220+ Claude Code skills and agent plugins.
+
+### Marketplaces
+
 - **[aiskillstore/marketplace](https://github.com/aiskillstore/marketplace)** - Security-audited Claude and Codex skills marketplace.
-- **[graphify](https://github.com/safishamsi/graphify)** `CC` `CX` `OC` - Convert code and docs into queryable knowledge graphs for audit assistance.
-- **[huhusmang/Awesome-LLMs-for-Vulnerability-Detection](https://github.com/huhusmang/Awesome-LLMs-for-Vulnerability-Detection)** - Paper collection focused on LLMs for vulnerability detection.
-- **[ArabelaTso/Skills-4-SE](https://github.com/ArabelaTso/Skills-4-SE)** - 180+ software engineering skills across the lifecycle, including security scanner and formal verification packs.
 
 ## Contributing
 

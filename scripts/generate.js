@@ -69,9 +69,16 @@ function formatReadmeTags(tags, tagMap) {
 }
 
 function buildReadme(data, tagMap) {
+  const entryCount = data.categories
+    .flatMap((category) => category.groups)
+    .flatMap((group) => group.items)
+    .length;
+  const categoryCount = data.categories.length;
   const navigation = data.categories
     .map((category) => `[${category.title}](#${category.id})`)
     .join(" •\n");
+  const workflowBadge = `${data.repo.githubUrl}/actions/workflows/catalog-sync.yml/badge.svg`;
+  const pagesBadge = "https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square";
 
   const tagRows = data.tags
     .map(
@@ -109,11 +116,23 @@ function buildReadme(data, tagMap) {
   return [
     "<!-- Generated from catalog.js by scripts/generate.js. Do not edit README.md directly. -->",
     "",
-    `# ${data.repo.name}`,
+    '<p align="center">',
+    `  <img src="https://img.shields.io/badge/${encodeURIComponent(data.readme.heroEyebrow)}-0f172a?style=for-the-badge&labelColor=111827&color=0f172a" alt="${data.readme.heroEyebrow}">`,
+    "</p>",
     "",
-    data.repo.description,
+    `<h1 align="center">${data.readme.heroTitle}</h1>`,
     "",
-    data.repo.audience,
+    '<p align="center">',
+    `  <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>`,
+    `  <img src="https://img.shields.io/badge/entries-${entryCount}-2f81f7?style=flat-square" alt="${entryCount} entries">`,
+    `  <img src="https://img.shields.io/badge/categories-${categoryCount}-238636?style=flat-square" alt="${categoryCount} categories">`,
+    `  <a href="${data.repo.githubPagesUrl}"><img src="${pagesBadge}" alt="GitHub Pages"></a>`,
+    `  <a href="${data.repo.githubUrl}/actions/workflows/catalog-sync.yml"><img src="${workflowBadge}" alt="Catalog Sync"></a>`,
+    "</p>",
+    "",
+    `<p align="center">${data.repo.description}<br>${data.repo.audience}</p>`,
+    "",
+    `<p align="center"><a href="${data.repo.githubPagesUrl}"><strong>${data.readme.liveCatalogLabel}</strong></a></p>`,
     "",
     navigation,
     "",
