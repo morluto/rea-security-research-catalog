@@ -1,0 +1,8 @@
+{
+  "name": "awesome-vulnerability-detection-skills",
+  "private": true,
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "check": "node scripts/generate.js --check"
+  }
+}

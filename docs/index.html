@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome Vulnerability Detection Skills</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow" id="siteEyebrow"></p>
+      <h1 id="siteTitle"></h1>
+      <p class="subtitle" id="siteSubtitle"></p>
+      <p class="subtitle-sm" id="siteAudience"></p>
+      <div class="hero-panels">
+        <section class="info-panel">
+          <h2 id="howToUseTitle"></h2>
+          <p id="howToUseText"></p>
+        </section>
+        <section class="info-panel">
+          <h2 id="scopeTitle"></h2>
+          <p id="scopeText"></p>
+        </section>
+      </div>
+      <div class="stats-grid" id="statsGrid" aria-label="Catalog statistics"></div>
+      <div class="search-bar">
+        <label class="sr-only" for="search" id="searchLabel">Search</label>
+        <input type="text" id="search" placeholder="" autocomplete="off">
+        <span id="count"></span>
+      </div>
+      <section class="prompt-panel" aria-label="Install prompt builder">
+        <div class="prompt-panel-head">
+          <div>
+            <h2 id="selectionTitle"></h2>
+            <p id="selectionText"></p>
+          </div>
+          <div class="selection-count-block">
+            <span class="selection-count-label" id="selectionCountLabel"></span>
+            <strong class="selection-count-value" id="selectionCount">0</strong>
+          </div>
+        </div>
+        <textarea id="promptOutput" class="prompt-output" readonly></textarea>
+        <div class="prompt-actions">
+          <button type="button" class="action-btn primary" id="copyPromptBtn"></button>
+          <button type="button" class="action-btn" id="clearSelectionBtn"></button>
+        </div>
+      </section>
+      <div class="tag-filters" id="tagFilters" aria-label="Filter by platform tag">
+        <button class="tag-btn active" type="button" data-tag="all">All</button>
+      </div>
+      <div class="cat-nav" id="catNav"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="legend-panel">
+      <h2 id="legendTitle"></h2>
+      <div class="tag-legend" id="tagLegend"></div>
+      <p class="legend-note" id="legendNote"></p>
+    </section>
+    <div id="categories"></div>
+  </main>
+
+  <footer>
+    <div class="container" id="footerContent"></div>
+  </footer>
+
+  <noscript>
+    <div class="container empty-state">This catalog requires JavaScript to render the generated dataset.</div>
+  </noscript>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
