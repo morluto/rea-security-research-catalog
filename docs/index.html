@@ -25,62 +25,62 @@
         </section>
       </div>
       <div class="stats-grid" id="statsGrid" aria-label="Catalog statistics"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Search + filters bar -->
+    <section class="toolbar">
       <div class="search-bar">
         <label class="sr-only" for="search" id="searchLabel">Search</label>
         <input type="text" id="search" placeholder="" autocomplete="off">
         <span id="count"></span>
       </div>
-      <div class="cat-nav" id="catNav"></div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="browse-layout">
-      <aside class="filters-panel">
-        <div class="filter-block">
-          <h2 id="categoryFilterTitle"></h2>
-          <p class="filter-note" id="categoryFilterText"></p>
-          <div class="checkbox-list" id="categoryFilters"></div>
-        </div>
-        <div class="filter-block">
-          <h2 id="platformFilterTitle"></h2>
-          <p class="filter-note" id="platformFilterText"></p>
-          <div class="checkbox-list" id="platformFilters"></div>
-        </div>
-        <div class="filter-block compact-legend">
-          <h2 id="legendTitle"></h2>
-          <div class="tag-legend" id="tagLegend"></div>
-          <p class="legend-note" id="legendNote"></p>
-        </div>
-      </aside>
-      <section class="results-panel">
-        <div class="results-head">
-          <div>
-            <h2 id="resultsTitle"></h2>
-            <p class="filter-note" id="resultsText"></p>
-          </div>
-          <div class="active-filter-chips" id="activeFilterChips"></div>
-        </div>
-        <div class="results-grid" id="resultsGrid"></div>
-        <section class="prompt-panel inline-panel" aria-label="Install prompt builder">
-          <div class="prompt-panel-head">
-            <div>
-              <h2 id="selectionTitle"></h2>
-              <p id="selectionText"></p>
-            </div>
-            <div class="selection-count-block">
-              <span class="selection-count-label" id="selectionCountLabel"></span>
-              <strong class="selection-count-value" id="selectionCount">0</strong>
-            </div>
-          </div>
-          <textarea id="promptOutput" class="prompt-output" readonly></textarea>
-          <div class="prompt-actions">
-            <button type="button" class="action-btn primary" id="copyPromptBtn"></button>
-            <button type="button" class="action-btn" id="clearSelectionBtn"></button>
-          </div>
-        </section>
-      </section>
+      <div class="filter-bar" id="filterBar">
+        <!-- Filter dropdown buttons rendered by JS -->
+      </div>
+      <div class="active-filter-chips" id="activeFilterChips"></div>
     </section>
+
+    <!-- Install prompt builder (prominent) -->
+    <section class="prompt-panel" id="promptPanel" aria-label="Install prompt builder">
+      <div class="prompt-panel-head">
+        <div>
+          <h2 id="selectionTitle"></h2>
+          <p id="selectionText"></p>
+        </div>
+        <div class="selection-count-block">
+          <span class="selection-count-label" id="selectionCountLabel"></span>
+          <strong class="selection-count-value" id="selectionCount">0</strong>
+        </div>
+      </div>
+      <div class="prompt-body" id="promptBody">
+        <textarea id="promptOutput" class="prompt-output" readonly></textarea>
+        <div class="prompt-actions">
+          <button type="button" class="action-btn primary" id="copyPromptBtn"></button>
+          <button type="button" class="action-btn" id="clearSelectionBtn"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results-section">
+      <div class="results-head">
+        <div>
+          <h2 id="resultsTitle"></h2>
+          <p class="filter-note" id="resultsText"></p>
+        </div>
+      </div>
+      <div class="results-grid" id="resultsGrid"></div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+
+    <!-- Platform legend (collapsed) -->
+    <details class="legend-section">
+      <summary><span class="filter-heading" id="legendTitle"></span></summary>
+      <div class="tag-legend" id="tagLegend"></div>
+      <p class="legend-note" id="legendNote"></p>
+    </details>
   </main>
 
   <footer>

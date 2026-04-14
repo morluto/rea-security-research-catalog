@@ -25,34 +25,52 @@ function buildTagMap(tags) {
   return map;
 }
 
+function buildDimensionMap(dimensions) {
+  const map = new Map();
+
+  for (const dim of dimensions) {
+    assert(dim.id, "Each dimension must have an id.");
+    assert(!map.has(dim.id), `Duplicate dimension id: ${dim.id}`);
+
+    const valueIds = new Set();
+
+    for (const val of dim.values) {
+      assert(val.id, `Dimension ${dim.id} has a value without id.`);
+      assert(!valueIds.has(val.id), `Duplicate value id ${val.id} in dimension ${dim.id}.`);
+      valueIds.add(val.id);
+    }
+
+    map.set(dim.id, { ...dim, valueIds });
+  }
+
+  return map;
+}
+
 function validateCatalog(data) {
   assert(data.repo && data.repo.name, "repo.name is required.");
   assert(Array.isArray(data.tags), "tags must be an array.");
-  assert(Array.isArray(data.categories), "categories must be an array.");
+  assert(Array.isArray(data.tagDimensions), "tagDimensions must be an array.");
+  assert(Array.isArray(data.entries), "entries must be an array.");
 
   const tagMap = buildTagMap(data.tags);
-  const categoryIds = new Set();
+  const dimMap = buildDimensionMap(data.tagDimensions);
 
-  for (const category of data.categories) {
-    assert(category.id, "Each category must have an id.");
-    assert(category.title, `Category ${category.id} is missing title.`);
-    assert(!categoryIds.has(category.id), `Duplicate category id: ${category.id}`);
-    categoryIds.add(category.id);
-    assert(Array.isArray(category.groups), `Category ${category.id} groups must be an array.`);
+  for (const entry of data.entries) {
+    assert(entry.name, "An entry is missing name.");
+    assert(entry.url, `Entry ${entry.name} is missing url.`);
+    assert(Array.isArray(entry.tags), `Entry ${entry.name} tags must be an array.`);
+    assert(entry.desc, `Entry ${entry.name} is missing desc.`);
 
-    for (const group of category.groups) {
-      assert(group.title, `Category ${category.id} has a group without title.`);
-      assert(Array.isArray(group.items), `Group ${group.title} items must be an array.`);
+    for (const tagId of entry.tags) {
+      assert(tagMap.has(tagId), `Entry ${entry.name} references unknown platform tag ${tagId}.`);
+    }
 
-      for (const item of group.items) {
-        assert(item.name, `An item in ${group.title} is missing name.`);
-        assert(item.url, `Item ${item.name} is missing url.`);
-        assert(Array.isArray(item.tags), `Item ${item.name} tags must be an array.`);
-        assert(item.desc, `Item ${item.name} is missing desc.`);
+    for (const [dimId, dimDef] of dimMap) {
+      const values = entry[dimId];
+      assert(Array.isArray(values), `Entry ${entry.name} is missing dimension ${dimId} (must be an array).`);
 
-        for (const tagId of item.tags) {
-          assert(tagMap.has(tagId), `Item ${item.name} references unknown tag ${tagId}.`);
-        }
+      for (const val of values) {
+        assert(dimDef.valueIds.has(val), `Entry ${entry.name} has unknown ${dimId} value: ${val}`);
       }
     }
   }
@@ -68,50 +86,103 @@ function formatReadmeTags(tags, tagMap) {
   return `${tags.map((tagId) => `\`${tagMap.get(tagId).readmeLabel || tagMap.get(tagId).label}\``).join(" ")} `;
 }
 
+function formatDimensionTags(entry, dimensions) {
+  const parts = [];
+
+  for (const dim of dimensions) {
+    const values = entry[dim.id];
+
+    if (values && values.length > 0) {
+      const labels = values.map((v) => {
+        const found = dim.values.find((dv) => dv.id === v);
+        return found ? found.label : v;
+      });
+      parts.push(`\`${dim.emoji}${labels.join("·")}\``);
+    }
+  }
+
+  return parts.length > 0 ? `${parts.join(" ")} ` : "";
+}
+
+function dimValueLabel(dim, valueId) {
+  const found = dim.values.find((v) => v.id === valueId);
+  return found ? found.label : valueId;
+}
+
 function buildReadme(data, tagMap) {
-  const entryCount = data.categories
-    .flatMap((category) => category.groups)
-    .flatMap((group) => group.items)
-    .length;
-  const categoryCount = data.categories.length;
-  const navigation = data.categories
-    .map((category) => `[${category.title}](#${category.id})`)
-    .join(" •\n");
+  const entryCount = data.entries.length;
+
+  const targetDim = data.tagDimensions.find((d) => d.id === "target");
+  const techniqueDim = data.tagDimensions.find((d) => d.id === "technique");
+  const formDim = data.tagDimensions.find((d) => d.id === "form");
+
+  const dimTables = data.tagDimensions.map((dim) => {
+    const rows = dim.values
+      .map((v) => `| \`${v.id}\` | ${v.description} |`)
+      .join("\n");
+
+    return [
+      `### ${dim.emoji} ${dim.title}`,
+      "",
+      `${dim.description}`,
+      "",
+      "| Tag | Meaning |",
+      "| --- | --- |",
+      rows
+    ].join("\n");
+  });
+
+  // ── Overview table ─────────────────────────────────────────────
+  const overviewHeader = [
+    "| # | Name | Platform | Target | Technique | Form |",
+    "| --- | --- | --- | --- | --- | --- |"
+  ];
+
+  const overviewRows = data.entries.map((entry, idx) => {
+    const platform = entry.tags.length > 0
+      ? entry.tags.map((t) => `\`${tagMap.get(t).readmeLabel || tagMap.get(t).label}\``).join(" ")
+      : "";
+    const target = entry.target.map((v) => dimValueLabel(targetDim, v)).join(", ");
+    const technique = entry.technique.length > 0
+      ? entry.technique.map((v) => dimValueLabel(techniqueDim, v)).join(", ")
+      : "—";
+    const form = entry.form.map((v) => dimValueLabel(formDim, v)).join(", ");
+    const anchor = `entry-${entry.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+    return `| ${idx + 1} | [${entry.name}](#${anchor}) | ${platform} | ${target} | ${technique} | ${form} |`;
+  });
+
+  // ── Detail sections ────────────────────────────────────────────
+  const detailSections = data.entries.map((entry) => {
+    const anchor = `entry-${entry.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+    const platformText = formatReadmeTags(entry.tags, tagMap);
+    const dimText = formatDimensionTags(entry, data.tagDimensions);
+    return [
+      `<a id="${anchor}"></a>`,
+      `### ${entry.name}`,
+      "",
+      `${platformText}${dimText}${entry.url}`,
+      "",
+      entry.desc
+    ].join("\n");
+  });
+
+  // ── Navigation by target ───────────────────────────────────────
+  const navigation = targetDim.values
+    .filter((v) => data.entries.some((e) => e.target.includes(v.id)))
+    .map((v) => `[${v.label}](#target-${v.id})`)
+    .join(" • ");
+
   const workflowBadge = `${data.repo.githubUrl}/actions/workflows/catalog-sync.yml/badge.svg`;
   const pagesBadge = "https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square";
 
-  const tagRows = data.tags
+  const platformRows = data.tags
     .map(
       (tag) =>
         `| \`${tag.readmeLabel || tag.label}\` | ${tag.description} |`
     )
     .join("\n");
 
-  const categorySections = data.categories
-    .map((category) => {
-      const groups = category.groups
-        .map((group) => {
-          const items = group.items
-            .map((item) => {
-              const tagText = formatReadmeTags(item.tags, tagMap);
-              return `- **[${item.name}](${item.url})** ${tagText}- ${item.desc}`;
-            })
-            .join("\n");
-
-          return `### ${group.title}\n\n${items}`;
-        })
-        .join("\n\n");
-
-      return [
-        `<a id="${category.id}"></a>`,
-        `## ${category.emoji} ${category.title}`,
-        "",
-        category.description,
-        "",
-        groups
-      ].join("\n");
-    })
-    .join("\n\n---\n\n");
+  const dimCount = data.tagDimensions.reduce((sum, d) => sum + d.values.length, 0);
 
   return [
     "<!-- Generated from catalog.js by scripts/generate.js. Do not edit README.md directly. -->",
@@ -125,7 +196,7 @@ function buildReadme(data, tagMap) {
     '<p align="center">',
     `  <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>`,
     `  <img src="https://img.shields.io/badge/entries-${entryCount}-2f81f7?style=flat-square" alt="${entryCount} entries">`,
-    `  <img src="https://img.shields.io/badge/categories-${categoryCount}-238636?style=flat-square" alt="${categoryCount} categories">`,
+    `  <img src="https://img.shields.io/badge/dimension%20tags-${dimCount}-238636?style=flat-square" alt="${dimCount} dimension tags">`,
     `  <a href="${data.repo.githubPagesUrl}"><img src="${pagesBadge}" alt="GitHub Pages"></a>`,
     `  <a href="${data.repo.githubUrl}/actions/workflows/catalog-sync.yml"><img src="${workflowBadge}" alt="Catalog Sync"></a>`,
     "</p>",
@@ -134,19 +205,28 @@ function buildReadme(data, tagMap) {
     "",
     `<p align="center"><a href="${data.repo.githubPagesUrl}"><strong>${data.readme.liveCatalogLabel}</strong></a></p>`,
     "",
-    navigation,
-    "",
     "## Overview",
     "",
     ...data.readme.overview.map((line) => `- ${line}`),
+    "",
+    "## Catalog at a Glance",
+    "",
+    ...overviewHeader,
+    ...overviewRows,
     "",
     "## Platform Tags",
     "",
     "| Tag | Meaning |",
     "| --- | --- |",
-    tagRows,
+    platformRows,
     "",
     `> ${data.readme.platformNote}`,
+    "",
+    "## Dimension Tags",
+    "",
+    "Every entry is tagged along three orthogonal dimensions:",
+    "",
+    dimTables.join("\n\n"),
     "",
     "## Repository Layout",
     "",
@@ -159,7 +239,9 @@ function buildReadme(data, tagMap) {
     "",
     "Run `npm run generate` after editing the source catalog. Use `npm run check` to verify generated files are up to date.",
     "",
-    categorySections,
+    "## Entries",
+    "",
+    detailSections.join("\n\n---\n\n"),
     "",
     "## Contributing",
     "",

@@ -1,255 +1,268 @@
 (function () {
   const data = window.CATALOG_DATA;
+  if (!data) return;
 
-  if (!data) {
-    return;
-  }
+  const PAGE_SIZE = 30;
 
+  // ── DOM refs ────────────────────────────────────────────────────
   const searchInput = document.getElementById("search");
   const countEl = document.getElementById("count");
   const tagLegendEl = document.getElementById("tagLegend");
-  const catNavEl = document.getElementById("catNav");
   const statsGridEl = document.getElementById("statsGrid");
-  const siteEyebrowEl = document.getElementById("siteEyebrow");
-  const siteTitleEl = document.getElementById("siteTitle");
-  const siteSubtitleEl = document.getElementById("siteSubtitle");
-  const siteAudienceEl = document.getElementById("siteAudience");
-  const howToUseTitleEl = document.getElementById("howToUseTitle");
-  const howToUseTextEl = document.getElementById("howToUseText");
-  const scopeTitleEl = document.getElementById("scopeTitle");
-  const scopeTextEl = document.getElementById("scopeText");
-  const searchLabelEl = document.getElementById("searchLabel");
-  const legendTitleEl = document.getElementById("legendTitle");
-  const legendNoteEl = document.getElementById("legendNote");
-  const footerContentEl = document.getElementById("footerContent");
-  const selectionTitleEl = document.getElementById("selectionTitle");
-  const selectionTextEl = document.getElementById("selectionText");
-  const selectionCountLabelEl = document.getElementById("selectionCountLabel");
-  const selectionCountEl = document.getElementById("selectionCount");
+  const filterBarEl = document.getElementById("filterBar");
+  const activeFilterChipsEl = document.getElementById("activeFilterChips");
+  const resultsGridEl = document.getElementById("resultsGrid");
+  const paginationEl = document.getElementById("pagination");
+  const promptBodyEl = document.getElementById("promptBody");
   const promptOutputEl = document.getElementById("promptOutput");
   const copyPromptBtnEl = document.getElementById("copyPromptBtn");
   const clearSelectionBtnEl = document.getElementById("clearSelectionBtn");
-  const categoryFilterTitleEl = document.getElementById("categoryFilterTitle");
-  const categoryFilterTextEl = document.getElementById("categoryFilterText");
-  const categoryFiltersEl = document.getElementById("categoryFilters");
-  const platformFilterTitleEl = document.getElementById("platformFilterTitle");
-  const platformFilterTextEl = document.getElementById("platformFilterText");
-  const platformFiltersEl = document.getElementById("platformFilters");
-  const resultsTitleEl = document.getElementById("resultsTitle");
-  const resultsTextEl = document.getElementById("resultsText");
-  const activeFilterChipsEl = document.getElementById("activeFilterChips");
-  const resultsGridEl = document.getElementById("resultsGrid");
+  const selectionCountEl = document.getElementById("selectionCount");
 
-  const items = data.categories.flatMap((category) =>
-    category.groups.flatMap((group) =>
-      group.items.map((item, index) => ({
-        ...item,
-        key: `${category.id}::${group.title}::${item.name}::${index}`,
-        categoryId: category.id,
-        categoryTitle: category.title,
-        categoryEmoji: category.emoji,
-        groupTitle: group.title
-      }))
-    )
-  );
+  // Site-copy elements
+  const elMap = {};
+  [
+    "siteEyebrow", "siteTitle", "siteSubtitle", "siteAudience",
+    "howToUseTitle", "howToUseText", "scopeTitle", "scopeText",
+    "searchLabel", "legendTitle", "legendNote", "footerContent",
+    "selectionTitle", "selectionText", "selectionCountLabel",
+    "resultsTitle", "resultsText"
+  ].forEach((id) => { elMap[id] = document.getElementById(id); });
 
+  // ── Data setup ──────────────────────────────────────────────────
+  const items = data.entries.map((entry, i) => ({ ...entry, key: `${entry.name}::${i}` }));
   const itemMap = new Map(items.map((item) => [item.key, item]));
+  const dimMap = new Map(data.tagDimensions.map((d) => [d.id, d]));
 
+  function getDimValueLabel(dimId, valueId) {
+    const dim = dimMap.get(dimId);
+    if (!dim) return valueId;
+    const f = dim.values.find((v) => v.id === valueId);
+    return f ? f.label : valueId;
+  }
+
+  function getDimEmoji(dimId) {
+    const dim = dimMap.get(dimId);
+    return dim ? dim.emoji : "";
+  }
+
+  // ── State ───────────────────────────────────────────────────────
   const state = {
     query: "",
+    page: 0,
     selectedKeys: new Set(),
-    selectedCategories: new Set(),
-    selectedPlatforms: new Set()
+    selectedTargets: new Set(),
+    selectedTechniques: new Set(),
+    selectedForms: new Set(),
+    selectedPlatforms: new Set(),
+    openDropdown: null  // which filter dropdown is open
   };
 
-  function escapeHtml(value) {
-    return String(value)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#39;");
+  // ── Helpers ─────────────────────────────────────────────────────
+  function escapeHtml(v) {
+    return String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;");
   }
 
-  function getTag(tagId) {
-    return data.tags.find((tag) => tag.id === tagId);
+  function getTag(id) { return data.tags.find((t) => t.id === id); }
+  function getTagLabel(id) { const t = getTag(id); return t ? t.label : id; }
+
+  function debounce(fn, ms) {
+    let t; return function (...a) { clearTimeout(t); t = setTimeout(() => fn.apply(this, a), ms); };
   }
 
-  function getTagLabel(tagId) {
-    const tag = getTag(tagId);
-    return tag ? tag.label : tagId;
+  // ── Matching ────────────────────────────────────────────────────
+  function dimMatch(vals, set) {
+    if (set.size === 0) return true;
+    if (!vals || vals.length === 0) return false;
+    return vals.some((v) => set.has(v));
   }
 
-  function getStats() {
-    const taggedCount = items.filter((item) => item.tags.length > 0).length;
-    const multiPlatformCount = items.filter((item) => item.tags.length > 1).length;
+  function matchesFilters(item, excludeDim) {
+    if (excludeDim !== "target" && !dimMatch(item.target, state.selectedTargets)) return false;
+    if (excludeDim !== "technique" && !dimMatch(item.technique, state.selectedTechniques)) return false;
+    if (excludeDim !== "form" && !dimMatch(item.form, state.selectedForms)) return false;
+    if (excludeDim !== "platform" && state.selectedPlatforms.size > 0 &&
+        !item.tags.some((t) => state.selectedPlatforms.has(t))) return false;
 
-    return [
-      { value: String(items.length), label: "Catalog entries" },
-      { value: String(data.categories.length), label: "Categories" },
-      { value: String(taggedCount), label: "Tagged entries" },
-      { value: String(multiPlatformCount), label: "Multi-platform entries" }
-    ];
-  }
-
-  function buildCategoryCounts() {
-    return new Map(
-      data.categories.map((category) => [
-        category.id,
-        category.groups.reduce((sum, group) => sum + group.items.length, 0)
-      ])
-    );
-  }
-
-  function buildPlatformCounts() {
-    return new Map(
-      data.tags.map((tag) => [
-        tag.id,
-        items.filter((item) => item.tags.includes(tag.id)).length
-      ])
-    );
-  }
-
-  function applySiteCopy() {
-    const metaDescription = document.querySelector('meta[name="description"]');
-
-    document.title = data.repo.name;
-
-    if (metaDescription && data.site.metaDescription) {
-      metaDescription.setAttribute("content", data.site.metaDescription);
+    const q = state.query.trim().toLowerCase();
+    if (q) {
+      const hay = [
+        item.name, item.desc, ...(item.tags || []),
+        ...(item.target || []).map((v) => getDimValueLabel("target", v)),
+        ...(item.technique || []).map((v) => getDimValueLabel("technique", v)),
+        ...(item.form || []).map((v) => getDimValueLabel("form", v))
+      ].join(" ").toLowerCase();
+      if (!hay.includes(q)) return false;
     }
+    return true;
+  }
 
-    siteEyebrowEl.textContent = data.site.eyebrow;
-    siteTitleEl.textContent = data.site.title;
-    siteSubtitleEl.textContent = data.site.subtitle;
-    siteAudienceEl.textContent = data.site.audience;
-    howToUseTitleEl.textContent = data.site.howToUseTitle;
-    howToUseTextEl.textContent = data.site.howToUseText;
-    scopeTitleEl.textContent = data.site.scopeTitle;
-    scopeTextEl.textContent = data.site.scopeText;
-    searchLabelEl.textContent = data.site.searchLabel;
+  function getVisible() { return items.filter((i) => matchesFilters(i)); }
+
+  // ── Cross-filtered counts ───────────────────────────────────────
+  function dimCounts(dimId) {
+    const dim = dimMap.get(dimId);
+    if (!dim) return new Map();
+    return new Map(dim.values.map((v) => [
+      v.id,
+      items.filter((i) => (i[dimId] || []).includes(v.id) && matchesFilters(i, dimId)).length
+    ]));
+  }
+
+  function platformCounts() {
+    return new Map(data.tags.map((t) => [
+      t.id,
+      items.filter((i) => i.tags.includes(t.id) && matchesFilters(i, "platform")).length
+    ]));
+  }
+
+  // ── Site copy ───────────────────────────────────────────────────
+  function applySiteCopy() {
+    const md = document.querySelector('meta[name="description"]');
+    document.title = data.repo.name;
+    if (md && data.site.metaDescription) md.setAttribute("content", data.site.metaDescription);
+
+    elMap.siteEyebrow.textContent = data.site.eyebrow;
+    elMap.siteTitle.textContent = data.site.title;
+    elMap.siteSubtitle.textContent = data.site.subtitle;
+    elMap.siteAudience.textContent = data.site.audience;
+    elMap.howToUseTitle.textContent = data.site.howToUseTitle;
+    elMap.howToUseText.textContent = data.site.howToUseText;
+    elMap.scopeTitle.textContent = data.site.scopeTitle;
+    elMap.scopeText.textContent = data.site.scopeText;
+    elMap.searchLabel.textContent = data.site.searchLabel;
     searchInput.placeholder = data.site.searchPlaceholder;
-    legendTitleEl.textContent = data.site.legendTitle;
-    legendNoteEl.textContent = data.site.legendNote;
-    selectionTitleEl.textContent = data.site.selectionTitle;
-    selectionTextEl.textContent = data.site.selectionText;
-    selectionCountLabelEl.textContent = data.site.selectionCountLabel;
+    elMap.legendTitle.textContent = data.site.legendTitle;
+    elMap.legendNote.textContent = data.site.legendNote;
+    elMap.selectionTitle.textContent = data.site.selectionTitle;
+    elMap.selectionText.textContent = data.site.selectionEmpty;
+    elMap.selectionCountLabel.textContent = data.site.selectionCountLabel;
     copyPromptBtnEl.textContent = data.site.copyPromptLabel;
     clearSelectionBtnEl.textContent = data.site.clearSelectionLabel;
-    categoryFilterTitleEl.textContent = data.site.categoryFilterTitle;
-    categoryFilterTextEl.textContent = data.site.categoryFilterText;
-    platformFilterTitleEl.textContent = data.site.platformFilterTitle;
-    platformFilterTextEl.textContent = data.site.platformFilterText;
-    resultsTitleEl.textContent = data.site.resultsTitle;
-    resultsTextEl.textContent = data.site.resultsText;
-    footerContentEl.innerHTML = `<p>Contributions welcome · <a href="${escapeHtml(data.repo.githubUrl)}">View on GitHub</a></p>`;
-  }
-
-  function buildTagLegend() {
-    tagLegendEl.innerHTML = data.tags
-      .map(
-        (tag) => `
-          <div class="tag-legend-item">
-            <span class="skill-tag" data-tag="${escapeHtml(tag.id)}">${escapeHtml(tag.label)}</span>
-            <span>${escapeHtml(tag.description)}</span>
-          </div>
-        `
-      )
-      .join("");
-  }
-
-  function buildCategoryNav() {
-    catNavEl.innerHTML = data.categories
-      .map(
-        (category) => `<a href="#filter-${escapeHtml(category.id)}">${escapeHtml(category.title)}</a>`
-      )
-      .join("");
+    elMap.resultsTitle.textContent = data.site.resultsTitle;
+    elMap.resultsText.textContent = data.site.resultsText;
+    elMap.footerContent.innerHTML = `<p>Contributions welcome · <a href="${escapeHtml(data.repo.githubUrl)}">View on GitHub</a></p>`;
   }
 
   function renderStats() {
-    statsGridEl.innerHTML = getStats()
-      .map(
-        (stat) => `
-          <div class="stat-card">
-            <span class="value">${escapeHtml(stat.value)}</span>
-            <span class="label">${escapeHtml(stat.label)}</span>
-          </div>
-        `
-      )
-      .join("");
+    const ut = new Set(items.flatMap((i) => i.target || []));
+    const uc = new Set(items.flatMap((i) => i.technique || []));
+    const uf = new Set(items.flatMap((i) => i.form || []));
+    statsGridEl.innerHTML = [
+      { v: items.length, l: "Entries" },
+      { v: ut.size, l: "Targets" },
+      { v: uc.size, l: "Techniques" },
+      { v: uf.size, l: "Forms" }
+    ].map((s) => `<div class="stat-card"><span class="value">${s.v}</span><span class="label">${s.l}</span></div>`).join("");
   }
 
-  function renderCategoryFilters() {
-    const categoryCounts = buildCategoryCounts();
-    const allChecked = state.selectedCategories.size === 0;
-
-    const allRow = `
-      <label class="check-chip" id="filter-all-categories">
-        <input type="checkbox" data-filter-type="all-categories" ${allChecked ? "checked" : ""}>
-        <span class="check-chip-main">${escapeHtml(data.site.allCategoriesLabel)}</span>
-        <span class="check-chip-count">${data.categories.length}</span>
-      </label>
-    `;
-
-    const rows = data.categories
-      .map((category) => `
-        <label class="check-chip" id="filter-${escapeHtml(category.id)}">
-          <input
-            type="checkbox"
-            data-filter-type="category"
-            data-filter-value="${escapeHtml(category.id)}"
-            ${state.selectedCategories.has(category.id) ? "checked" : ""}
-          >
-          <span class="check-chip-main">${escapeHtml(category.emoji)} ${escapeHtml(category.title)}</span>
-          <span class="check-chip-count">${categoryCounts.get(category.id)}</span>
-        </label>
-      `)
-      .join("");
-
-    categoryFiltersEl.innerHTML = allRow + rows;
+  function buildTagLegend() {
+    tagLegendEl.innerHTML = data.tags.map((t) => `
+      <div class="tag-legend-item">
+        <span class="skill-tag" data-tag="${escapeHtml(t.id)}">${escapeHtml(t.label)}</span>
+        <span>${escapeHtml(t.description)}</span>
+      </div>
+    `).join("");
   }
 
-  function renderPlatformFilters() {
-    const platformCounts = buildPlatformCounts();
-    const allChecked = state.selectedPlatforms.size === 0;
+  // ── Filter dropdowns ────────────────────────────────────────────
+  const filterDefs = [
+    { id: "target", label: data.site.targetFilterTitle, set: () => state.selectedTargets, type: "dim" },
+    { id: "technique", label: data.site.techniqueFilterTitle, set: () => state.selectedTechniques, type: "dim" },
+    { id: "form", label: data.site.formFilterTitle, set: () => state.selectedForms, type: "dim" },
+    { id: "platform", label: data.site.platformFilterTitle, set: () => state.selectedPlatforms, type: "platform" }
+  ];
 
-    const allRow = `
-      <label class="check-chip">
-        <input type="checkbox" data-filter-type="all-platforms" ${allChecked ? "checked" : ""}>
-        <span class="check-chip-main">${escapeHtml(data.site.allPlatformsLabel)}</span>
-        <span class="check-chip-count">${data.tags.length}</span>
-      </label>
-    `;
-
-    const rows = data.tags
-      .map((tag) => `
-        <label class="check-chip">
-          <input
-            type="checkbox"
-            data-filter-type="platform"
-            data-filter-value="${escapeHtml(tag.id)}"
-            ${state.selectedPlatforms.has(tag.id) ? "checked" : ""}
-          >
-          <span class="check-chip-main">${escapeHtml(tag.label)}</span>
-          <span class="check-chip-count">${platformCounts.get(tag.id)}</span>
-        </label>
-      `)
-      .join("");
-
-    platformFiltersEl.innerHTML = allRow + rows;
+  function buildFilterBar() {
+    filterBarEl.innerHTML = filterDefs.map((fd) => `
+      <div class="filter-dropdown" data-filter-id="${fd.id}">
+        <button class="filter-btn" type="button" data-toggle="${fd.id}">
+          <span class="filter-btn-label">${escapeHtml(fd.label)}</span>
+          <span class="filter-btn-arrow">▾</span>
+        </button>
+        <div class="filter-popup" id="popup-${fd.id}"></div>
+      </div>
+    `).join("");
   }
 
-  function getSelectedItems() {
-    return items.filter((item) => state.selectedKeys.has(item.key));
-  }
+  function renderFilterPopup(fd) {
+    const popup = document.getElementById(`popup-${fd.id}`);
+    if (!popup) return;
 
-  function buildPrompt() {
-    const selectedItems = getSelectedItems();
+    const selectedSet = fd.set();
+    let rows = "";
 
-    if (selectedItems.length === 0) {
-      return data.site.selectionEmpty;
+    if (fd.type === "dim") {
+      const counts = dimCounts(fd.id);
+      const dim = dimMap.get(fd.id);
+      if (!dim) return;
+      rows = dim.values.map((v) => {
+        const c = counts.get(v.id) || 0;
+        return `
+          <label class="filter-popup-item">
+            <input type="checkbox" data-dim="${fd.id}" data-value="${escapeHtml(v.id)}" ${selectedSet.has(v.id) ? "checked" : ""}>
+            <span class="label">${escapeHtml(v.label)}</span>
+            <span class="cnt${c === 0 ? " zero" : ""}">${c}</span>
+          </label>`;
+      }).join("");
+    } else {
+      const counts = platformCounts();
+      rows = data.tags.map((t) => {
+        const c = counts.get(t.id) || 0;
+        return `
+          <label class="filter-popup-item">
+            <input type="checkbox" data-dim="platform" data-value="${escapeHtml(t.id)}" ${selectedSet.has(t.id) ? "checked" : ""}>
+            <span class="label">${escapeHtml(t.label)}</span>
+            <span class="cnt${c === 0 ? " zero" : ""}">${c}</span>
+          </label>`;
+      }).join("");
     }
 
+    popup.innerHTML = rows;
+  }
+
+  function updateFilterBtnStates() {
+    filterDefs.forEach((fd) => {
+      const btn = filterBarEl.querySelector(`[data-toggle="${fd.id}"]`);
+      if (!btn) return;
+      const selectedSet = fd.set();
+      const count = selectedSet.size;
+      btn.classList.toggle("has-selection", count > 0);
+
+      // Update label
+      const labelSpan = btn.querySelector(".filter-btn-label");
+      if (count > 0) {
+        labelSpan.innerHTML = `${escapeHtml(fd.label)} <span class="filter-btn-count">${count}</span>`;
+      } else {
+        labelSpan.textContent = fd.label;
+      }
+    });
+  }
+
+  function toggleDropdown(filterId) {
+    if (state.openDropdown === filterId) {
+      closeAllDropdowns();
+      return;
+    }
+    closeAllDropdowns();
+    state.openDropdown = filterId;
+    const popup = document.getElementById(`popup-${filterId}`);
+    if (popup) {
+      const fd = filterDefs.find((f) => f.id === filterId);
+      if (fd) renderFilterPopup(fd);
+      popup.classList.add("open");
+    }
+  }
+
+  function closeAllDropdowns() {
+    state.openDropdown = null;
+    filterBarEl.querySelectorAll(".filter-popup").forEach((p) => p.classList.remove("open"));
+  }
+
+  // ── Prompt panel ────────────────────────────────────────────────
+  function buildPrompt() {
+    const sel = items.filter((i) => state.selectedKeys.has(i.key));
+    if (sel.length === 0) return data.site.selectionEmpty;
     const intro = [
       "Install or set up the following selected skills or repos for my agent environment.",
       "For each item:",
@@ -257,259 +270,221 @@
       "2. Install it if it is directly installable as a skill, plugin, MCP server, or agent extension.",
       "3. If it is a collection, marketplace, paper list, or non-installable reference, explain that clearly and recommend the closest installable target or next step.",
       "4. Summarize what was installed, where it was placed, and any manual follow-up I still need.",
-      "",
-      "Selected items:"
+      "", "Selected items:"
     ];
-
-    const entries = selectedItems.map((item, index) => {
-      const tags = item.tags.length > 0 ? item.tags.join(", ") : "none";
-      return `${index + 1}. ${item.name}\n   - URL: ${item.url}\n   - Category: ${item.categoryTitle} / ${item.groupTitle}\n   - Tags: ${tags}\n   - Notes: ${item.desc}`;
+    const entries = sel.map((item, i) => {
+      const pt = item.tags.length > 0 ? item.tags.join(", ") : "none";
+      return `${i+1}. ${item.name}\n   - URL: ${item.url}\n   - Platform: ${pt}\n   - Target: ${(item.target||[]).join(", ")||"none"}\n   - Technique: ${(item.technique||[]).join(", ")||"none"}\n   - Form: ${(item.form||[]).join(", ")||"none"}\n   - Notes: ${item.desc}`;
     });
-
     return intro.concat(entries).join("\n");
   }
 
   function updatePromptPanel() {
-    const selectedCount = state.selectedKeys.size;
-
-    selectionCountEl.textContent = String(selectedCount);
+    const count = state.selectedKeys.size;
+    selectionCountEl.textContent = String(count);
     promptOutputEl.value = buildPrompt();
-    copyPromptBtnEl.disabled = selectedCount === 0;
-    clearSelectionBtnEl.disabled = selectedCount === 0;
+    copyPromptBtnEl.disabled = count === 0;
+    clearSelectionBtnEl.disabled = count === 0;
+
+    // Update subtitle text
+    if (count > 0) {
+      elMap.selectionText.textContent = data.site.selectionText;
+      promptBodyEl.classList.add("open");
+    } else {
+      elMap.selectionText.textContent = data.site.selectionEmpty;
+      promptBodyEl.classList.remove("open");
+    }
   }
 
   async function copyPrompt() {
-    if (state.selectedKeys.size === 0) {
-      return;
-    }
-
-    const originalLabel = data.site.copyPromptLabel;
-    const copiedLabel = data.site.promptCopiedLabel;
-
+    if (state.selectedKeys.size === 0) return;
+    const orig = data.site.copyPromptLabel;
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(promptOutputEl.value);
       } else {
-        promptOutputEl.focus();
-        promptOutputEl.select();
-        document.execCommand("copy");
+        promptOutputEl.focus(); promptOutputEl.select(); document.execCommand("copy");
       }
-
-      copyPromptBtnEl.textContent = copiedLabel;
-      window.setTimeout(() => {
-        copyPromptBtnEl.textContent = originalLabel;
-      }, 1200);
-    } catch (error) {
-      copyPromptBtnEl.textContent = originalLabel;
-    }
+      copyPromptBtnEl.textContent = data.site.promptCopiedLabel;
+      setTimeout(() => { copyPromptBtnEl.textContent = orig; }, 1200);
+    } catch (e) { copyPromptBtnEl.textContent = orig; }
   }
 
-  function matches(item) {
-    const query = state.query.trim().toLowerCase();
-    const categoryMatch =
-      state.selectedCategories.size === 0 || state.selectedCategories.has(item.categoryId);
-    const platformMatch =
-      state.selectedPlatforms.size === 0 ||
-      item.tags.some((tagId) => state.selectedPlatforms.has(tagId));
-
-    if (!categoryMatch || !platformMatch) {
-      return false;
-    }
-
-    if (!query) {
-      return true;
-    }
-
-    const haystack = [
-      item.name,
-      item.desc,
-      item.categoryTitle,
-      item.groupTitle,
-      ...item.tags
-    ]
-      .join(" ")
-      .toLowerCase();
-
-    return haystack.includes(query);
-  }
-
-  function renderActiveFilterChips(visibleItems) {
+  // ── Active filter chips ─────────────────────────────────────────
+  function renderChips(visible) {
     const chips = [];
+    state.selectedTargets.forEach((v) => chips.push(`<span class="active-chip dim-target">${escapeHtml(getDimValueLabel("target",v))}</span>`));
+    state.selectedTechniques.forEach((v) => chips.push(`<span class="active-chip dim-technique">${escapeHtml(getDimValueLabel("technique",v))}</span>`));
+    state.selectedForms.forEach((v) => chips.push(`<span class="active-chip dim-form">${escapeHtml(getDimValueLabel("form",v))}</span>`));
+    state.selectedPlatforms.forEach((id) => { const t=getTag(id); if(t) chips.push(`<span class="active-chip">${escapeHtml(t.label)}</span>`); });
+    if (state.query.trim()) chips.push(`<span class="active-chip">Search: ${escapeHtml(state.query.trim())}</span>`);
+    activeFilterChipsEl.innerHTML = chips.length > 0 ? chips.join("") : "";
+  }
 
-    state.selectedCategories.forEach((categoryId) => {
-      const category = data.categories.find((entry) => entry.id === categoryId);
-
-      if (category) {
-        chips.push(`<span class="active-chip">${escapeHtml(category.title)}</span>`);
-      }
-    });
-
-    state.selectedPlatforms.forEach((tagId) => {
-      const tag = getTag(tagId);
-
-      if (tag) {
-        chips.push(`<span class="active-chip">${escapeHtml(tag.label)}</span>`);
-      }
-    });
-
-    if (state.query.trim()) {
-      chips.push(`<span class="active-chip">Search: ${escapeHtml(state.query.trim())}</span>`);
-    }
-
-    if (chips.length === 0) {
-      activeFilterChipsEl.innerHTML = `<span class="active-chip subtle">${visibleItems.length} visible</span>`;
-      return;
-    }
-
-    activeFilterChipsEl.innerHTML = chips.join("");
+  // ── Results + pagination ────────────────────────────────────────
+  function renderDimGroup(dimId, values) {
+    if (!values || values.length === 0) return "";
+    const emoji = getDimEmoji(dimId);
+    const cls = `dim-${dimId}`;
+    const tags = values.map((v) =>
+      `<span class="dim-tag ${cls}">${escapeHtml(getDimValueLabel(dimId, v))}</span>`
+    ).join("");
+    return `<span class="dim-group"><span class="dim-group-icon">${emoji}</span>${tags}</span>`;
   }
 
   function renderResults() {
-    const visibleItems = items.filter(matches);
+    const visible = getVisible();
+    const total = visible.length;
+    const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
-    countEl.textContent = `${visibleItems.length} / ${items.length} visible`;
-    renderActiveFilterChips(visibleItems);
+    // Clamp page
+    if (state.page >= totalPages) state.page = totalPages - 1;
+    if (state.page < 0) state.page = 0;
 
-    if (visibleItems.length === 0) {
+    const start = state.page * PAGE_SIZE;
+    const pageItems = visible.slice(start, start + PAGE_SIZE);
+
+    countEl.textContent = `${total} / ${items.length}`;
+    renderChips(visible);
+
+    if (pageItems.length === 0) {
       resultsGridEl.innerHTML = `<div class="empty-state results-empty">${escapeHtml(data.site.noResultsText)}</div>`;
+      paginationEl.innerHTML = "";
       return;
     }
 
-    resultsGridEl.innerHTML = visibleItems
-      .map((item) => {
-        const tagMarkup = item.tags
-          .map(
-            (tagId) =>
-              `<span class="skill-tag" data-tag="${escapeHtml(tagId)}">${escapeHtml(getTagLabel(tagId))}</span>`
-          )
-          .join("");
+    resultsGridEl.innerHTML = pageItems.map((item) => {
+      const platformMarkup = item.tags.map((t) =>
+        `<span class="skill-tag" data-tag="${escapeHtml(t)}">${escapeHtml(getTagLabel(t))}</span>`
+      ).join("");
+      const dimMarkup = [
+        renderDimGroup("target", item.target),
+        renderDimGroup("technique", item.technique),
+        renderDimGroup("form", item.form)
+      ].filter(Boolean).join("");
+      return `
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <label class="skill-select">
+              <input class="skill-checkbox" type="checkbox" data-item-key="${escapeHtml(item.key)}" ${state.selectedKeys.has(item.key)?"checked":""}>
+              <span>Select</span>
+            </label>
+            <a class="skill-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(data.site.openRepoLabel)}</a>
+          </div>
+          <div class="name">${escapeHtml(item.name)}</div>
+          <div class="desc">${escapeHtml(item.desc)}</div>
+          <div class="dim-tags">${dimMarkup}</div>
+          <div class="tags">${platformMarkup}</div>
+        </article>`;
+    }).join("");
 
-        return `
-          <article class="skill-card">
-            <div class="skill-card-top">
-              <label class="skill-select">
-                <input class="skill-checkbox" type="checkbox" data-item-key="${escapeHtml(item.key)}" ${state.selectedKeys.has(item.key) ? "checked" : ""}>
-                <span>Select</span>
-              </label>
-              <a class="skill-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(data.site.openRepoLabel)}</a>
-            </div>
-            <div class="skill-card-head">
-              <span class="category-pill">${escapeHtml(item.categoryEmoji)} ${escapeHtml(item.categoryTitle)}</span>
-              <span class="group-pill">${escapeHtml(item.groupTitle)}</span>
-            </div>
-            <div class="name">${escapeHtml(item.name)}</div>
-            <div class="desc">${escapeHtml(item.desc)}</div>
-            <div class="skill-card-meta">
-              <span><strong>${escapeHtml(data.site.categoryLabel)}:</strong> ${escapeHtml(item.categoryTitle)}</span>
-              <span><strong>${escapeHtml(data.site.groupLabel)}:</strong> ${escapeHtml(item.groupTitle)}</span>
-            </div>
-            <div class="tags">${tagMarkup}</div>
-          </article>
-        `;
-      })
-      .join("");
+    // Pagination
+    if (totalPages <= 1) {
+      paginationEl.innerHTML = "";
+      return;
+    }
+
+    let pgHtml = `<button class="page-btn" data-page="${state.page - 1}" ${state.page === 0 ? "disabled" : ""}>‹ Prev</button>`;
+
+    for (let p = 0; p < totalPages; p++) {
+      if (totalPages > 7 && p > 1 && p < totalPages - 2 && Math.abs(p - state.page) > 1) {
+        if (p === 2 || p === totalPages - 3) pgHtml += `<span class="page-info">…</span>`;
+        continue;
+      }
+      pgHtml += `<button class="page-btn${p === state.page ? " active" : ""}" data-page="${p}">${p + 1}</button>`;
+    }
+
+    pgHtml += `<button class="page-btn" data-page="${state.page + 1}" ${state.page === totalPages - 1 ? "disabled" : ""}>Next ›</button>`;
+    paginationEl.innerHTML = pgHtml;
   }
 
+  // ── Full render ─────────────────────────────────────────────────
   function render() {
-    renderCategoryFilters();
-    renderPlatformFilters();
+    updateFilterBtnStates();
+    // Re-render open popup if any
+    if (state.openDropdown) {
+      const fd = filterDefs.find((f) => f.id === state.openDropdown);
+      if (fd) renderFilterPopup(fd);
+    }
     renderResults();
     updatePromptPanel();
   }
 
+  // ── Init ────────────────────────────────────────────────────────
   applySiteCopy();
   buildTagLegend();
-  buildCategoryNav();
   renderStats();
+  buildFilterBar();
   render();
 
-  searchInput.addEventListener("input", (event) => {
-    state.query = event.target.value;
+  // ── Events ──────────────────────────────────────────────────────
+
+  // Search (debounced)
+  const debouncedRender = debounce(() => { state.page = 0; render(); }, 150);
+  searchInput.addEventListener("input", (e) => { state.query = e.target.value; debouncedRender(); });
+
+  // Filter button toggle
+  filterBarEl.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-toggle]");
+    if (btn) {
+      e.stopPropagation();
+      toggleDropdown(btn.dataset.toggle);
+      return;
+    }
+  });
+
+  // Filter checkbox change
+  filterBarEl.addEventListener("change", (e) => {
+    const input = e.target.closest("input[data-dim]");
+    if (!input) return;
+    const dimId = input.dataset.dim;
+    const value = input.dataset.value;
+    const setMap = {
+      target: state.selectedTargets,
+      technique: state.selectedTechniques,
+      form: state.selectedForms,
+      platform: state.selectedPlatforms
+    };
+    const set = setMap[dimId];
+    if (!set) return;
+    if (input.checked) set.add(value); else set.delete(value);
+    state.page = 0;
+    render();
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".filter-dropdown")) {
+      closeAllDropdowns();
+    }
+  });
+
+  // Pagination
+  paginationEl.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-page]");
+    if (!btn || btn.disabled) return;
+    state.page = parseInt(btn.dataset.page, 10);
     renderResults();
+    window.scrollTo({ top: resultsGridEl.offsetTop - 80, behavior: "smooth" });
   });
 
-  categoryFiltersEl.addEventListener("change", (event) => {
-    const input = event.target.closest("input");
-
-    if (!input) {
-      return;
-    }
-
-    const filterType = input.dataset.filterType;
-    const value = input.dataset.filterValue;
-
-    if (filterType === "all-categories") {
-      state.selectedCategories.clear();
-      render();
-      return;
-    }
-
-    if (filterType === "category" && value) {
-      if (input.checked) {
-        state.selectedCategories.add(value);
-      } else {
-        state.selectedCategories.delete(value);
-      }
-    }
-
-    render();
-  });
-
-  platformFiltersEl.addEventListener("change", (event) => {
-    const input = event.target.closest("input");
-
-    if (!input) {
-      return;
-    }
-
-    const filterType = input.dataset.filterType;
-    const value = input.dataset.filterValue;
-
-    if (filterType === "all-platforms") {
-      state.selectedPlatforms.clear();
-      render();
-      return;
-    }
-
-    if (filterType === "platform" && value) {
-      if (input.checked) {
-        state.selectedPlatforms.add(value);
-      } else {
-        state.selectedPlatforms.delete(value);
-      }
-    }
-
-    render();
-  });
-
-  resultsGridEl.addEventListener("change", (event) => {
-    const checkbox = event.target.closest(".skill-checkbox");
-
-    if (!checkbox) {
-      return;
-    }
-
-    const itemKey = checkbox.dataset.itemKey;
-
-    if (!itemMap.has(itemKey)) {
-      return;
-    }
-
-    if (checkbox.checked) {
-      state.selectedKeys.add(itemKey);
-    } else {
-      state.selectedKeys.delete(itemKey);
-    }
-
+  // Skill card checkboxes
+  resultsGridEl.addEventListener("change", (e) => {
+    const cb = e.target.closest(".skill-checkbox");
+    if (!cb) return;
+    const key = cb.dataset.itemKey;
+    if (!itemMap.has(key)) return;
+    if (cb.checked) state.selectedKeys.add(key); else state.selectedKeys.delete(key);
     updatePromptPanel();
   });
 
-  copyPromptBtnEl.addEventListener("click", () => {
-    copyPrompt();
+  // Prompt panel toggle
+  document.querySelector(".prompt-panel-head").addEventListener("click", () => {
+    if (state.selectedKeys.size > 0) {
+      promptBodyEl.classList.toggle("open");
+    }
   });
 
-  clearSelectionBtnEl.addEventListener("click", () => {
-    state.selectedKeys.clear();
-    render();
-  });
+  copyPromptBtnEl.addEventListener("click", copyPrompt);
+  clearSelectionBtnEl.addEventListener("click", () => { state.selectedKeys.clear(); render(); });
 })();
