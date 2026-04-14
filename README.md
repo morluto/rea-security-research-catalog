@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-51-2f81f7?style=flat-square" alt="51 entries">
+  <img src="https://img.shields.io/badge/entries-52-2f81f7?style=flat-square" alt="52 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -56,31 +56,32 @@
 | 24 | [ctf-skills](#entry-ctf-skills) | `CC` `CX` | Web, Binary | Reverse Engineering, Exploit Dev, Recon | Prompt Skill |
 | 25 | [Trail of Bits testing-handbook-skills](#entry-trail-of-bits-testing-handbook-skills) | `CC` `CX` | Source Code | Fuzzing, Static Analysis | Prompt Skill |
 | 26 | [ffuf-claude-skill](#entry-ffuf-claude-skill) | `CC` | Web | Fuzzing | Tool Wrapper |
-| 27 | [Trail of Bits dwarf-expert](#entry-trail-of-bits-dwarf-expert) | `CC` `CX` | Binary | Reverse Engineering | Knowledge Base |
-| 28 | [Trail of Bits firebase-apk-scanner](#entry-trail-of-bits-firebase-apk-scanner) | `CC` `CX` | Mobile | Static Analysis | Workflow |
-| 29 | [Trail of Bits burpsuite-project-parser](#entry-trail-of-bits-burpsuite-project-parser) | `CC` `CX` | Web | Reverse Engineering | Tool Wrapper |
-| 30 | [Trail of Bits building-secure-contracts](#entry-trail-of-bits-building-secure-contracts) | `CC` `CX` | Smart Contract | Static Analysis, Compliance | Prompt Skill |
-| 31 | [Trail of Bits entry-point-analyzer](#entry-trail-of-bits-entry-point-analyzer) | `CC` `CX` | Smart Contract | Static Analysis | Prompt Skill |
-| 32 | [Trail of Bits spec-to-code-compliance](#entry-trail-of-bits-spec-to-code-compliance) | `CC` `CX` | Smart Contract | Compliance | Prompt Skill |
-| 33 | [scv-scan](#entry-scv-scan) | `CC` | Smart Contract | Static Analysis | Prompt Skill |
-| 34 | [Cisco skill-scanner](#entry-cisco-skill-scanner) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 35 | [Snyk agent-scan](#entry-snyk-agent-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 36 | [pors/skill-audit](#entry-pors-skill-audit) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 37 | [huifer/skill-security-scan](#entry-huifer-skill-security-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 38 | [mukul975/Anthropic-Cybersecurity-Skills](#entry-mukul975-anthropic-cybersecurity-skills) | `CC` `OC` | General | Static Analysis | Knowledge Base |
-| 39 | [Skills-4-SE Security Scanner Suite](#entry-skills-4-se-security-scanner-suite) | `CC` | Source Code | Static Analysis | Knowledge Base |
-| 40 | [Skills-4-SE Formal Verification Toolkit](#entry-skills-4-se-formal-verification-toolkit) | `CC` | Source Code | Static Analysis | Knowledge Base |
-| 41 | [ArabelaTso/Skills-4-SE](#entry-arabelatso-skills-4-se) |  | Source Code, General | Static Analysis | Knowledge Base |
-| 42 | [huhusmang/Awesome-LLMs-for-Vulnerability-Detection](#entry-huhusmang-awesome-llms-for-vulnerability-detection) |  | General | — | Knowledge Base |
-| 43 | [VoltAgent/awesome-agent-skills](#entry-voltagent-awesome-agent-skills) |  | General | — | Catalog |
-| 44 | [antigravity-awesome-skills](#entry-antigravity-awesome-skills) |  | General | — | Catalog |
-| 45 | [travisvn/awesome-claude-skills](#entry-travisvn-awesome-claude-skills) |  | General | — | Catalog |
-| 46 | [hesreallyhim/awesome-claude-code](#entry-hesreallyhim-awesome-claude-code) |  | General | — | Catalog |
-| 47 | [BehiSecc/awesome-claude-skills](#entry-behisecc-awesome-claude-skills) |  | General | — | Catalog |
-| 48 | [ComposioHQ/awesome-claude-skills](#entry-composiohq-awesome-claude-skills) |  | General | — | Catalog |
-| 49 | [ottosulin/awesome-ai-security](#entry-ottosulin-awesome-ai-security) |  | General | — | Catalog |
-| 50 | [alirezarezvani/claude-skills](#entry-alirezarezvani-claude-skills) |  | General | — | Catalog |
-| 51 | [aiskillstore/marketplace](#entry-aiskillstore-marketplace) |  | General | — | Catalog |
+| 27 | [P4nda0s/reverse-skills](#entry-p4nda0s-reverse-skills) | `CC` | Binary, Mobile | Reverse Engineering | Prompt Skill |
+| 28 | [Trail of Bits dwarf-expert](#entry-trail-of-bits-dwarf-expert) | `CC` `CX` | Binary | Reverse Engineering | Knowledge Base |
+| 29 | [Trail of Bits firebase-apk-scanner](#entry-trail-of-bits-firebase-apk-scanner) | `CC` `CX` | Mobile | Static Analysis | Workflow |
+| 30 | [Trail of Bits burpsuite-project-parser](#entry-trail-of-bits-burpsuite-project-parser) | `CC` `CX` | Web | Reverse Engineering | Tool Wrapper |
+| 31 | [Trail of Bits building-secure-contracts](#entry-trail-of-bits-building-secure-contracts) | `CC` `CX` | Smart Contract | Static Analysis, Compliance | Prompt Skill |
+| 32 | [Trail of Bits entry-point-analyzer](#entry-trail-of-bits-entry-point-analyzer) | `CC` `CX` | Smart Contract | Static Analysis | Prompt Skill |
+| 33 | [Trail of Bits spec-to-code-compliance](#entry-trail-of-bits-spec-to-code-compliance) | `CC` `CX` | Smart Contract | Compliance | Prompt Skill |
+| 34 | [scv-scan](#entry-scv-scan) | `CC` | Smart Contract | Static Analysis | Prompt Skill |
+| 35 | [Cisco skill-scanner](#entry-cisco-skill-scanner) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 36 | [Snyk agent-scan](#entry-snyk-agent-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 37 | [pors/skill-audit](#entry-pors-skill-audit) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 38 | [huifer/skill-security-scan](#entry-huifer-skill-security-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 39 | [mukul975/Anthropic-Cybersecurity-Skills](#entry-mukul975-anthropic-cybersecurity-skills) | `CC` `OC` | General | Static Analysis | Knowledge Base |
+| 40 | [Skills-4-SE Security Scanner Suite](#entry-skills-4-se-security-scanner-suite) | `CC` | Source Code | Static Analysis | Knowledge Base |
+| 41 | [Skills-4-SE Formal Verification Toolkit](#entry-skills-4-se-formal-verification-toolkit) | `CC` | Source Code | Static Analysis | Knowledge Base |
+| 42 | [ArabelaTso/Skills-4-SE](#entry-arabelatso-skills-4-se) |  | Source Code, General | Static Analysis | Knowledge Base |
+| 43 | [huhusmang/Awesome-LLMs-for-Vulnerability-Detection](#entry-huhusmang-awesome-llms-for-vulnerability-detection) |  | General | — | Knowledge Base |
+| 44 | [VoltAgent/awesome-agent-skills](#entry-voltagent-awesome-agent-skills) |  | General | — | Catalog |
+| 45 | [antigravity-awesome-skills](#entry-antigravity-awesome-skills) |  | General | — | Catalog |
+| 46 | [travisvn/awesome-claude-skills](#entry-travisvn-awesome-claude-skills) |  | General | — | Catalog |
+| 47 | [hesreallyhim/awesome-claude-code](#entry-hesreallyhim-awesome-claude-code) |  | General | — | Catalog |
+| 48 | [BehiSecc/awesome-claude-skills](#entry-behisecc-awesome-claude-skills) |  | General | — | Catalog |
+| 49 | [ComposioHQ/awesome-claude-skills](#entry-composiohq-awesome-claude-skills) |  | General | — | Catalog |
+| 50 | [ottosulin/awesome-ai-security](#entry-ottosulin-awesome-ai-security) |  | General | — | Catalog |
+| 51 | [alirezarezvani/claude-skills](#entry-alirezarezvani-claude-skills) |  | General | — | Catalog |
+| 52 | [aiskillstore/marketplace](#entry-aiskillstore-marketplace) |  | General | — | Catalog |
 
 ## Platform Tags
 
@@ -389,6 +390,15 @@ Fuzzer, static analysis, and sanitizer integration guidance from Trail of Bits.
 `CC` `🎯Web` `⚙️Fuzzing` `📦Tool Wrapper` https://github.com/jthack/ffuf-claude-skill
 
 FFUF-based web fuzzing integration for Claude.
+
+---
+
+<a id="entry-p4nda0s-reverse-skills"></a>
+### P4nda0s/reverse-skills
+
+`CC` `🎯Binary·Mobile` `⚙️Reverse Engineering` `📦Prompt Skill` https://github.com/P4nda0s/reverse-skills
+
+7 reverse engineering skills for symbol recovery, struct reconstruction, Frida instrumentation, Unicorn emulation, DEX dumping, Unity IL2CPP extraction, and IDAPython scripting.
 
 ---
 

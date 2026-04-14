@@ -430,6 +430,15 @@ module.exports = {
 
     // ── Reverse Engineering & Binary Analysis ────────────────────────
     {
+      name: "P4nda0s/reverse-skills",
+      url: "https://github.com/P4nda0s/reverse-skills",
+      tags: ["CC"],
+      target: ["binary", "mobile"],
+      technique: ["reverse-engineering"],
+      form: ["prompt-skill"],
+      desc: "7 reverse engineering skills for symbol recovery, struct reconstruction, Frida instrumentation, Unicorn emulation, DEX dumping, Unity IL2CPP extraction, and IDAPython scripting."
+    },
+    {
       name: "Trail of Bits dwarf-expert",
       url: "https://github.com/trailofbits/skills",
       tags: ["CC", "CX"],
