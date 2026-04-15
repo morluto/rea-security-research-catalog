@@ -167,7 +167,7 @@ Run `npm run generate` after editing the source catalog. Use `npm run check` to 
 
 `CC` `🎯Web·Agent` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/sssmmmwww/wxmini-security-audit
 
-微信小程序全自动安全审计 Skill，基于 Claude Code Agent Teams。7 Agent 协作，覆盖敏感信息、API接口、加密分析、漏洞分析四大维度。采用脚本+LLM双层架构，脚本保证覆盖率，LLM保证准确率。
+Automated WeChat mini-program security audit skill based on Claude Code Agent Teams. 7-agent collaboration covering sensitive info detection, API interfaces, crypto analysis, and vulnerability analysis. Script+LLM dual-layer architecture: scripts ensure coverage, LLM ensures accuracy.
 
 ---
 
