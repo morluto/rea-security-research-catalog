@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-52-2f81f7?style=flat-square" alt="52 entries">
+  <img src="https://img.shields.io/badge/entries-55-2f81f7?style=flat-square" alt="55 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -30,58 +30,61 @@
 
 | # | Name | Platform | Target | Technique | Form |
 | --- | --- | --- | --- | --- | --- |
-| 1 | [GitHub Security Lab taskflow-agent](#entry-github-security-lab-taskflow-agent) | `OAI` `MCP` | Source Code, General | Threat Modeling, Static Analysis | Workflow |
-| 2 | [GitHub Security Lab taskflows](#entry-github-security-lab-taskflows) | `OAI` | Source Code, General | Threat Modeling | Workflow |
-| 3 | [OpenAI security-threat-model](#entry-openai-security-threat-model) | `CX` | General | Threat Modeling | Prompt Skill |
-| 4 | [Trail of Bits Skills](#entry-trail-of-bits-skills) | `CC` `CX` | Source Code, Binary | Static Analysis, Compliance | Prompt Skill |
-| 5 | [Ghost Security Skills](#entry-ghost-security-skills) | `CC` | Source Code, Web | Static Analysis | Prompt Skill |
-| 6 | [Anthropic Security Review](#entry-anthropic-security-review) | `CC` | Source Code | Static Analysis | Workflow |
-| 7 | [afiqiqmal/claude-security-audit](#entry-afiqiqmal-claude-security-audit) | `CC` | Source Code, Web | Static Analysis, Compliance | Workflow |
-| 8 | [claude-code-owasp](#entry-claude-code-owasp) | `CC` | Source Code, Web | Static Analysis, Compliance | Knowledge Base |
-| 9 | [vibesec](#entry-vibesec) | `CC` | Web | Static Analysis | Prompt Skill |
-| 10 | [clawsec](#entry-clawsec) | `CC` | Agent | Static Analysis | Prompt Skill |
-| 11 | [perseus](#entry-perseus) | `CC` `CX` | Source Code | Static Analysis | Prompt Skill |
-| 12 | [NeoLab code-review](#entry-neolab-code-review) | `CC` | Source Code | Static Analysis | Agent Framework |
-| 13 | [wrsmith108/security-auditor](#entry-wrsmith108-security-auditor) | `CC` | Supply Chain | Static Analysis | Tool Wrapper |
-| 14 | [SecOpsAgentKit](#entry-secopsagentkit) | `CC` | Source Code, Container, Supply Chain | Static Analysis | Suite |
-| 15 | [claude-forge](#entry-claude-forge) | `CC` | General | Static Analysis | Suite |
-| 16 | [everything-claude-code](#entry-everything-claude-code) | `CC` | General | Static Analysis | Suite |
-| 17 | [graphify](#entry-graphify) | `CC` `CX` `OC` | Source Code, General | Static Analysis | Tool Wrapper |
-| 18 | [awesome-claude-skills-security](#entry-awesome-claude-skills-security) | `CC` | Web, General | Dynamic Testing, Fuzzing, Exploit Dev | Prompt Skill |
-| 19 | [bug-hunter](#entry-bug-hunter) | `CC` `CX` | Web, General | Dynamic Testing, Exploit Dev | Prompt Skill |
-| 20 | [raptor](#entry-raptor) | `CC` | General | Static Analysis, Dynamic Testing | Prompt Skill |
-| 21 | [communitytools](#entry-communitytools) | `CC` | Web, General | Dynamic Testing, Recon | Prompt Skill |
-| 22 | [Strix](#entry-strix) | `🔧` | Web | Dynamic Testing | Agent Framework |
-| 23 | [hexstrike-ai](#entry-hexstrike-ai) | `MCP` | General | Dynamic Testing, Recon | MCP Server |
-| 24 | [ctf-skills](#entry-ctf-skills) | `CC` `CX` | Web, Binary | Reverse Engineering, Exploit Dev, Recon | Prompt Skill |
-| 25 | [Trail of Bits testing-handbook-skills](#entry-trail-of-bits-testing-handbook-skills) | `CC` `CX` | Source Code | Fuzzing, Static Analysis | Prompt Skill |
-| 26 | [ffuf-claude-skill](#entry-ffuf-claude-skill) | `CC` | Web | Fuzzing | Tool Wrapper |
-| 27 | [P4nda0s/reverse-skills](#entry-p4nda0s-reverse-skills) | `CC` | Binary, Mobile | Reverse Engineering | Prompt Skill |
-| 28 | [Trail of Bits dwarf-expert](#entry-trail-of-bits-dwarf-expert) | `CC` `CX` | Binary | Reverse Engineering | Knowledge Base |
-| 29 | [Trail of Bits firebase-apk-scanner](#entry-trail-of-bits-firebase-apk-scanner) | `CC` `CX` | Mobile | Static Analysis | Workflow |
-| 30 | [Trail of Bits burpsuite-project-parser](#entry-trail-of-bits-burpsuite-project-parser) | `CC` `CX` | Web | Reverse Engineering | Tool Wrapper |
-| 31 | [Trail of Bits building-secure-contracts](#entry-trail-of-bits-building-secure-contracts) | `CC` `CX` | Smart Contract | Static Analysis, Compliance | Prompt Skill |
-| 32 | [Trail of Bits entry-point-analyzer](#entry-trail-of-bits-entry-point-analyzer) | `CC` `CX` | Smart Contract | Static Analysis | Prompt Skill |
-| 33 | [Trail of Bits spec-to-code-compliance](#entry-trail-of-bits-spec-to-code-compliance) | `CC` `CX` | Smart Contract | Compliance | Prompt Skill |
-| 34 | [scv-scan](#entry-scv-scan) | `CC` | Smart Contract | Static Analysis | Prompt Skill |
-| 35 | [Cisco skill-scanner](#entry-cisco-skill-scanner) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 36 | [Snyk agent-scan](#entry-snyk-agent-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 37 | [pors/skill-audit](#entry-pors-skill-audit) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 38 | [huifer/skill-security-scan](#entry-huifer-skill-security-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 39 | [mukul975/Anthropic-Cybersecurity-Skills](#entry-mukul975-anthropic-cybersecurity-skills) | `CC` `OC` | General | Static Analysis | Knowledge Base |
-| 40 | [Skills-4-SE Security Scanner Suite](#entry-skills-4-se-security-scanner-suite) | `CC` | Source Code | Static Analysis | Knowledge Base |
-| 41 | [Skills-4-SE Formal Verification Toolkit](#entry-skills-4-se-formal-verification-toolkit) | `CC` | Source Code | Static Analysis | Knowledge Base |
-| 42 | [ArabelaTso/Skills-4-SE](#entry-arabelatso-skills-4-se) |  | Source Code, General | Static Analysis | Knowledge Base |
-| 43 | [huhusmang/Awesome-LLMs-for-Vulnerability-Detection](#entry-huhusmang-awesome-llms-for-vulnerability-detection) |  | General | — | Knowledge Base |
-| 44 | [VoltAgent/awesome-agent-skills](#entry-voltagent-awesome-agent-skills) |  | General | — | Catalog |
-| 45 | [antigravity-awesome-skills](#entry-antigravity-awesome-skills) |  | General | — | Catalog |
-| 46 | [travisvn/awesome-claude-skills](#entry-travisvn-awesome-claude-skills) |  | General | — | Catalog |
-| 47 | [hesreallyhim/awesome-claude-code](#entry-hesreallyhim-awesome-claude-code) |  | General | — | Catalog |
-| 48 | [BehiSecc/awesome-claude-skills](#entry-behisecc-awesome-claude-skills) |  | General | — | Catalog |
-| 49 | [ComposioHQ/awesome-claude-skills](#entry-composiohq-awesome-claude-skills) |  | General | — | Catalog |
-| 50 | [ottosulin/awesome-ai-security](#entry-ottosulin-awesome-ai-security) |  | General | — | Catalog |
-| 51 | [alirezarezvani/claude-skills](#entry-alirezarezvani-claude-skills) |  | General | — | Catalog |
-| 52 | [aiskillstore/marketplace](#entry-aiskillstore-marketplace) |  | General | — | Catalog |
+| 1 | [wxmini-security-audit](#entry-wxmini-security-audit) | `CC` | Web, Agent | Static Analysis | Prompt Skill |
+| 2 | [claude-wordpress-skills](#entry-claude-wordpress-skills) | `CC` | Binary, Agent | Static Analysis | Prompt Skill |
+| 3 | [supabase-pentest-skills](#entry-supabase-pentest-skills) | `CC` | Web, Binary, Agent | Dynamic Testing | Prompt Skill |
+| 4 | [skill-audit](#entry-skill-audit) | `CC` | Binary, Agent | Static Analysis | Prompt Skill |
+| 5 | [GitHub Security Lab taskflow-agent](#entry-github-security-lab-taskflow-agent) | `OAI` `MCP` | Source Code, General | Threat Modeling, Static Analysis | Workflow |
+| 6 | [GitHub Security Lab taskflows](#entry-github-security-lab-taskflows) | `OAI` | Source Code, General | Threat Modeling | Workflow |
+| 7 | [OpenAI security-threat-model](#entry-openai-security-threat-model) | `CX` | General | Threat Modeling | Prompt Skill |
+| 8 | [Trail of Bits Skills](#entry-trail-of-bits-skills) | `CC` `CX` | Source Code, Binary | Static Analysis, Compliance | Prompt Skill |
+| 9 | [Ghost Security Skills](#entry-ghost-security-skills) | `CC` | Source Code, Web | Static Analysis | Prompt Skill |
+| 10 | [Anthropic Security Review](#entry-anthropic-security-review) | `CC` | Source Code | Static Analysis | Workflow |
+| 11 | [afiqiqmal/claude-security-audit](#entry-afiqiqmal-claude-security-audit) | `CC` | Source Code, Web | Static Analysis, Compliance | Workflow |
+| 12 | [claude-code-owasp](#entry-claude-code-owasp) | `CC` | Source Code, Web | Static Analysis, Compliance | Knowledge Base |
+| 13 | [vibesec](#entry-vibesec) | `CC` | Web | Static Analysis | Prompt Skill |
+| 14 | [clawsec](#entry-clawsec) | `CC` | Agent | Static Analysis | Prompt Skill |
+| 15 | [perseus](#entry-perseus) | `CC` `CX` | Source Code | Static Analysis | Prompt Skill |
+| 16 | [NeoLab code-review](#entry-neolab-code-review) | `CC` | Source Code | Static Analysis | Agent Framework |
+| 17 | [wrsmith108/security-auditor](#entry-wrsmith108-security-auditor) | `CC` | Supply Chain | Static Analysis | Tool Wrapper |
+| 18 | [SecOpsAgentKit](#entry-secopsagentkit) | `CC` | Source Code, Container, Supply Chain | Static Analysis | Suite |
+| 19 | [claude-forge](#entry-claude-forge) | `CC` | General | Static Analysis | Suite |
+| 20 | [everything-claude-code](#entry-everything-claude-code) | `CC` | General | Static Analysis | Suite |
+| 21 | [graphify](#entry-graphify) | `CC` `CX` `OC` | Source Code, General | Static Analysis | Tool Wrapper |
+| 22 | [awesome-claude-skills-security](#entry-awesome-claude-skills-security) | `CC` | Web, General | Dynamic Testing, Fuzzing, Exploit Dev | Prompt Skill |
+| 23 | [bug-hunter](#entry-bug-hunter) | `CC` `CX` | Web, General | Dynamic Testing, Exploit Dev | Prompt Skill |
+| 24 | [raptor](#entry-raptor) | `CC` | General | Static Analysis, Dynamic Testing | Prompt Skill |
+| 25 | [communitytools](#entry-communitytools) | `CC` | Web, General | Dynamic Testing, Recon | Prompt Skill |
+| 26 | [Strix](#entry-strix) | `🔧` | Web | Dynamic Testing | Agent Framework |
+| 27 | [hexstrike-ai](#entry-hexstrike-ai) | `MCP` | General | Dynamic Testing, Recon | MCP Server |
+| 28 | [ctf-skills](#entry-ctf-skills) | `CC` `CX` | Web, Binary | Reverse Engineering, Exploit Dev, Recon | Prompt Skill |
+| 29 | [Trail of Bits testing-handbook-skills](#entry-trail-of-bits-testing-handbook-skills) | `CC` `CX` | Source Code | Fuzzing, Static Analysis | Prompt Skill |
+| 30 | [P4nda0s/reverse-skills](#entry-p4nda0s-reverse-skills) | `CC` | Binary, Mobile | Reverse Engineering | Prompt Skill |
+| 31 | [Trail of Bits dwarf-expert](#entry-trail-of-bits-dwarf-expert) | `CC` `CX` | Binary | Reverse Engineering | Knowledge Base |
+| 32 | [Trail of Bits firebase-apk-scanner](#entry-trail-of-bits-firebase-apk-scanner) | `CC` `CX` | Mobile | Static Analysis | Workflow |
+| 33 | [Trail of Bits burpsuite-project-parser](#entry-trail-of-bits-burpsuite-project-parser) | `CC` `CX` | Web | Reverse Engineering | Tool Wrapper |
+| 34 | [Trail of Bits building-secure-contracts](#entry-trail-of-bits-building-secure-contracts) | `CC` `CX` | Smart Contract | Static Analysis, Compliance | Prompt Skill |
+| 35 | [Trail of Bits entry-point-analyzer](#entry-trail-of-bits-entry-point-analyzer) | `CC` `CX` | Smart Contract | Static Analysis | Prompt Skill |
+| 36 | [Trail of Bits spec-to-code-compliance](#entry-trail-of-bits-spec-to-code-compliance) | `CC` `CX` | Smart Contract | Compliance | Prompt Skill |
+| 37 | [scv-scan](#entry-scv-scan) | `CC` | Smart Contract | Static Analysis | Prompt Skill |
+| 38 | [Cisco skill-scanner](#entry-cisco-skill-scanner) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 39 | [Snyk agent-scan](#entry-snyk-agent-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 40 | [pors/skill-audit](#entry-pors-skill-audit) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 41 | [huifer/skill-security-scan](#entry-huifer-skill-security-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 42 | [mukul975/Anthropic-Cybersecurity-Skills](#entry-mukul975-anthropic-cybersecurity-skills) | `CC` `OC` | General | Static Analysis | Knowledge Base |
+| 43 | [Skills-4-SE Security Scanner Suite](#entry-skills-4-se-security-scanner-suite) | `CC` | Source Code | Static Analysis | Knowledge Base |
+| 44 | [Skills-4-SE Formal Verification Toolkit](#entry-skills-4-se-formal-verification-toolkit) | `CC` | Source Code | Static Analysis | Knowledge Base |
+| 45 | [ArabelaTso/Skills-4-SE](#entry-arabelatso-skills-4-se) |  | Source Code, General | Static Analysis | Knowledge Base |
+| 46 | [huhusmang/Awesome-LLMs-for-Vulnerability-Detection](#entry-huhusmang-awesome-llms-for-vulnerability-detection) |  | General | — | Knowledge Base |
+| 47 | [VoltAgent/awesome-agent-skills](#entry-voltagent-awesome-agent-skills) |  | General | — | Catalog |
+| 48 | [antigravity-awesome-skills](#entry-antigravity-awesome-skills) |  | General | — | Catalog |
+| 49 | [travisvn/awesome-claude-skills](#entry-travisvn-awesome-claude-skills) |  | General | — | Catalog |
+| 50 | [hesreallyhim/awesome-claude-code](#entry-hesreallyhim-awesome-claude-code) |  | General | — | Catalog |
+| 51 | [BehiSecc/awesome-claude-skills](#entry-behisecc-awesome-claude-skills) |  | General | — | Catalog |
+| 52 | [ComposioHQ/awesome-claude-skills](#entry-composiohq-awesome-claude-skills) |  | General | — | Catalog |
+| 53 | [ottosulin/awesome-ai-security](#entry-ottosulin-awesome-ai-security) |  | General | — | Catalog |
+| 54 | [alirezarezvani/claude-skills](#entry-alirezarezvani-claude-skills) |  | General | — | Catalog |
+| 55 | [aiskillstore/marketplace](#entry-aiskillstore-marketplace) |  | General | — | Catalog |
 
 ## Platform Tags
 
@@ -158,6 +161,42 @@ How is the skill packaged or delivered?
 Run `npm run generate` after editing the source catalog. Use `npm run check` to verify generated files are up to date.
 
 ## Entries
+
+<a id="entry-wxmini-security-audit"></a>
+### wxmini-security-audit
+
+`CC` `🎯Web·Agent` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/sssmmmwww/wxmini-security-audit
+
+微信小程序全自动安全审计 Skill，基于 Claude Code Agent Teams。7 Agent 协作，覆盖敏感信息、API接口、加密分析、漏洞分析四大维度。采用脚本+LLM双层架构，脚本保证覆盖率，LLM保证准确率。
+
+---
+
+<a id="entry-claude-wordpress-skills"></a>
+### claude-wordpress-skills
+
+`CC` `🎯Binary·Agent` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/elvismdev/claude-wordpress-skills
+
+Professional WordPress engineering skills for Claude Code - performance optimization, security auditing, Gutenberg block development, and theme/plugin best practices
+
+---
+
+<a id="entry-supabase-pentest-skills"></a>
+### supabase-pentest-skills
+
+`CC` `🎯Web·Binary·Agent` `⚙️Dynamic Testing` `📦Prompt Skill` https://github.com/yoanbernabeu/supabase-pentest-skills
+
+24 AI Agent Skills for professional security auditing of Supabase applications. Detection, key extraction, RLS testing, storage audit, IDOR detection, and comprehensive reporting. Works with Claude Code, Cursor, Windsurf, and 30+ AI agents
+
+---
+
+<a id="entry-skill-audit"></a>
+### skill-audit
+
+`CC` `🎯Binary·Agent` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/dabit3/skill-audit
+
+Audit agent skill definitions for security, completeness, and compatibility across Codex, Claude Code, OpenClaw, and more
+
+---
 
 <a id="entry-github-security-lab-taskflow-agent"></a>
 ### GitHub Security Lab taskflow-agent
@@ -381,15 +420,6 @@ CTF-oriented skills for web, pwn, crypto, reverse, forensics, OSINT, malware, an
 `CC` `CX` `🎯Source Code` `⚙️Fuzzing·Static Analysis` `📦Prompt Skill` https://github.com/trailofbits/skills
 
 Fuzzer, static analysis, and sanitizer integration guidance from Trail of Bits.
-
----
-
-<a id="entry-ffuf-claude-skill"></a>
-### ffuf-claude-skill
-
-`CC` `🎯Web` `⚙️Fuzzing` `📦Tool Wrapper` https://github.com/jthack/ffuf-claude-skill
-
-FFUF-based web fuzzing integration for Claude.
 
 ---
 

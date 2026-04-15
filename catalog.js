@@ -184,6 +184,44 @@ module.exports = {
 
   // --- Flat entry list with multi-dimensional tags ---
   entries: [
+    // ── Added by crawler 2026-04-15 ──
+    {
+      name: "wxmini-security-audit",
+      url: "https://github.com/sssmmmwww/wxmini-security-audit",
+      tags: ["CC"],
+      target: ["web", "agent"],
+      technique: ["static-analysis"],
+      form: ["prompt-skill"],
+      desc: "微信小程序全自动安全审计 Skill，基于 Claude Code Agent Teams。7 Agent 协作，覆盖敏感信息、API接口、加密分析、漏洞分析四大维度。采用脚本+LLM双层架构，脚本保证覆盖率，LLM保证准确率。"
+    },
+    {
+      name: "claude-wordpress-skills",
+      url: "https://github.com/elvismdev/claude-wordpress-skills",
+      tags: ["CC"],
+      target: ["binary", "agent"],
+      technique: ["static-analysis"],
+      form: ["prompt-skill"],
+      desc: "Professional WordPress engineering skills for Claude Code - performance optimization, security auditing, Gutenberg block development, and theme/plugin best practices"
+    },
+    {
+      name: "supabase-pentest-skills",
+      url: "https://github.com/yoanbernabeu/supabase-pentest-skills",
+      tags: ["CC"],
+      target: ["web", "binary", "agent"],
+      technique: ["dynamic-testing"],
+      form: ["prompt-skill"],
+      desc: "24 AI Agent Skills for professional security auditing of Supabase applications. Detection, key extraction, RLS testing, storage audit, IDOR detection, and comprehensive reporting. Works with Claude Code, Cursor, Windsurf, and 30+ AI agents"
+    },
+    {
+      name: "skill-audit",
+      url: "https://github.com/dabit3/skill-audit",
+      tags: ["CC"],
+      target: ["binary", "agent"],
+      technique: ["static-analysis"],
+      form: ["prompt-skill"],
+      desc: "Audit agent skill definitions for security, completeness, and compatibility across Codex, Claude Code, OpenClaw, and more"
+    },
+
     // ── Threat Modeling & Audit ──────────────────────────────────────
     {
       name: "GitHub Security Lab taskflow-agent",
@@ -418,16 +456,6 @@ module.exports = {
       form: ["prompt-skill"],
       desc: "Fuzzer, static analysis, and sanitizer integration guidance from Trail of Bits."
     },
-    {
-      name: "ffuf-claude-skill",
-      url: "https://github.com/jthack/ffuf-claude-skill",
-      tags: ["CC"],
-      target: ["web"],
-      technique: ["fuzzing"],
-      form: ["tool-wrapper"],
-      desc: "FFUF-based web fuzzing integration for Claude."
-    },
-
     // ── Reverse Engineering & Binary Analysis ────────────────────────
     {
       name: "P4nda0s/reverse-skills",
