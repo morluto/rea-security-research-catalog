@@ -828,6 +828,87 @@ module.exports = {
       desc: "220+ Claude Code skills and agent plugins."
     },
     {
+      name: "Tencent/AI-Infra-Guard",
+      url: "https://github.com/Tencent/AI-Infra-Guard",
+      tags: ["CC", "OC", "MCP"],
+      target: ["source", "web", "binary", "supply-chain", "agent"],
+      technique: ["static-analysis", "dynamic-testing", "fuzzing"],
+      form: ["suite"],
+      desc: "Full-stack AI red teaming platform securing AI ecosystems via OpenClaw Security Scan, Agent Scan, Skills Scan, MCP Scan, AI Infra Scan, and LLM jailbreak evaluation."
+    },
+    {
+      name: "raroque/vibe-security-skill",
+      url: "https://github.com/raroque/vibe-security-skill",
+      tags: ["CC"],
+      target: ["source", "web"],
+      technique: ["static-analysis"],
+      form: ["prompt-skill"],
+      desc: "Agent skill that audits vibe-coded apps for common security vulnerabilities introduced by AI coding assistants — hardcoded secrets, missing row-level security, trusting client-submitted data, and localStorage token storage."
+    },
+    {
+      name: "msoedov/agentic_security",
+      url: "https://github.com/msoedov/agentic_security",
+      tags: ["CC"],
+      target: ["agent"],
+      technique: ["fuzzing", "dynamic-testing"],
+      form: ["tool-wrapper"],
+      desc: "Open-source vulnerability scanner for agentic LLM workflows. Protects against jailbreaks, multimodal attacks, and fuzzing with RL-based adaptive attack generation and high-volume API stress testing."
+    },
+    {
+      name: "aryanbhosale/sh-guard",
+      url: "https://github.com/aryanbhosale/sh-guard",
+      tags: ["CC"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Semantic shell command safety classifier for AI coding agents. AST-based risk scoring with sub-100-microsecond latency. Detects recursive deletion, production database access, and other high-risk commands before execution."
+    },
+    {
+      name: "agent-receipts/ar",
+      url: "https://github.com/agent-receipts/ar",
+      tags: ["MCP"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["mcp-server"],
+      desc: "Cryptographically signed audit trails for AI agent actions. Go/TypeScript/Python SDKs with an MCP proxy that signs every tool call — enables tamper-proof security audit logs and compliance verification."
+    },
+    {
+      name: "hellocosmos/agent-runtime-security",
+      url: "https://github.com/hellocosmos/agent-runtime-security",
+      tags: ["CC", "MCP"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Open-source runtime security framework for tool-using AI agents. Guard, Scanner, and AuditLogger components with MCP/LangChain/LangGraph integrations. Supports shadow/warn/enforce deployment modes."
+    },
+    {
+      name: "squirrelscan/skills",
+      url: "https://github.com/squirrelscan/skills",
+      tags: ["CC"],
+      target: ["web", "source"],
+      technique: ["static-analysis"],
+      form: ["prompt-skill"],
+      desc: "Website audit skill with 200+ rules across SEO, performance, accessibility, and security. Detects 96 secret-leak patterns (OpenAI, Anthropic, AWS, Stripe). LLM-native output, CI/CD optimized."
+    },
+    {
+      name: "getsentry/skills",
+      url: "https://github.com/getsentry/skills",
+      tags: ["CC"],
+      target: ["source"],
+      technique: ["static-analysis"],
+      form: ["prompt-skill"],
+      desc: "Sentry team's agent skills for security-focused code review and development workflow. Includes security-review, audit-website, and audit-supabase skills with high-confidence vulnerability verification."
+    },
+    {
+      name: "snyk/agent-scan",
+      url: "https://github.com/snyk/agent-scan",
+      tags: ["CC", "MCP", "TOOL"],
+      target: ["agent", "supply-chain"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Snyk security scanner for AI agents, MCP servers, and agent skills. Detects prompt injections and vulnerabilities in agent components on the local machine. Includes technical report on emerging agent skill ecosystem threats."
+    },
+    {
       name: "aiskillstore/marketplace",
       url: "https://github.com/aiskillstore/marketplace",
       tags: [],
