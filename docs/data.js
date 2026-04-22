@@ -259,6 +259,79 @@ window.CATALOG_DATA = {
   ],
   "entries": [
     {
+      "name": "wxmini-security-audit",
+      "url": "https://github.com/sssmmmwww/wxmini-security-audit",
+      "tags": [
+        "CC"
+      ],
+      "target": [
+        "web",
+        "agent"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "desc": "Automated WeChat mini-program security audit skill based on Claude Code Agent Teams. 7-agent collaboration covering sensitive info detection, API interfaces, crypto analysis, and vulnerability analysis. Script+LLM dual-layer architecture: scripts ensure coverage, LLM ensures accuracy.",
+      "form": [
+        "prompt-skill"
+      ]
+    },
+    {
+      "name": "claude-wordpress-skills",
+      "url": "https://github.com/elvismdev/claude-wordpress-skills",
+      "tags": [
+        "CC"
+      ],
+      "target": [
+        "binary",
+        "agent"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "prompt-skill"
+      ],
+      "desc": "Professional WordPress engineering skills for Claude Code - performance optimization, security auditing, Gutenberg block development, and theme/plugin best practices"
+    },
+    {
+      "name": "supabase-pentest-skills",
+      "url": "https://github.com/yoanbernabeu/supabase-pentest-skills",
+      "tags": [
+        "CC"
+      ],
+      "target": [
+        "web",
+        "binary",
+        "agent"
+      ],
+      "technique": [
+        "dynamic-testing"
+      ],
+      "form": [
+        "prompt-skill"
+      ],
+      "desc": "24 AI Agent Skills for professional security auditing of Supabase applications. Detection, key extraction, RLS testing, storage audit, IDOR detection, and comprehensive reporting. Works with Claude Code, Cursor, Windsurf, and 30+ AI agents"
+    },
+    {
+      "name": "skill-audit",
+      "url": "https://github.com/dabit3/skill-audit",
+      "tags": [
+        "CC"
+      ],
+      "target": [
+        "binary",
+        "agent"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "prompt-skill"
+      ],
+      "desc": "Audit agent skill definitions for security, completeness, and compatibility across Codex, Claude Code, OpenClaw, and more"
+    },
+    {
       "name": "GitHub Security Lab taskflow-agent",
       "url": "https://github.com/GitHubSecurityLab/seclab-taskflow-agent",
       "tags": [
@@ -716,23 +789,6 @@ window.CATALOG_DATA = {
         "prompt-skill"
       ],
       "desc": "Fuzzer, static analysis, and sanitizer integration guidance from Trail of Bits."
-    },
-    {
-      "name": "ffuf-claude-skill",
-      "url": "https://github.com/jthack/ffuf-claude-skill",
-      "tags": [
-        "CC"
-      ],
-      "target": [
-        "web"
-      ],
-      "technique": [
-        "fuzzing"
-      ],
-      "form": [
-        "tool-wrapper"
-      ],
-      "desc": "FFUF-based web fuzzing integration for Claude."
     },
     {
       "name": "P4nda0s/reverse-skills",
