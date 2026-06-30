@@ -907,6 +907,63 @@ module.exports = {
       technique: [],
       form: ["catalog"],
       desc: "Security-audited Claude and Codex skills marketplace."
+    },
+    
+
+// ── Daily curation 2026-06-30 ──────────────────────────────────────
+    {
+      name: "code-audit",
+      url: "https://github.com/3stoneBrother/code-audit",
+      tags: ["CC"],
+      target: ["source", "web"],
+      technique: ["static-analysis"],
+      form: ["prompt-skill"],
+      desc: "Claude Code white-box security audit skill covering multiple languages, frameworks, vulnerability classes, attack-chain construction, and multi-agent deep analysis"
+    },
+    {
+      name: "security-audit-skill",
+      url: "https://github.com/netresearch/security-audit-skill",
+      tags: ["CC"],
+      target: ["source", "web"],
+      technique: ["static-analysis", "compliance"],
+      form: ["prompt-skill"],
+      desc: "Claude Code compatible agent skill for PHP security audits with OWASP patterns and vulnerability detection guidance"
+    },
+    {
+      name: "Claude-BugHunter",
+      url: "https://github.com/elementalsouls/Claude-BugHunter",
+      tags: ["CC", "CX", "OC"],
+      target: ["web", "agent"],
+      technique: ["dynamic-testing", "recon", "exploit-dev"],
+      form: ["suite"],
+      desc: "Agent skill bundle for authorized bug hunting and red-team workflows with vulnerability-class playbooks, disclosed-report patterns, slash commands, and multi-harness installation"
+    },
+    {
+      name: "oc-security-audit",
+      url: "https://github.com/miclivne/oc-security-audit",
+      tags: ["CC", "CX"],
+      target: ["web", "source"],
+      technique: ["static-analysis", "dynamic-testing", "compliance"],
+      form: ["workflow"],
+      desc: "Full-stack security audit skill for AI coding agents using OWASP-grounded checks across web apps, infrastructure, deployment, privacy, and LLM risk categories"
+    },
+    {
+      name: "ramparts",
+      url: "https://github.com/highflame-ai/ramparts",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "MCP and skill scanner for detecting indirect attack vectors, security vulnerabilities, and risky configuration in agent tooling"
+    },
+    {
+      name: "pix-ai-coding-assistant",
+      url: "https://github.com/Vulnetix/pix-ai-coding-assistant",
+      tags: ["CC", "TOOL"],
+      target: ["source", "supply-chain"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Vulnerability intelligence plugin for AI coding agents with dependency scanning, exploit analysis, remediation guidance, and pre-commit hooks"
     }
   ]
 };

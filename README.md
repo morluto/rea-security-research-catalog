@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-78-2f81f7?style=flat-square" alt="78 entries">
+  <img src="https://img.shields.io/badge/entries-84-2f81f7?style=flat-square" alt="84 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -108,6 +108,12 @@
 | 76 | [getsentry/skills](#entry-getsentry-skills) | `CC` | Source Code | Static Analysis | Prompt Skill |
 | 77 | [snyk/agent-scan](#entry-snyk-agent-scan) | `CC` `MCP` `🔧` | Agent, Supply Chain | Static Analysis | Tool Wrapper |
 | 78 | [aiskillstore/marketplace](#entry-aiskillstore-marketplace) |  | General | — | Catalog |
+| 79 | [code-audit](#entry-code-audit) | `CC` | Source Code, Web | Static Analysis | Prompt Skill |
+| 80 | [security-audit-skill](#entry-security-audit-skill) | `CC` | Source Code, Web | Static Analysis, Compliance | Prompt Skill |
+| 81 | [Claude-BugHunter](#entry-claude-bughunter) | `CC` `CX` `OC` | Web, Agent | Dynamic Testing, Recon, Exploit Dev | Suite |
+| 82 | [oc-security-audit](#entry-oc-security-audit) | `CC` `CX` | Web, Source Code | Static Analysis, Dynamic Testing, Compliance | Workflow |
+| 83 | [ramparts](#entry-ramparts) | `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 84 | [pix-ai-coding-assistant](#entry-pix-ai-coding-assistant) | `CC` `🔧` | Source Code, Supply Chain | Static Analysis | Tool Wrapper |
 
 ## Platform Tags
 
@@ -884,6 +890,60 @@ Snyk security scanner for AI agents, MCP servers, and agent skills. Detects prom
 `🎯General` `📦Catalog` https://github.com/aiskillstore/marketplace
 
 Security-audited Claude and Codex skills marketplace.
+
+---
+
+<a id="entry-code-audit"></a>
+### code-audit
+
+`CC` `🎯Source Code·Web` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/3stoneBrother/code-audit
+
+Claude Code white-box security audit skill covering multiple languages, frameworks, vulnerability classes, attack-chain construction, and multi-agent deep analysis
+
+---
+
+<a id="entry-security-audit-skill"></a>
+### security-audit-skill
+
+`CC` `🎯Source Code·Web` `⚙️Static Analysis·Compliance` `📦Prompt Skill` https://github.com/netresearch/security-audit-skill
+
+Claude Code compatible agent skill for PHP security audits with OWASP patterns and vulnerability detection guidance
+
+---
+
+<a id="entry-claude-bughunter"></a>
+### Claude-BugHunter
+
+`CC` `CX` `OC` `🎯Web·Agent` `⚙️Dynamic Testing·Recon·Exploit Dev` `📦Suite` https://github.com/elementalsouls/Claude-BugHunter
+
+Agent skill bundle for authorized bug hunting and red-team workflows with vulnerability-class playbooks, disclosed-report patterns, slash commands, and multi-harness installation
+
+---
+
+<a id="entry-oc-security-audit"></a>
+### oc-security-audit
+
+`CC` `CX` `🎯Web·Source Code` `⚙️Static Analysis·Dynamic Testing·Compliance` `📦Workflow` https://github.com/miclivne/oc-security-audit
+
+Full-stack security audit skill for AI coding agents using OWASP-grounded checks across web apps, infrastructure, deployment, privacy, and LLM risk categories
+
+---
+
+<a id="entry-ramparts"></a>
+### ramparts
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/highflame-ai/ramparts
+
+MCP and skill scanner for detecting indirect attack vectors, security vulnerabilities, and risky configuration in agent tooling
+
+---
+
+<a id="entry-pix-ai-coding-assistant"></a>
+### pix-ai-coding-assistant
+
+`CC` `🔧` `🎯Source Code·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/Vulnetix/pix-ai-coding-assistant
+
+Vulnerability intelligence plugin for AI coding agents with dependency scanning, exploit analysis, remediation guidance, and pre-commit hooks
 
 ## Contributing
 
