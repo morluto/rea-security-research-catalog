@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-84-2f81f7?style=flat-square" alt="84 entries">
+  <img src="https://img.shields.io/badge/entries-115-2f81f7?style=flat-square" alt="115 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -114,6 +114,37 @@
 | 82 | [oc-security-audit](#entry-oc-security-audit) | `CC` `CX` | Web, Source Code | Static Analysis, Dynamic Testing, Compliance | Workflow |
 | 83 | [ramparts](#entry-ramparts) | `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
 | 84 | [pix-ai-coding-assistant](#entry-pix-ai-coding-assistant) | `CC` `🔧` | Source Code, Supply Chain | Static Analysis | Tool Wrapper |
+| 85 | [Semia](#entry-semia) | `CC` `CX` `OC` `🔧` | Agent, Source Code | Static Analysis | Tool Wrapper |
+| 86 | [agentshield](#entry-agentshield) | `CC` `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 87 | [agent-audit](#entry-agent-audit) | `MCP` `🔧` | Agent | Static Analysis, Compliance | Tool Wrapper |
+| 88 | [skillfortify](#entry-skillfortify) | `CC` `MCP` `🔧` | Agent, Supply Chain | Static Analysis | Tool Wrapper |
+| 89 | [skillguard](#entry-skillguard) | `CC` `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 90 | [Armorer-Guard](#entry-armorer-guard) | `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 91 | [joergmichno/clawguard](#entry-joergmichno-clawguard) | `MCP` `🔧` | Agent | Static Analysis, Compliance | Tool Wrapper |
+| 92 | [agentsec](#entry-agentsec) | `OC` `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 93 | [skillscan-security](#entry-skillscan-security) | `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 94 | [NVIDIA SkillSpector](#entry-nvidia-skillspector) | `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 95 | [llm-sast-scanner](#entry-llm-sast-scanner) | `🔧` | Agent, Source Code | Static Analysis | Prompt Skill |
+| 96 | [skill-sentinel](#entry-skill-sentinel) | `CC` `🔧` | Agent, Supply Chain | Static Analysis | Tool Wrapper |
+| 97 | [prompt-shield](#entry-prompt-shield) | `MCP` `🔧` | Agent, Web | Static Analysis, Compliance | Tool Wrapper |
+| 98 | [agent-scanner](#entry-agent-scanner) | `CC` `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 99 | [mcp-safeguard](#entry-mcp-safeguard) | `CC` `MCP` `OAI` `🔧` | Agent | Static Analysis | MCP Server |
+| 100 | [skill-security-guard](#entry-skill-security-guard) | `OC` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 101 | [mcpradar](#entry-mcpradar) | `MCP` `🔧` | Agent | Static Analysis, Compliance | MCP Server |
+| 102 | [MCP-Shield](#entry-mcp-shield) | `MCP` `🔧` | Agent | Static Analysis, Compliance | MCP Server |
+| 103 | [mcpshield](#entry-mcpshield) | `MCP` `🔧` | Agent, Supply Chain | Static Analysis | Tool Wrapper |
+| 104 | [Garak-MCP](#entry-garak-mcp) | `MCP` `🔧` | Agent | Dynamic Testing | MCP Server |
+| 105 | [eSentire mcp-scanner](#entry-esentire-mcp-scanner) | `MCP` `🔧` | Agent | Static Analysis | MCP Server |
+| 106 | [ghostpatch](#entry-ghostpatch) | `MCP` `🔧` | Source Code, Web, Agent | Static Analysis, Compliance | Tool Wrapper |
+| 107 | [badchars/mcp-security-scanner](#entry-badchars-mcp-security-scanner) | `CC` `MCP` `🔧` | Agent, Source Code, Supply Chain | Static Analysis, Dynamic Testing, Fuzzing, Compliance | MCP Server |
+| 108 | [HailBytes/mcp-security-scanner](#entry-hailbytes-mcp-security-scanner) | `MCP` `🔧` | Agent | Static Analysis | MCP Server |
+| 109 | [adudley78/mcp-audit](#entry-adudley78-mcp-audit) | `CC` `MCP` `🔧` | Agent, Supply Chain | Static Analysis | MCP Server |
+| 110 | [decoy-scan](#entry-decoy-scan) | `MCP` `🔧` | Agent, Supply Chain | Static Analysis, Compliance | Tool Wrapper |
+| 111 | [mcp-semgrep-scanner](#entry-mcp-semgrep-scanner) | `MCP` `🔧` | Agent, Source Code, Web | Static Analysis, Compliance | MCP Server |
+| 112 | [skilldoctor](#entry-skilldoctor) | `CC` `🔧` | Agent, Source Code | Static Analysis | Tool Wrapper |
+| 113 | [agentguard](#entry-agentguard) | `MCP` `🔧` | Agent, Source Code | Static Analysis, Compliance | Tool Wrapper |
+| 114 | [skillsentry](#entry-skillsentry) | `MCP` `🔧` | Agent | Static Analysis, Compliance | Tool Wrapper |
+| 115 | [agent-supply-chain-scanner](#entry-agent-supply-chain-scanner) | `MCP` `🔧` | Agent, Supply Chain | Static Analysis | Tool Wrapper |
 
 ## Platform Tags
 
@@ -944,6 +975,285 @@ MCP and skill scanner for detecting indirect attack vectors, security vulnerabil
 `CC` `🔧` `🎯Source Code·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/Vulnetix/pix-ai-coding-assistant
 
 Vulnerability intelligence plugin for AI coding agents with dependency scanning, exploit analysis, remediation guidance, and pre-commit hooks
+
+---
+
+<a id="entry-semia"></a>
+### Semia
+
+`CC` `CX` `OC` `🔧` `🎯Agent·Source Code` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/berabuddies/Semia
+
+Security audit tool for AI agent skills with static analysis support for Claude Code, Codex, and OpenClaw-style skill ecosystems
+
+---
+
+<a id="entry-agentshield"></a>
+### agentshield
+
+`CC` `MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/affaan-m/agentshield
+
+AI agent security scanner for agent configurations, MCP servers, and tool permissions with CLI, GitHub Action, and app integrations
+
+---
+
+<a id="entry-agent-audit"></a>
+### agent-audit
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/HeadyZhang/agent-audit
+
+Static security scanner for LLM agents covering prompt injection, MCP configuration auditing, taint analysis, and OWASP Agentic Top 10 mappings
+
+---
+
+<a id="entry-skillfortify"></a>
+### skillfortify
+
+`CC` `MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/qualixar/skillfortify
+
+Security scanner for AI agent skills and plugins with static analysis, supply-chain verification, SBOM generation, and multi-framework support
+
+---
+
+<a id="entry-skillguard"></a>
+### skillguard
+
+`CC` `MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/obielin/skillguard
+
+Security scanner for AI agent skills that detects prompt injection, data exfiltration, and malicious payload risks before installation
+
+---
+
+<a id="entry-armorer-guard"></a>
+### Armorer-Guard
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/ArmorerLabs/Armorer-Guard
+
+Local Rust scanner for AI-agent prompt injection, credential leaks, exfiltration risks, and risky tool calls
+
+---
+
+<a id="entry-joergmichno-clawguard"></a>
+### joergmichno/clawguard
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/joergmichno/clawguard
+
+Prompt injection scanner for AI agents with multilingual detection patterns, REST API support, and compliance mappings
+
+---
+
+<a id="entry-agentsec"></a>
+### agentsec
+
+`OC` `MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/debu-sinha/agentsec
+
+Security scanner and hardener for OpenClaw, MCP servers, and AI agent skill ecosystems
+
+---
+
+<a id="entry-skillscan-security"></a>
+### skillscan-security
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/kurtpayne/skillscan-security
+
+Security scanner for AI agent skills and MCP tool bundles covering prompt injection, IOC matching, malware detection, and ML-based classification
+
+---
+
+<a id="entry-nvidia-skillspector"></a>
+### NVIDIA SkillSpector
+
+`🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/NVIDIA/SkillSpector
+
+Security scanner for AI agent skills that detects vulnerabilities, malicious patterns, and security risks in skill packages
+
+---
+
+<a id="entry-llm-sast-scanner"></a>
+### llm-sast-scanner
+
+`🔧` `🎯Agent·Source Code` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/SunWeb3Sec/llm-sast-scanner
+
+SAST skill for AI coding agents that provides structured vulnerability detection across multiple vulnerability classes
+
+---
+
+<a id="entry-skill-sentinel"></a>
+### skill-sentinel
+
+`CC` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/EvolutionUnleashed/skill-sentinel
+
+AI agent skill security scanner for detecting malicious code, prompt injection, data exfiltration, and supply-chain threats in SKILL.md files
+
+---
+
+<a id="entry-prompt-shield"></a>
+### prompt-shield
+
+`MCP` `🔧` `🎯Agent·Web` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/mthamil107/prompt-shield
+
+Prompt injection detection engine with input detectors, output scanners, PII redaction, red-team self-testing, and framework integrations
+
+---
+
+<a id="entry-agent-scanner"></a>
+### agent-scanner
+
+`CC` `MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/go-authgate/agent-scanner
+
+Security scanner for AI agents, MCP servers, and agent skills with prompt-injection and tool-poisoning checks
+
+---
+
+<a id="entry-mcp-safeguard"></a>
+### mcp-safeguard
+
+`CC` `MCP` `OAI` `🔧` `🎯Agent` `⚙️Static Analysis` `📦MCP Server` https://github.com/SyedAnas01/mcp-safeguard
+
+Security scanner for MCP servers with rules for prompt injection, credential exposure, SSRF, and tool poisoning
+
+---
+
+<a id="entry-skill-security-guard"></a>
+### skill-security-guard
+
+`OC` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/rrrrrredy/skill-security-guard
+
+Static security scanner for agent skills with A-F risk ratings, safe zip scanning, and CI-tested rules
+
+---
+
+<a id="entry-mcpradar"></a>
+### mcpradar
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis·Compliance` `📦MCP Server` https://github.com/yatuk/mcpradar
+
+Security scanner for MCP servers covering tool poisoning, prompt injection, secrets exposure, command injection, and cross-server attack chains
+
+---
+
+<a id="entry-mcp-shield"></a>
+### MCP-Shield
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis·Compliance` `📦MCP Server` https://github.com/sumit1kr/MCP-Shield
+
+Security scanner for MCP servers that tests OWASP MCP Top 10 risks such as prompt injection, tool poisoning, and SSRF
+
+---
+
+<a id="entry-mcpshield"></a>
+### mcpshield
+
+`MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/mcpshield/mcpshield
+
+Supply-chain security scanner for MCP servers that detects typosquats, CVEs, credential leaks, and dangerous permissions in agent configs
+
+---
+
+<a id="entry-garak-mcp"></a>
+### Garak-MCP
+
+`MCP` `🔧` `🎯Agent` `⚙️Dynamic Testing` `📦MCP Server` https://github.com/EdenYavin/Garak-MCP
+
+MCP server wrapper for using the Garak LLM vulnerability scanner from MCP-compatible agents
+
+---
+
+<a id="entry-esentire-mcp-scanner"></a>
+### eSentire mcp-scanner
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦MCP Server` https://github.com/eSentire-Labs/mcp-scanner
+
+Security vulnerability scanner for Model Context Protocol servers
+
+---
+
+<a id="entry-ghostpatch"></a>
+### ghostpatch
+
+`MCP` `🔧` `🎯Source Code·Web·Agent` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/NeuralRays/ghostpatch
+
+Local AI-powered vulnerability scanner with OWASP rules, multi-language analysis, and MCP server support for coding agents
+
+---
+
+<a id="entry-badchars-mcp-security-scanner"></a>
+### badchars/mcp-security-scanner
+
+`CC` `MCP` `🔧` `🎯Agent·Source Code·Supply Chain` `⚙️Static Analysis·Dynamic Testing·Fuzzing·Compliance` `📦MCP Server` https://github.com/badchars/mcp-security-scanner
+
+MCP server security scanner with runtime inspection, AST-based SAST, config audit, dependency analysis, fuzz testing, and OWASP MCP coverage
+
+---
+
+<a id="entry-hailbytes-mcp-security-scanner"></a>
+### HailBytes/mcp-security-scanner
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦MCP Server` https://github.com/HailBytes/mcp-security-scanner
+
+Scanner for MCP server configurations covering overprivileged tools, missing authentication, prompt-injection surface, and unsafe defaults
+
+---
+
+<a id="entry-adudley78-mcp-audit"></a>
+### adudley78/mcp-audit
+
+`CC` `MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis` `📦MCP Server` https://github.com/adudley78/mcp-audit
+
+Security scanner for MCP server configurations that detects prompt injection, credential exposure, and supply-chain risks
+
+---
+
+<a id="entry-decoy-scan"></a>
+### decoy-scan
+
+`MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/decoy-run/decoy-scan
+
+Security scanner for MCP server configurations that finds risky tools, input validation gaps, transport vulnerabilities, and over-permissioned capability chains
+
+---
+
+<a id="entry-mcp-semgrep-scanner"></a>
+### mcp-semgrep-scanner
+
+`MCP` `🔧` `🎯Agent·Source Code·Web` `⚙️Static Analysis·Compliance` `📦MCP Server` https://github.com/archimedes-market/mcp-semgrep-scanner
+
+MCP integration for running Semgrep static analysis with OWASP Top 10 checks, secrets detection, custom rules, and baseline scanning
+
+---
+
+<a id="entry-skilldoctor"></a>
+### skilldoctor
+
+`CC` `🔧` `🎯Agent·Source Code` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/studiomeyer-io/skilldoctor
+
+Linter and security scanner for AI-agent skill files covering SKILL.md, AGENTS.md, subagent frontmatter, prompt injection, data exfiltration, SARIF, and GitHub Actions
+
+---
+
+<a id="entry-agentguard"></a>
+### agentguard
+
+`MCP` `🔧` `🎯Agent·Source Code` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/dockfixlabs/agentguard
+
+Security scanner for AI agents that detects prompt injection, tool abuse, data exfiltration, and OWASP Agentic AI risks with MCP server mode
+
+---
+
+<a id="entry-skillsentry"></a>
+### skillsentry
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/YAMRAJ13y/skillsentry
+
+Semantic scanner for malicious MCP servers and agent skills covering prompt injection, tool poisoning, rug-pulls, and excessive agency
+
+---
+
+<a id="entry-agent-supply-chain-scanner"></a>
+### agent-supply-chain-scanner
+
+`MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/cloudanimal/agent-supply-chain-scanner
+
+SAST tool for AI agent instructions that detects prompt injection and malicious instructions in skills, MCP servers, hooks, memory, and prompts
 
 ## Contributing
 
