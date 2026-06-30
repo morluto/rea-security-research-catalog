@@ -964,6 +964,317 @@ module.exports = {
       technique: ["static-analysis"],
       form: ["tool-wrapper"],
       desc: "Vulnerability intelligence plugin for AI coding agents with dependency scanning, exploit analysis, remediation guidance, and pre-commit hooks"
+    },
+
+    // ── Bulk defensive curation 2026-06-30 ───────────────────────────────
+    {
+      name: "Semia",
+      url: "https://github.com/berabuddies/Semia",
+      tags: ["CC", "CX", "OC", "TOOL"],
+      target: ["agent", "source"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Security audit tool for AI agent skills with static analysis support for Claude Code, Codex, and OpenClaw-style skill ecosystems"
+    },
+
+    {
+      name: "agentshield",
+      url: "https://github.com/affaan-m/agentshield",
+      tags: ["CC", "MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "AI agent security scanner for agent configurations, MCP servers, and tool permissions with CLI, GitHub Action, and app integrations"
+    },
+
+    {
+      name: "agent-audit",
+      url: "https://github.com/HeadyZhang/agent-audit",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis", "compliance"],
+      form: ["tool-wrapper"],
+      desc: "Static security scanner for LLM agents covering prompt injection, MCP configuration auditing, taint analysis, and OWASP Agentic Top 10 mappings"
+    },
+
+    {
+      name: "skillfortify",
+      url: "https://github.com/qualixar/skillfortify",
+      tags: ["CC", "MCP", "TOOL"],
+      target: ["agent", "supply-chain"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Security scanner for AI agent skills and plugins with static analysis, supply-chain verification, SBOM generation, and multi-framework support"
+    },
+
+    {
+      name: "skillguard",
+      url: "https://github.com/obielin/skillguard",
+      tags: ["CC", "MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Security scanner for AI agent skills that detects prompt injection, data exfiltration, and malicious payload risks before installation"
+    },
+
+    {
+      name: "Armorer-Guard",
+      url: "https://github.com/ArmorerLabs/Armorer-Guard",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Local Rust scanner for AI-agent prompt injection, credential leaks, exfiltration risks, and risky tool calls"
+    },
+
+    {
+      name: "joergmichno/clawguard",
+      url: "https://github.com/joergmichno/clawguard",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis", "compliance"],
+      form: ["tool-wrapper"],
+      desc: "Prompt injection scanner for AI agents with multilingual detection patterns, REST API support, and compliance mappings"
+    },
+
+    {
+      name: "agentsec",
+      url: "https://github.com/debu-sinha/agentsec",
+      tags: ["OC", "MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Security scanner and hardener for OpenClaw, MCP servers, and AI agent skill ecosystems"
+    },
+
+    {
+      name: "skillscan-security",
+      url: "https://github.com/kurtpayne/skillscan-security",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Security scanner for AI agent skills and MCP tool bundles covering prompt injection, IOC matching, malware detection, and ML-based classification"
+    },
+
+    {
+      name: "NVIDIA SkillSpector",
+      url: "https://github.com/NVIDIA/SkillSpector",
+      tags: ["TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Security scanner for AI agent skills that detects vulnerabilities, malicious patterns, and security risks in skill packages"
+    },
+
+    {
+      name: "llm-sast-scanner",
+      url: "https://github.com/SunWeb3Sec/llm-sast-scanner",
+      tags: ["TOOL"],
+      target: ["agent", "source"],
+      technique: ["static-analysis"],
+      form: ["prompt-skill"],
+      desc: "SAST skill for AI coding agents that provides structured vulnerability detection across multiple vulnerability classes"
+    },
+
+    {
+      name: "skill-sentinel",
+      url: "https://github.com/EvolutionUnleashed/skill-sentinel",
+      tags: ["CC", "TOOL"],
+      target: ["agent", "supply-chain"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "AI agent skill security scanner for detecting malicious code, prompt injection, data exfiltration, and supply-chain threats in SKILL.md files"
+    },
+
+    {
+      name: "prompt-shield",
+      url: "https://github.com/mthamil107/prompt-shield",
+      tags: ["MCP", "TOOL"],
+      target: ["agent", "web"],
+      technique: ["static-analysis", "compliance"],
+      form: ["tool-wrapper"],
+      desc: "Prompt injection detection engine with input detectors, output scanners, PII redaction, red-team self-testing, and framework integrations"
+    },
+
+    {
+      name: "agent-scanner",
+      url: "https://github.com/go-authgate/agent-scanner",
+      tags: ["CC", "MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Security scanner for AI agents, MCP servers, and agent skills with prompt-injection and tool-poisoning checks"
+    },
+
+    {
+      name: "mcp-safeguard",
+      url: "https://github.com/SyedAnas01/mcp-safeguard",
+      tags: ["CC", "MCP", "OAI", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["mcp-server"],
+      desc: "Security scanner for MCP servers with rules for prompt injection, credential exposure, SSRF, and tool poisoning"
+    },
+
+    {
+      name: "skill-security-guard",
+      url: "https://github.com/rrrrrredy/skill-security-guard",
+      tags: ["OC", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Static security scanner for agent skills with A-F risk ratings, safe zip scanning, and CI-tested rules"
+    },
+
+    {
+      name: "mcpradar",
+      url: "https://github.com/yatuk/mcpradar",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis", "compliance"],
+      form: ["mcp-server"],
+      desc: "Security scanner for MCP servers covering tool poisoning, prompt injection, secrets exposure, command injection, and cross-server attack chains"
+    },
+
+    {
+      name: "MCP-Shield",
+      url: "https://github.com/sumit1kr/MCP-Shield",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis", "compliance"],
+      form: ["mcp-server"],
+      desc: "Security scanner for MCP servers that tests OWASP MCP Top 10 risks such as prompt injection, tool poisoning, and SSRF"
+    },
+
+    {
+      name: "mcpshield",
+      url: "https://github.com/mcpshield/mcpshield",
+      tags: ["MCP", "TOOL"],
+      target: ["agent", "supply-chain"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Supply-chain security scanner for MCP servers that detects typosquats, CVEs, credential leaks, and dangerous permissions in agent configs"
+    },
+
+    {
+      name: "Garak-MCP",
+      url: "https://github.com/EdenYavin/Garak-MCP",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["dynamic-testing"],
+      form: ["mcp-server"],
+      desc: "MCP server wrapper for using the Garak LLM vulnerability scanner from MCP-compatible agents"
+    },
+
+    {
+      name: "eSentire mcp-scanner",
+      url: "https://github.com/eSentire-Labs/mcp-scanner",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["mcp-server"],
+      desc: "Security vulnerability scanner for Model Context Protocol servers"
+    },
+
+    {
+      name: "ghostpatch",
+      url: "https://github.com/NeuralRays/ghostpatch",
+      tags: ["MCP", "TOOL"],
+      target: ["source", "web", "agent"],
+      technique: ["static-analysis", "compliance"],
+      form: ["tool-wrapper"],
+      desc: "Local AI-powered vulnerability scanner with OWASP rules, multi-language analysis, and MCP server support for coding agents"
+    },
+
+    {
+      name: "badchars/mcp-security-scanner",
+      url: "https://github.com/badchars/mcp-security-scanner",
+      tags: ["CC", "MCP", "TOOL"],
+      target: ["agent", "source", "supply-chain"],
+      technique: ["static-analysis", "dynamic-testing", "fuzzing", "compliance"],
+      form: ["mcp-server"],
+      desc: "MCP server security scanner with runtime inspection, AST-based SAST, config audit, dependency analysis, fuzz testing, and OWASP MCP coverage"
+    },
+
+    {
+      name: "HailBytes/mcp-security-scanner",
+      url: "https://github.com/HailBytes/mcp-security-scanner",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis"],
+      form: ["mcp-server"],
+      desc: "Scanner for MCP server configurations covering overprivileged tools, missing authentication, prompt-injection surface, and unsafe defaults"
+    },
+
+    {
+      name: "adudley78/mcp-audit",
+      url: "https://github.com/adudley78/mcp-audit",
+      tags: ["CC", "MCP", "TOOL"],
+      target: ["agent", "supply-chain"],
+      technique: ["static-analysis"],
+      form: ["mcp-server"],
+      desc: "Security scanner for MCP server configurations that detects prompt injection, credential exposure, and supply-chain risks"
+    },
+
+    {
+      name: "decoy-scan",
+      url: "https://github.com/decoy-run/decoy-scan",
+      tags: ["MCP", "TOOL"],
+      target: ["agent", "supply-chain"],
+      technique: ["static-analysis", "compliance"],
+      form: ["tool-wrapper"],
+      desc: "Security scanner for MCP server configurations that finds risky tools, input validation gaps, transport vulnerabilities, and over-permissioned capability chains"
+    },
+
+    {
+      name: "mcp-semgrep-scanner",
+      url: "https://github.com/archimedes-market/mcp-semgrep-scanner",
+      tags: ["MCP", "TOOL"],
+      target: ["agent", "source", "web"],
+      technique: ["static-analysis", "compliance"],
+      form: ["mcp-server"],
+      desc: "MCP integration for running Semgrep static analysis with OWASP Top 10 checks, secrets detection, custom rules, and baseline scanning"
+    },
+
+    {
+      name: "skilldoctor",
+      url: "https://github.com/studiomeyer-io/skilldoctor",
+      tags: ["CC", "TOOL"],
+      target: ["agent", "source"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "Linter and security scanner for AI-agent skill files covering SKILL.md, AGENTS.md, subagent frontmatter, prompt injection, data exfiltration, SARIF, and GitHub Actions"
+    },
+
+    {
+      name: "agentguard",
+      url: "https://github.com/dockfixlabs/agentguard",
+      tags: ["MCP", "TOOL"],
+      target: ["agent", "source"],
+      technique: ["static-analysis", "compliance"],
+      form: ["tool-wrapper"],
+      desc: "Security scanner for AI agents that detects prompt injection, tool abuse, data exfiltration, and OWASP Agentic AI risks with MCP server mode"
+    },
+
+    {
+      name: "skillsentry",
+      url: "https://github.com/YAMRAJ13y/skillsentry",
+      tags: ["MCP", "TOOL"],
+      target: ["agent"],
+      technique: ["static-analysis", "compliance"],
+      form: ["tool-wrapper"],
+      desc: "Semantic scanner for malicious MCP servers and agent skills covering prompt injection, tool poisoning, rug-pulls, and excessive agency"
+    },
+
+    {
+      name: "agent-supply-chain-scanner",
+      url: "https://github.com/cloudanimal/agent-supply-chain-scanner",
+      tags: ["MCP", "TOOL"],
+      target: ["agent", "supply-chain"],
+      technique: ["static-analysis"],
+      form: ["tool-wrapper"],
+      desc: "SAST tool for AI agent instructions that detects prompt injection and malicious instructions in skills, MCP servers, hooks, memory, and prompts"
     }
   ]
 };
