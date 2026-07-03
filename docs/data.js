@@ -1220,13 +1220,16 @@ window.CATALOG_DATA = {
       "desc": "Multi-engine skill scanning using YAML/YARA rules, AST behavior analysis, semantic review, and VirusTotal."
     },
     {
-      "name": "Snyk agent-scan",
+      "name": "Snyk Agent Scan",
       "url": "https://github.com/snyk/agent-scan",
       "tags": [
+        "CC",
+        "MCP",
         "TOOL"
       ],
       "target": [
-        "agent"
+        "agent",
+        "supply-chain"
       ],
       "technique": [
         "static-analysis"
@@ -1234,7 +1237,7 @@ window.CATALOG_DATA = {
       "form": [
         "tool-wrapper"
       ],
-      "desc": "Scan MCP servers and agent skills for prompt injection, tool poisoning, and data exfiltration risk."
+      "desc": "Snyk security scanner for AI agents, MCP servers, and agent skills, covering prompt injection, tool poisoning, hardcoded secrets, and risky skill content."
     },
     {
       "name": "pors/skill-audit",
@@ -1602,26 +1605,6 @@ window.CATALOG_DATA = {
         "prompt-skill"
       ],
       "desc": "Sentry team's agent skills for security-focused code review and development workflow. Includes security-review, audit-website, and audit-supabase skills with high-confidence vulnerability verification."
-    },
-    {
-      "name": "snyk/agent-scan",
-      "url": "https://github.com/snyk/agent-scan",
-      "tags": [
-        "CC",
-        "MCP",
-        "TOOL"
-      ],
-      "target": [
-        "agent",
-        "supply-chain"
-      ],
-      "technique": [
-        "static-analysis"
-      ],
-      "form": [
-        "tool-wrapper"
-      ],
-      "desc": "Snyk security scanner for AI agents, MCP servers, and agent skills. Detects prompt injections and vulnerabilities in agent components on the local machine. Includes technical report on emerging agent skill ecosystem threats."
     },
     {
       "name": "aiskillstore/marketplace",
@@ -2349,6 +2332,238 @@ window.CATALOG_DATA = {
         "tool-wrapper"
       ],
       "desc": "SAST tool for AI agent instructions that detects prompt injection and malicious instructions in skills, MCP servers, hooks, memory, and prompts"
+    },
+    {
+      "name": "repo-forensics",
+      "url": "https://github.com/alexgreensh/repo-forensics",
+      "tags": [
+        "CC",
+        "CX",
+        "MCP",
+        "OC",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Offline security scanner for AI-agent repositories, skills, plugins, and MCP servers before installation or execution"
+    },
+    {
+      "name": "inkog",
+      "url": "https://github.com/inkog-io/inkog",
+      "tags": [
+        "CC",
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "web"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Static security scanner for AI agents covering prompt injection, runaway loops, missing oversight, and compliance gaps across agent frameworks"
+    },
+    {
+      "name": "cc-audit",
+      "url": "https://github.com/ryo-ebata/cc-audit",
+      "tags": [
+        "CC",
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "mcp-server",
+        "tool-wrapper"
+      ],
+      "desc": "AI-free static security scanner for Claude Code skills, hooks, MCP configs, commands, dependencies, and related agent artifacts"
+    },
+    {
+      "name": "tooltrust-scanner",
+      "url": "https://github.com/AgentSafe-AI/tooltrust-scanner",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "mcp-server",
+        "tool-wrapper"
+      ],
+      "desc": "AI agent tool-definition scanner that grades tool trust and reviews prompt injection, permission risk, supply-chain issues, and tool-shadowing risks"
+    },
+    {
+      "name": "Eresus Sentinel",
+      "url": "https://github.com/EresusSecurity/Eresus-sentinel",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent"
+      ],
+      "technique": [
+        "static-analysis",
+        "fuzzing"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Deterministic AI security toolkit for local audits, MCP and agent checks, model artifact scanning, and prompt firewall testing"
+    },
+    {
+      "name": "SkillsGuard",
+      "url": "https://github.com/Teycir/SkillsGuard",
+      "tags": [
+        "CC",
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Static security scanner for AI agent skill packages that detects malicious SKILL.md files and bundled scripts before they run"
+    },
+    {
+      "name": "skill-lint",
+      "url": "https://github.com/LichAmnesia/skill-lint",
+      "tags": [
+        "CC",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Security scanner for Claude Code and agent skills covering prompt injection, obfuscation, credential exfiltration, and supply-chain risks"
+    },
+    {
+      "name": "honeybadger",
+      "url": "https://github.com/famclaw/honeybadger",
+      "tags": [
+        "CC",
+        "MCP",
+        "OC",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Pre-install security scanner for AI agent skills and MCP servers covering secrets, CVEs, supply-chain attacks, and prompt injection in SKILL.md files"
+    },
+    {
+      "name": "runner-guard",
+      "url": "https://github.com/Vigilant-LLC/runner-guard",
+      "tags": [
+        "TOOL"
+      ],
+      "target": [
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "CI/CD supply-chain scanner for GitHub Actions workflows covering pipeline injection, unpinned dependencies, AI configuration poisoning, and suspicious payloads"
+    },
+    {
+      "name": "SecSkills",
+      "url": "https://github.com/DaoYiSec/SecSkills",
+      "tags": [
+        "CC",
+        "MCP",
+        "OC",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "web",
+        "mobile",
+        "binary"
+      ],
+      "technique": [
+        "static-analysis",
+        "dynamic-testing",
+        "recon",
+        "reverse-engineering"
+      ],
+      "form": [
+        "catalog"
+      ],
+      "desc": "Chinese security-focused catalog of Skills and MCP resources covering code audit, vulnerability scanning, penetration testing, skill security checks, mobile security, reverse engineering, incident response, and security research."
+    },
+    {
+      "name": "SkillSemgrep",
+      "url": "https://github.com/KimYx0207/SkillSemgrep",
+      "tags": [
+        "CC",
+        "TOOL"
+      ],
+      "target": [
+        "source",
+        "web"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "prompt-skill"
+      ],
+      "desc": "Claude Code security scanning skill powered by Semgrep, enabling natural-language vulnerability scanning, OWASP checks, secret detection, multi-language analysis, and structured security reports."
     }
   ]
 };
