@@ -1278,18 +1278,30 @@ window.CATALOG_DATA = {
       "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
       "tags": [
         "CC",
-        "OC"
+        "CX",
+        "OC",
+        "OAI",
+        "TOOL"
       ],
       "target": [
-        "general"
+        "agent",
+        "source",
+        "web",
+        "mobile",
+        "binary"
       ],
       "technique": [
-        "static-analysis"
+        "static-analysis",
+        "dynamic-testing",
+        "recon",
+        "compliance",
+        "reverse-engineering"
       ],
       "form": [
-        "knowledge-base"
+        "knowledge-base",
+        "catalog"
       ],
-      "desc": "754 structured skills across 38 security domains aligned with MITRE ATT&CK and NIST CSF 2.0."
+      "desc": "Large cybersecurity skill library for AI agents, organized as structured security skills across multiple domains and mapped to frameworks such as MITRE ATT&CK, NIST CSF, MITRE ATLAS, D3FEND, and NIST AI RMF."
     },
     {
       "name": "Skills-4-SE Security Scanner Suite",
@@ -2564,6 +2576,66 @@ window.CATALOG_DATA = {
         "prompt-skill"
       ],
       "desc": "Claude Code security scanning skill powered by Semgrep, enabling natural-language vulnerability scanning, OWASP checks, secret detection, multi-language analysis, and structured security reports."
+    },
+    {
+      "name": "openclaw-security-guard",
+      "url": "https://github.com/2pidata/openclaw-security-guard",
+      "tags": [
+        "MCP",
+        "OC",
+        "TOOL"
+      ],
+      "target": [
+        "agent"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "mcp-server",
+        "tool-wrapper"
+      ],
+      "desc": "Security layer for OpenClaw with CLI scanning, live dashboard support, secrets detection, configuration hardening, prompt injection scanning, and MCP server auditing."
+    },
+    {
+      "name": "toolfence",
+      "url": "https://github.com/nikolas-sapa/toolfence",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "mcp-server",
+        "tool-wrapper"
+      ],
+      "desc": "Security scanner for MCP servers that reports severity-ranked risks inherited by AI agents when connecting to external MCP tools."
+    },
+    {
+      "name": "FlutterGuard",
+      "url": "https://github.com/anasfik/FlutterGuard",
+      "tags": [
+        "CC",
+        "CX",
+        "OC"
+      ],
+      "target": [
+        "mobile",
+        "binary",
+        "source"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "prompt-skill"
+      ],
+      "desc": "Flutter APK/AAB security skill for OpenClaw, Codex, Claude Code, and other AI coding agents, focused on mobile application security review."
     }
   ]
 };
