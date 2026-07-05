@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-125-2f81f7?style=flat-square" alt="125 entries">
+  <img src="https://img.shields.io/badge/entries-128-2f81f7?style=flat-square" alt="128 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -85,7 +85,7 @@
 | 53 | [Snyk Agent Scan](#entry-snyk-agent-scan) | `CC` `MCP` `🔧` | Agent, Supply Chain | Static Analysis | Tool Wrapper |
 | 54 | [pors/skill-audit](#entry-pors-skill-audit) | `🔧` | Agent | Static Analysis | Tool Wrapper |
 | 55 | [huifer/skill-security-scan](#entry-huifer-skill-security-scan) | `🔧` | Agent | Static Analysis | Tool Wrapper |
-| 56 | [mukul975/Anthropic-Cybersecurity-Skills](#entry-mukul975-anthropic-cybersecurity-skills) | `CC` `OC` | General | Static Analysis | Knowledge Base |
+| 56 | [mukul975/Anthropic-Cybersecurity-Skills](#entry-mukul975-anthropic-cybersecurity-skills) | `CC` `CX` `OC` `OAI` `🔧` | Agent, Source Code, Web, Mobile, Binary | Static Analysis, Dynamic Testing, Recon, Compliance, Reverse Engineering | Knowledge Base, Catalog |
 | 57 | [Skills-4-SE Security Scanner Suite](#entry-skills-4-se-security-scanner-suite) | `CC` | Source Code | Static Analysis | Knowledge Base |
 | 58 | [Skills-4-SE Formal Verification Toolkit](#entry-skills-4-se-formal-verification-toolkit) | `CC` | Source Code | Static Analysis | Knowledge Base |
 | 59 | [ArabelaTso/Skills-4-SE](#entry-arabelatso-skills-4-se) |  | Source Code, General | Static Analysis | Knowledge Base |
@@ -155,6 +155,9 @@
 | 123 | [runner-guard](#entry-runner-guard) | `🔧` | Source Code, Supply Chain | Static Analysis | Tool Wrapper |
 | 124 | [SecSkills](#entry-secskills) | `CC` `MCP` `OC` `🔧` | Agent, Source Code, Web, Mobile, Binary | Static Analysis, Dynamic Testing, Recon, Reverse Engineering | Catalog |
 | 125 | [SkillSemgrep](#entry-skillsemgrep) | `CC` `🔧` | Source Code, Web | Static Analysis | Prompt Skill |
+| 126 | [openclaw-security-guard](#entry-openclaw-security-guard) | `MCP` `OC` `🔧` | Agent | Static Analysis | MCP Server, Tool Wrapper |
+| 127 | [toolfence](#entry-toolfence) | `MCP` `🔧` | Agent | Static Analysis | MCP Server, Tool Wrapper |
+| 128 | [FlutterGuard](#entry-flutterguard) | `CC` `CX` `OC` | Mobile, Binary, Source Code | Static Analysis | Prompt Skill |
 
 ## Platform Tags
 
@@ -730,9 +733,9 @@ Bilingual Claude Skills scanner with static analysis, rule engine, and HTML repo
 <a id="entry-mukul975-anthropic-cybersecurity-skills"></a>
 ### mukul975/Anthropic-Cybersecurity-Skills
 
-`CC` `OC` `🎯General` `⚙️Static Analysis` `📦Knowledge Base` https://github.com/mukul975/Anthropic-Cybersecurity-Skills
+`CC` `CX` `OC` `OAI` `🔧` `🎯Agent·Source Code·Web·Mobile·Binary` `⚙️Static Analysis·Dynamic Testing·Recon·Compliance·Reverse Engineering` `📦Knowledge Base·Catalog` https://github.com/mukul975/Anthropic-Cybersecurity-Skills
 
-754 structured skills across 38 security domains aligned with MITRE ATT&CK and NIST CSF 2.0.
+Large cybersecurity skill library for AI agents, organized as structured security skills across multiple domains and mapped to frameworks such as MITRE ATT&CK, NIST CSF, MITRE ATLAS, D3FEND, and NIST AI RMF.
 
 ---
 
@@ -1354,6 +1357,33 @@ Chinese security-focused catalog of Skills and MCP resources covering code audit
 `CC` `🔧` `🎯Source Code·Web` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/KimYx0207/SkillSemgrep
 
 Claude Code security scanning skill powered by Semgrep, enabling natural-language vulnerability scanning, OWASP checks, secret detection, multi-language analysis, and structured security reports.
+
+---
+
+<a id="entry-openclaw-security-guard"></a>
+### openclaw-security-guard
+
+`MCP` `OC` `🔧` `🎯Agent` `⚙️Static Analysis` `📦MCP Server·Tool Wrapper` https://github.com/2pidata/openclaw-security-guard
+
+Security layer for OpenClaw with CLI scanning, live dashboard support, secrets detection, configuration hardening, prompt injection scanning, and MCP server auditing.
+
+---
+
+<a id="entry-toolfence"></a>
+### toolfence
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦MCP Server·Tool Wrapper` https://github.com/nikolas-sapa/toolfence
+
+Security scanner for MCP servers that reports severity-ranked risks inherited by AI agents when connecting to external MCP tools.
+
+---
+
+<a id="entry-flutterguard"></a>
+### FlutterGuard
+
+`CC` `CX` `OC` `🎯Mobile·Binary·Source Code` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/anasfik/FlutterGuard
+
+Flutter APK/AAB security skill for OpenClaw, Codex, Claude Code, and other AI coding agents, focused on mobile application security review.
 
 ## Contributing
 
