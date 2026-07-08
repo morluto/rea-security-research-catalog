@@ -1409,6 +1409,37 @@ module.exports = {
       technique: ["static-analysis"],
       form: ["prompt-skill"],
       desc: "Flutter APK/AAB security skill for OpenClaw, Codex, Claude Code, and other AI coding agents, focused on mobile application security review."
+    },
+
+    // ── Daily curation 2026-07-08 ──────────────────────────────────────
+    {
+      name: "MCPScan",
+      url: "https://github.com/antgroup/MCPScan",
+      tags: ["MCP", "TOOL"],
+      target: ["agent", "source"],
+      technique: ["static-analysis", "dynamic-testing"],
+      form: ["tool-wrapper"],
+      desc: "MCP scanner for auditing AI agent tools and plugin ecosystems, combining static analysis and dynamic evaluation to detect malicious metadata, insecure tool implementations, prompt injection, tool poisoning, and data exfiltration risks."
+    },
+
+    {
+      name: "Nova Proximity",
+      url: "https://github.com/Nova-Hunting/nova-proximity",
+      tags: ["MCP", "TOOL"],
+      target: ["agent", "source"],
+      technique: ["static-analysis", "dynamic-testing"],
+      form: ["tool-wrapper"],
+      desc: "MCP and Agent Skills security scanner that discovers tools, prompts, resources, skill structure, permissions, and potential security issues such as prompt injection, jailbreak attempts, and suspicious code patterns."
+    },
+
+    {
+      name: "security-skills",
+      url: "https://github.com/eth0izzle/security-skills",
+      tags: ["CC"],
+      target: ["agent"],
+      technique: ["recon", "compliance"],
+      form: ["catalog", "prompt-skill"],
+      desc: "Claude Code security skills collection for automating security operations, including platform-specific skills for CrowdStrike Falcon Fusion SOAR workflows and Next-Gen SIEM lookup-file management."
     }
   ]
 };

@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-128-2f81f7?style=flat-square" alt="128 entries">
+  <img src="https://img.shields.io/badge/entries-131-2f81f7?style=flat-square" alt="131 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -158,6 +158,9 @@
 | 126 | [openclaw-security-guard](#entry-openclaw-security-guard) | `MCP` `OC` `🔧` | Agent | Static Analysis | MCP Server, Tool Wrapper |
 | 127 | [toolfence](#entry-toolfence) | `MCP` `🔧` | Agent | Static Analysis | MCP Server, Tool Wrapper |
 | 128 | [FlutterGuard](#entry-flutterguard) | `CC` `CX` `OC` | Mobile, Binary, Source Code | Static Analysis | Prompt Skill |
+| 129 | [MCPScan](#entry-mcpscan) | `MCP` `🔧` | Agent, Source Code | Static Analysis, Dynamic Testing | Tool Wrapper |
+| 130 | [Nova Proximity](#entry-nova-proximity) | `MCP` `🔧` | Agent, Source Code | Static Analysis, Dynamic Testing | Tool Wrapper |
+| 131 | [security-skills](#entry-security-skills) | `CC` | Agent | Recon, Compliance | Catalog, Prompt Skill |
 
 ## Platform Tags
 
@@ -1384,6 +1387,33 @@ Security scanner for MCP servers that reports severity-ranked risks inherited by
 `CC` `CX` `OC` `🎯Mobile·Binary·Source Code` `⚙️Static Analysis` `📦Prompt Skill` https://github.com/anasfik/FlutterGuard
 
 Flutter APK/AAB security skill for OpenClaw, Codex, Claude Code, and other AI coding agents, focused on mobile application security review.
+
+---
+
+<a id="entry-mcpscan"></a>
+### MCPScan
+
+`MCP` `🔧` `🎯Agent·Source Code` `⚙️Static Analysis·Dynamic Testing` `📦Tool Wrapper` https://github.com/antgroup/MCPScan
+
+MCP scanner for auditing AI agent tools and plugin ecosystems, combining static analysis and dynamic evaluation to detect malicious metadata, insecure tool implementations, prompt injection, tool poisoning, and data exfiltration risks.
+
+---
+
+<a id="entry-nova-proximity"></a>
+### Nova Proximity
+
+`MCP` `🔧` `🎯Agent·Source Code` `⚙️Static Analysis·Dynamic Testing` `📦Tool Wrapper` https://github.com/Nova-Hunting/nova-proximity
+
+MCP and Agent Skills security scanner that discovers tools, prompts, resources, skill structure, permissions, and potential security issues such as prompt injection, jailbreak attempts, and suspicious code patterns.
+
+---
+
+<a id="entry-security-skills"></a>
+### security-skills
+
+`CC` `🎯Agent` `⚙️Recon·Compliance` `📦Catalog·Prompt Skill` https://github.com/eth0izzle/security-skills
+
+Claude Code security skills collection for automating security operations, including platform-specific skills for CrowdStrike Falcon Fusion SOAR workflows and Next-Gen SIEM lookup-file management.
 
 ## Contributing
 
