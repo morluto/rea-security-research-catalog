@@ -2695,6 +2695,90 @@ window.CATALOG_DATA = {
         "prompt-skill"
       ],
       "desc": "Claude Code security skills collection for automating security operations, including platform-specific skills for CrowdStrike Falcon Fusion SOAR workflows and Next-Gen SIEM lookup-file management."
+    },
+    {
+      "name": "AgentAuditKit",
+      "url": "https://github.com/sattyamjjain/agent-audit-kit",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "tool-wrapper",
+        "workflow"
+      ],
+      "desc": "Offline security scanner for MCP-connected AI agent pipelines, covering misconfigurations, hardcoded secrets, tool poisoning, rug-pull risks, trust-boundary violations, tainted data flows, and SARIF output."
+    },
+    {
+      "name": "agentic-coder-shield",
+      "url": "https://github.com/MG-Cafe/agentic-coder-shield",
+      "tags": [
+        "CC"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "prompt-skill",
+        "tool-wrapper"
+      ],
+      "desc": "Security-hardened Claude Code skill that adds defense layers against prompt injection, data exfiltration, credential leaks, poisoned project files, malicious package READMEs, and unsafe agent behavior."
+    },
+    {
+      "name": "awesome-agent-skills-security",
+      "url": "https://github.com/LLMSecurity/awesome-agent-skills-security",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "supply-chain"
+      ],
+      "technique": [
+        "threat-modeling",
+        "compliance"
+      ],
+      "form": [
+        "knowledge-base",
+        "catalog"
+      ],
+      "desc": "Curated knowledge base for agent skills security, covering attacks, defenses, frameworks, benchmarks, malicious skill research, skill injection, MCP prompt injection, tool poisoning, and agent skill supply-chain risks."
+    },
+    {
+      "name": "AgentSeal",
+      "url": "https://github.com/getagentseal/agentseal",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis",
+        "dynamic-testing"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Security toolkit for AI agents that scans dangerous skills and MCP configurations, monitors supply-chain attacks, tests prompt injection resistance, and audits live MCP servers for tool-poisoning risk."
     }
   ]
 };
