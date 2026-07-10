@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-131-2f81f7?style=flat-square" alt="131 entries">
+  <img src="https://img.shields.io/badge/entries-135-2f81f7?style=flat-square" alt="135 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -161,6 +161,10 @@
 | 129 | [MCPScan](#entry-mcpscan) | `MCP` `🔧` | Agent, Source Code | Static Analysis, Dynamic Testing | Tool Wrapper |
 | 130 | [Nova Proximity](#entry-nova-proximity) | `MCP` `🔧` | Agent, Source Code | Static Analysis, Dynamic Testing | Tool Wrapper |
 | 131 | [security-skills](#entry-security-skills) | `CC` | Agent | Recon, Compliance | Catalog, Prompt Skill |
+| 132 | [AgentAuditKit](#entry-agentauditkit) | `MCP` `🔧` | Agent, Source Code, Supply Chain | Static Analysis, Compliance | Tool Wrapper, Workflow |
+| 133 | [agentic-coder-shield](#entry-agentic-coder-shield) | `CC` | Agent, Source Code, Supply Chain | Static Analysis, Compliance | Prompt Skill, Tool Wrapper |
+| 134 | [awesome-agent-skills-security](#entry-awesome-agent-skills-security) | `MCP` `🔧` | Agent, Supply Chain | Threat Modeling, Compliance | Knowledge Base, Catalog |
+| 135 | [AgentSeal](#entry-agentseal) | `MCP` `🔧` | Agent, Supply Chain | Static Analysis, Dynamic Testing | Tool Wrapper |
 
 ## Platform Tags
 
@@ -1414,6 +1418,42 @@ MCP and Agent Skills security scanner that discovers tools, prompts, resources, 
 `CC` `🎯Agent` `⚙️Recon·Compliance` `📦Catalog·Prompt Skill` https://github.com/eth0izzle/security-skills
 
 Claude Code security skills collection for automating security operations, including platform-specific skills for CrowdStrike Falcon Fusion SOAR workflows and Next-Gen SIEM lookup-file management.
+
+---
+
+<a id="entry-agentauditkit"></a>
+### AgentAuditKit
+
+`MCP` `🔧` `🎯Agent·Source Code·Supply Chain` `⚙️Static Analysis·Compliance` `📦Tool Wrapper·Workflow` https://github.com/sattyamjjain/agent-audit-kit
+
+Offline security scanner for MCP-connected AI agent pipelines, covering misconfigurations, hardcoded secrets, tool poisoning, rug-pull risks, trust-boundary violations, tainted data flows, and SARIF output.
+
+---
+
+<a id="entry-agentic-coder-shield"></a>
+### agentic-coder-shield
+
+`CC` `🎯Agent·Source Code·Supply Chain` `⚙️Static Analysis·Compliance` `📦Prompt Skill·Tool Wrapper` https://github.com/MG-Cafe/agentic-coder-shield
+
+Security-hardened Claude Code skill that adds defense layers against prompt injection, data exfiltration, credential leaks, poisoned project files, malicious package READMEs, and unsafe agent behavior.
+
+---
+
+<a id="entry-awesome-agent-skills-security"></a>
+### awesome-agent-skills-security
+
+`MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Threat Modeling·Compliance` `📦Knowledge Base·Catalog` https://github.com/LLMSecurity/awesome-agent-skills-security
+
+Curated knowledge base for agent skills security, covering attacks, defenses, frameworks, benchmarks, malicious skill research, skill injection, MCP prompt injection, tool poisoning, and agent skill supply-chain risks.
+
+---
+
+<a id="entry-agentseal"></a>
+### AgentSeal
+
+`MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis·Dynamic Testing` `📦Tool Wrapper` https://github.com/getagentseal/agentseal
+
+Security toolkit for AI agents that scans dangerous skills and MCP configurations, monitors supply-chain attacks, tests prompt injection resistance, and audits live MCP servers for tool-poisoning risk.
 
 ## Contributing
 
