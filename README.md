@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-135-2f81f7?style=flat-square" alt="135 entries">
+  <img src="https://img.shields.io/badge/entries-137-2f81f7?style=flat-square" alt="137 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -165,6 +165,8 @@
 | 133 | [agentic-coder-shield](#entry-agentic-coder-shield) | `CC` | Agent, Source Code, Supply Chain | Static Analysis, Compliance | Prompt Skill, Tool Wrapper |
 | 134 | [awesome-agent-skills-security](#entry-awesome-agent-skills-security) | `MCP` `🔧` | Agent, Supply Chain | Threat Modeling, Compliance | Knowledge Base, Catalog |
 | 135 | [AgentSeal](#entry-agentseal) | `MCP` `🔧` | Agent, Supply Chain | Static Analysis, Dynamic Testing | Tool Wrapper |
+| 136 | [Skill Sentinel](#entry-skill-sentinel) | `CC` `CX` `OC` `🔧` | Agent, Source Code, Supply Chain | Static Analysis | Tool Wrapper, Suite |
+| 137 | [ClawVet](#entry-clawvet) | `OC` `🔧` | Agent, Supply Chain | Static Analysis | Prompt Skill, Tool Wrapper |
 
 ## Platform Tags
 
@@ -1454,6 +1456,24 @@ Curated knowledge base for agent skills security, covering attacks, defenses, fr
 `MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis·Dynamic Testing` `📦Tool Wrapper` https://github.com/getagentseal/agentseal
 
 Security toolkit for AI agents that scans dangerous skills and MCP configurations, monitors supply-chain attacks, tests prompt injection resistance, and audits live MCP servers for tool-poisoning risk.
+
+---
+
+<a id="entry-skill-sentinel"></a>
+### Skill Sentinel
+
+`CC` `CX` `OC` `🔧` `🎯Agent·Source Code·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper·Suite` https://github.com/enkryptai/skill-sentinel
+
+Agent Skill package security scanner from EnkryptAI that detects prompt injection, data exfiltration, command injection, malware, and other threats in skill packages for Cursor, Claude Code, Codex, and OpenClaw.
+
+---
+
+<a id="entry-clawvet"></a>
+### ClawVet
+
+`OC` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis` `📦Prompt Skill·Tool Wrapper` https://github.com/MohibShaikh/clawvet
+
+OpenClaw skill vetting and supply-chain security scanner for SKILL.md packages, detecting prompt injection, credential theft, remote code execution, typosquatting, social engineering, and other risky install-time behaviors.
 
 ## Contributing
 
