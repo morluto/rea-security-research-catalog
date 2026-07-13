@@ -2779,6 +2779,49 @@ window.CATALOG_DATA = {
         "tool-wrapper"
       ],
       "desc": "Security toolkit for AI agents that scans dangerous skills and MCP configurations, monitors supply-chain attacks, tests prompt injection resistance, and audits live MCP servers for tool-poisoning risk."
+    },
+    {
+      "name": "Skill Sentinel",
+      "url": "https://github.com/enkryptai/skill-sentinel",
+      "tags": [
+        "CC",
+        "CX",
+        "OC",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper",
+        "suite"
+      ],
+      "desc": "Agent Skill package security scanner from EnkryptAI that detects prompt injection, data exfiltration, command injection, malware, and other threats in skill packages for Cursor, Claude Code, Codex, and OpenClaw."
+    },
+    {
+      "name": "ClawVet",
+      "url": "https://github.com/MohibShaikh/clawvet",
+      "tags": [
+        "OC",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "prompt-skill",
+        "tool-wrapper"
+      ],
+      "desc": "OpenClaw skill vetting and supply-chain security scanner for SKILL.md packages, detecting prompt injection, credential theft, remote code execution, typosquatting, social engineering, and other risky install-time behaviors."
     }
   ]
 };
