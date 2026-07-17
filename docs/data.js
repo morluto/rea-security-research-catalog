@@ -2822,6 +2822,269 @@ window.CATALOG_DATA = {
         "tool-wrapper"
       ],
       "desc": "OpenClaw skill vetting and supply-chain security scanner for SKILL.md packages, detecting prompt injection, credential theft, remote code execution, typosquatting, social engineering, and other risky install-time behaviors."
+    },
+    {
+      "name": "MCP Trust Checker",
+      "url": "https://github.com/illiahaidar/mcptrustchecker",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Offline deterministic MCP security scanner that assigns trust scores and detects tool poisoning, prompt injection, toxic capability flows, hidden Unicode payloads, rug-pull drift, and supply-chain risks with JSON and SARIF output."
+    },
+    {
+      "name": "Longinus",
+      "url": "https://github.com/cpprhtn/Longinus",
+      "tags": [
+        "CC",
+        "CX"
+      ],
+      "target": [
+        "source",
+        "web",
+        "binary",
+        "mobile",
+        "container",
+        "supply-chain",
+        "agent"
+      ],
+      "technique": [
+        "static-analysis",
+        "dynamic-testing",
+        "recon",
+        "reverse-engineering",
+        "exploit-dev"
+      ],
+      "form": [
+        "prompt-skill",
+        "workflow"
+      ],
+      "desc": "Claude Code and Codex offensive-security audit skill that profiles targets, routes analysis across domain playbooks, uses local scanners for discovery, validates findings with reproducible proofs of concept, and produces coverage-aware reports."
+    },
+    {
+      "name": "agent-security-scanner",
+      "url": "https://github.com/LeeBush22/agent-security-scanner",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Local-first security scanner for AI agent, MCP, and AI coding-tool projects, covering risky permissions, plaintext credentials, suspicious shell commands, broad filesystem access, GitHub Actions risks, and supply-chain weaknesses."
+    },
+    {
+      "name": "Vibe Security",
+      "url": "https://github.com/ironsightscyber/vibe-security",
+      "tags": [
+        "CC",
+        "CX"
+      ],
+      "target": [
+        "source",
+        "web",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "prompt-skill"
+      ],
+      "desc": "Security audit skill and reusable prompt for AI-generated codebases, covering common weaknesses such as broken access control, SSRF, exposed secrets, insecure dependencies, and other vulnerability patterns frequently missed by AI coding tools."
+    },
+    {
+      "name": "Skill Review",
+      "url": "https://github.com/zhou343-de/skill-review",
+      "tags": [
+        "OC"
+      ],
+      "target": [
+        "agent",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "prompt-skill"
+      ],
+      "desc": "Pre-install security review skill for OpenClaw and agent skills that checks prompt injection, credential access, data exfiltration, hidden payloads, dangerous scripts, and poisoned dependencies."
+    },
+    {
+      "name": "Skill Guardian",
+      "url": "https://github.com/CR7LXY/skill-guardian",
+      "tags": [
+        "CC",
+        "CX",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Static security scanner for Claude Code, Codex, Cursor, and Gemini CLI skills, detecting prompt injection, hidden Unicode content, malicious shell commands, credential exfiltration, excessive permissions, and supply-chain threats."
+    },
+    {
+      "name": "AgentAudit",
+      "url": "https://github.com/sudan94/agentaudit",
+      "tags": [
+        "CC",
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis",
+        "compliance"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Read-only security scanner for SKILL.md, CLAUDE.md, agent rule files, and MCP configurations, with layered detection for prompt injection, hidden instructions, dangerous permissions, custom rules, SARIF, and CI integration."
+    },
+    {
+      "name": "MCP Sentinel",
+      "url": "https://github.com/fuwxt/MCP-Sentinel",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Rust-based MCP server scanner that retrieves tools through JSON-RPC and scores dangerous permission keywords, prompt-injection language, and overly broad input schemas before an AI agent connects."
+    },
+    {
+      "name": "SkillGuard",
+      "url": "https://github.com/praneel95/skillguard",
+      "tags": [
+        "CC",
+        "CX",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Static scanner for agent skills and plugins that checks instruction files, scripts, and manifests for prompt injection, hidden Unicode, data exfiltration, dangerous commands, and secrets, with JSON, SARIF, GitHub Action, and pre-commit support."
+    },
+    {
+      "name": "Kaali",
+      "url": "https://github.com/starvoxlabs89-design/Kaali",
+      "tags": [
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "web"
+      ],
+      "technique": [
+        "static-analysis",
+        "dynamic-testing",
+        "compliance"
+      ],
+      "form": [
+        "tool-wrapper"
+      ],
+      "desc": "Security scanner for AI agents, LLM applications, source repositories, websites, and MCP services, covering prompt injection, exposed MCP endpoints, secrets, PII, insecure configurations, and active endpoint testing."
+    },
+    {
+      "name": "GitScape",
+      "url": "https://github.com/jmxt3/gitscape.ai",
+      "tags": [
+        "CC",
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "agent",
+        "source",
+        "supply-chain"
+      ],
+      "technique": [
+        "static-analysis"
+      ],
+      "form": [
+        "mcp-server",
+        "tool-wrapper",
+        "suite"
+      ],
+      "desc": "Open-source agent-skill compiler and security gate with CLI, MCP server, and GitHub Action support for detecting prompt injection, exposed secrets, and malicious execution before skills reach an AI agent."
+    },
+    {
+      "name": "JoySafeter",
+      "url": "https://github.com/jd-opensource/JoySafeter",
+      "tags": [
+        "MCP",
+        "OC",
+        "TOOL"
+      ],
+      "target": [
+        "source",
+        "web",
+        "mobile",
+        "container",
+        "agent"
+      ],
+      "technique": [
+        "static-analysis",
+        "dynamic-testing",
+        "recon",
+        "reverse-engineering"
+      ],
+      "form": [
+        "agent-framework",
+        "workflow",
+        "suite"
+      ],
+      "desc": "AI-native platform for building and orchestrating security-agent teams, with reusable skills, MCP tool integration, isolated execution, APK static and dynamic analysis, adaptive penetration-testing workflows, and structured security reporting."
     }
   ]
 };
