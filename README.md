@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-137-2f81f7?style=flat-square" alt="137 entries">
+  <img src="https://img.shields.io/badge/entries-149-2f81f7?style=flat-square" alt="149 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -167,6 +167,18 @@
 | 135 | [AgentSeal](#entry-agentseal) | `MCP` `🔧` | Agent, Supply Chain | Static Analysis, Dynamic Testing | Tool Wrapper |
 | 136 | [Skill Sentinel](#entry-skill-sentinel) | `CC` `CX` `OC` `🔧` | Agent, Source Code, Supply Chain | Static Analysis | Tool Wrapper, Suite |
 | 137 | [ClawVet](#entry-clawvet) | `OC` `🔧` | Agent, Supply Chain | Static Analysis | Prompt Skill, Tool Wrapper |
+| 138 | [MCP Trust Checker](#entry-mcp-trust-checker) | `MCP` `🔧` | Agent, Supply Chain | Static Analysis | Tool Wrapper |
+| 139 | [Longinus](#entry-longinus) | `CC` `CX` | Source Code, Web, Binary, Mobile, Container, Supply Chain, Agent | Static Analysis, Dynamic Testing, Recon, Reverse Engineering, Exploit Dev | Prompt Skill, Workflow |
+| 140 | [agent-security-scanner](#entry-agent-security-scanner) | `MCP` `🔧` | Agent, Source Code, Supply Chain | Static Analysis, Compliance | Tool Wrapper |
+| 141 | [Vibe Security](#entry-vibe-security) | `CC` `CX` | Source Code, Web, Supply Chain | Static Analysis, Compliance | Prompt Skill |
+| 142 | [Skill Review](#entry-skill-review) | `OC` | Agent, Supply Chain | Static Analysis, Compliance | Prompt Skill |
+| 143 | [Skill Guardian](#entry-skill-guardian) | `CC` `CX` `🔧` | Agent, Source Code, Supply Chain | Static Analysis | Tool Wrapper |
+| 144 | [AgentAudit](#entry-agentaudit) | `CC` `MCP` `🔧` | Agent, Supply Chain | Static Analysis, Compliance | Tool Wrapper |
+| 145 | [MCP Sentinel](#entry-mcp-sentinel) | `MCP` `🔧` | Agent | Static Analysis | Tool Wrapper |
+| 146 | [SkillGuard](#entry-skillguard) | `CC` `CX` `🔧` | Agent, Source Code, Supply Chain | Static Analysis | Tool Wrapper |
+| 147 | [Kaali](#entry-kaali) | `MCP` `🔧` | Agent, Source Code, Web | Static Analysis, Dynamic Testing, Compliance | Tool Wrapper |
+| 148 | [GitScape](#entry-gitscape) | `CC` `MCP` `🔧` | Agent, Source Code, Supply Chain | Static Analysis | MCP Server, Tool Wrapper, Suite |
+| 149 | [JoySafeter](#entry-joysafeter) | `MCP` `OC` `🔧` | Source Code, Web, Mobile, Container, Agent | Static Analysis, Dynamic Testing, Recon, Reverse Engineering | Agent Framework, Workflow, Suite |
 
 ## Platform Tags
 
@@ -1474,6 +1486,114 @@ Agent Skill package security scanner from EnkryptAI that detects prompt injectio
 `OC` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis` `📦Prompt Skill·Tool Wrapper` https://github.com/MohibShaikh/clawvet
 
 OpenClaw skill vetting and supply-chain security scanner for SKILL.md packages, detecting prompt injection, credential theft, remote code execution, typosquatting, social engineering, and other risky install-time behaviors.
+
+---
+
+<a id="entry-mcp-trust-checker"></a>
+### MCP Trust Checker
+
+`MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/illiahaidar/mcptrustchecker
+
+Offline deterministic MCP security scanner that assigns trust scores and detects tool poisoning, prompt injection, toxic capability flows, hidden Unicode payloads, rug-pull drift, and supply-chain risks with JSON and SARIF output.
+
+---
+
+<a id="entry-longinus"></a>
+### Longinus
+
+`CC` `CX` `🎯Source Code·Web·Binary·Mobile·Container·Supply Chain·Agent` `⚙️Static Analysis·Dynamic Testing·Recon·Reverse Engineering·Exploit Dev` `📦Prompt Skill·Workflow` https://github.com/cpprhtn/Longinus
+
+Claude Code and Codex offensive-security audit skill that profiles targets, routes analysis across domain playbooks, uses local scanners for discovery, validates findings with reproducible proofs of concept, and produces coverage-aware reports.
+
+---
+
+<a id="entry-agent-security-scanner"></a>
+### agent-security-scanner
+
+`MCP` `🔧` `🎯Agent·Source Code·Supply Chain` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/LeeBush22/agent-security-scanner
+
+Local-first security scanner for AI agent, MCP, and AI coding-tool projects, covering risky permissions, plaintext credentials, suspicious shell commands, broad filesystem access, GitHub Actions risks, and supply-chain weaknesses.
+
+---
+
+<a id="entry-vibe-security"></a>
+### Vibe Security
+
+`CC` `CX` `🎯Source Code·Web·Supply Chain` `⚙️Static Analysis·Compliance` `📦Prompt Skill` https://github.com/ironsightscyber/vibe-security
+
+Security audit skill and reusable prompt for AI-generated codebases, covering common weaknesses such as broken access control, SSRF, exposed secrets, insecure dependencies, and other vulnerability patterns frequently missed by AI coding tools.
+
+---
+
+<a id="entry-skill-review"></a>
+### Skill Review
+
+`OC` `🎯Agent·Supply Chain` `⚙️Static Analysis·Compliance` `📦Prompt Skill` https://github.com/zhou343-de/skill-review
+
+Pre-install security review skill for OpenClaw and agent skills that checks prompt injection, credential access, data exfiltration, hidden payloads, dangerous scripts, and poisoned dependencies.
+
+---
+
+<a id="entry-skill-guardian"></a>
+### Skill Guardian
+
+`CC` `CX` `🔧` `🎯Agent·Source Code·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/CR7LXY/skill-guardian
+
+Static security scanner for Claude Code, Codex, Cursor, and Gemini CLI skills, detecting prompt injection, hidden Unicode content, malicious shell commands, credential exfiltration, excessive permissions, and supply-chain threats.
+
+---
+
+<a id="entry-agentaudit"></a>
+### AgentAudit
+
+`CC` `MCP` `🔧` `🎯Agent·Supply Chain` `⚙️Static Analysis·Compliance` `📦Tool Wrapper` https://github.com/sudan94/agentaudit
+
+Read-only security scanner for SKILL.md, CLAUDE.md, agent rule files, and MCP configurations, with layered detection for prompt injection, hidden instructions, dangerous permissions, custom rules, SARIF, and CI integration.
+
+---
+
+<a id="entry-mcp-sentinel"></a>
+### MCP Sentinel
+
+`MCP` `🔧` `🎯Agent` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/fuwxt/MCP-Sentinel
+
+Rust-based MCP server scanner that retrieves tools through JSON-RPC and scores dangerous permission keywords, prompt-injection language, and overly broad input schemas before an AI agent connects.
+
+---
+
+<a id="entry-skillguard"></a>
+### SkillGuard
+
+`CC` `CX` `🔧` `🎯Agent·Source Code·Supply Chain` `⚙️Static Analysis` `📦Tool Wrapper` https://github.com/praneel95/skillguard
+
+Static scanner for agent skills and plugins that checks instruction files, scripts, and manifests for prompt injection, hidden Unicode, data exfiltration, dangerous commands, and secrets, with JSON, SARIF, GitHub Action, and pre-commit support.
+
+---
+
+<a id="entry-kaali"></a>
+### Kaali
+
+`MCP` `🔧` `🎯Agent·Source Code·Web` `⚙️Static Analysis·Dynamic Testing·Compliance` `📦Tool Wrapper` https://github.com/starvoxlabs89-design/Kaali
+
+Security scanner for AI agents, LLM applications, source repositories, websites, and MCP services, covering prompt injection, exposed MCP endpoints, secrets, PII, insecure configurations, and active endpoint testing.
+
+---
+
+<a id="entry-gitscape"></a>
+### GitScape
+
+`CC` `MCP` `🔧` `🎯Agent·Source Code·Supply Chain` `⚙️Static Analysis` `📦MCP Server·Tool Wrapper·Suite` https://github.com/jmxt3/gitscape.ai
+
+Open-source agent-skill compiler and security gate with CLI, MCP server, and GitHub Action support for detecting prompt injection, exposed secrets, and malicious execution before skills reach an AI agent.
+
+---
+
+<a id="entry-joysafeter"></a>
+### JoySafeter
+
+`MCP` `OC` `🔧` `🎯Source Code·Web·Mobile·Container·Agent` `⚙️Static Analysis·Dynamic Testing·Recon·Reverse Engineering` `📦Agent Framework·Workflow·Suite` https://github.com/jd-opensource/JoySafeter
+
+AI-native platform for building and orchestrating security-agent teams, with reusable skills, MCP tool integration, isolated execution, APK static and dynamic analysis, adaptive penetration-testing workflows, and structured security reporting.
 
 ## Contributing
 
