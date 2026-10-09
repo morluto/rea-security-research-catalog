@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome"></a>
-  <img src="https://img.shields.io/badge/entries-149-2f81f7?style=flat-square" alt="149 entries">
+  <img src="https://img.shields.io/badge/entries-150-2f81f7?style=flat-square" alt="150 entries">
   <img src="https://img.shields.io/badge/dimension%20tags-25-238636?style=flat-square" alt="25 dimension tags">
   <a href="https://iie-varas.github.io/awesome-vulnerability-detection-skills/"><img src="https://img.shields.io/badge/GitHub%20Pages-live%20catalog-0ea5e9?style=flat-square" alt="GitHub Pages"></a>
   <a href="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml"><img src="https://github.com/IIE-VARAS/awesome-vulnerability-detection-skills/actions/workflows/catalog-sync.yml/badge.svg" alt="Catalog Sync"></a>
@@ -179,6 +179,7 @@
 | 147 | [Kaali](#entry-kaali) | `MCP` `🔧` | Agent, Source Code, Web | Static Analysis, Dynamic Testing, Compliance | Tool Wrapper |
 | 148 | [GitScape](#entry-gitscape) | `CC` `MCP` `🔧` | Agent, Source Code, Supply Chain | Static Analysis | MCP Server, Tool Wrapper, Suite |
 | 149 | [JoySafeter](#entry-joysafeter) | `MCP` `OC` `🔧` | Source Code, Web, Mobile, Container, Agent | Static Analysis, Dynamic Testing, Recon, Reverse Engineering | Agent Framework, Workflow, Suite |
+| 150 | [REA](#entry-rea) | `CX` `MCP` `🔧` | Binary, Web | Static Analysis, Reverse Engineering | MCP Server |
 
 ## Platform Tags
 
@@ -1594,6 +1595,15 @@ Open-source agent-skill compiler and security gate with CLI, MCP server, and Git
 `MCP` `OC` `🔧` `🎯Source Code·Web·Mobile·Container·Agent` `⚙️Static Analysis·Dynamic Testing·Recon·Reverse Engineering` `📦Agent Framework·Workflow·Suite` https://github.com/jd-opensource/JoySafeter
 
 AI-native platform for building and orchestrating security-agent teams, with reusable skills, MCP tool integration, isolated execution, APK static and dynamic analysis, adaptive penetration-testing workflows, and structured security reporting.
+
+---
+
+<a id="entry-rea"></a>
+### REA
+
+`CX` `MCP` `🔧` `🎯Binary·Web` `⚙️Static Analysis·Reverse Engineering` `📦MCP Server` https://github.com/morluto/rea
+
+Local CLI and MCP tools for agent-assisted investigation of shipped binaries and JavaScript/Electron apps with source-linked evidence; includes a reverse-engineer-anything skill and requires separately installed Hopper, Ghidra, or IDA for deep native analysis
 
 ## Contributing
 

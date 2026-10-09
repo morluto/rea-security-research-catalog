@@ -1623,6 +1623,28 @@ module.exports = {
       technique: ["static-analysis", "dynamic-testing", "recon", "reverse-engineering"],
       form: ["agent-framework", "workflow", "suite"],
       desc: "AI-native platform for building and orchestrating security-agent teams, with reusable skills, MCP tool integration, isolated execution, APK static and dynamic analysis, adaptive penetration-testing workflows, and structured security reporting."
+    },
+
+    {
+      "name": "REA",
+      "url": "https://github.com/morluto/rea",
+      "tags": [
+        "CX",
+        "MCP",
+        "TOOL"
+      ],
+      "target": [
+        "binary",
+        "web"
+      ],
+      "technique": [
+        "static-analysis",
+        "reverse-engineering"
+      ],
+      "form": [
+        "mcp-server"
+      ],
+      "desc": "Local CLI and MCP tools for agent-assisted investigation of shipped binaries and JavaScript/Electron apps with source-linked evidence; includes a reverse-engineer-anything skill and requires separately installed Hopper, Ghidra, or IDA for deep native analysis"
     }
   ]
 };
